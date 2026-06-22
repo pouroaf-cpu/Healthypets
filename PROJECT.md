@@ -55,6 +55,14 @@ Affiliate commission (~3–7% of cart) on referred sales. Key mechanics:
 - [ ] Apply to affiliate programs (Pet Direct/Linkshop, Petstock/Commission Factory)
 - [ ] Write Phase-1 articles (parasite core) per content-map.md
 
+## Decisions / known future work
+- **Data backend:** shared with the injectbuddy Supabase project (`rktklvutvbombuajrvrv`),
+  tables `hp_subscribers` + `hp_clicks`. Secured with **insert-only RLS** + the **publishable
+  key only** (never the service key) so the public site can't read/touch injectbuddy data.
+- **TODO (eventually): split into a dedicated `healthypets` Supabase project.** When ready:
+  create the project → run the `hp_*` table SQL → migrate any existing rows →
+  repoint `SUPABASE_URL` / `SUPABASE_KEY` env vars in Vercel → drop the `hp_*` tables from injectbuddy.
+
 ## Folder
 
 ```
