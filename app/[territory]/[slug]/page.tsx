@@ -1,15 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { getAllSlugParams, getDoc } from "@/lib/content";
 import { SITE } from "@/lib/navigation";
-import { Byline } from "@/components/Byline";
-import { Disclosure } from "@/components/Disclosure";
-import { ComparisonTable } from "@/components/ComparisonTable";
-import { FAQ } from "@/components/FAQ";
-import { Mdx } from "@/components/Mdx";
 import { Schema } from "@/components/Schema";
-import { EmailCapture } from "@/components/EmailCapture";
+import { PillarTemplate } from "@/components/ds/PillarTemplate";
+import { ArticleTemplate } from "@/components/ds/ArticleTemplate";
+import { EmailCapture } from "@/components/ds/EmailCapture";
 
 export function generateStaticParams() {
   return getAllSlugParams();
@@ -22,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { territory, slug } = await params;
   const doc = getDoc(territory, slug);
-  if (!doc) return {};
+  if (!doc) return { title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) };
   return {
     title: doc.title,
     description: doc.description,
@@ -38,62 +34,34 @@ export default async function ArticlePage({
 }) {
   const { territory, slug } = await params;
   const doc = getDoc(territory, slug);
-  if (!doc) notFound();
 
-  const isPillar = doc.type === "pillar";
-  const url = `${SITE.url}/${territory}/${slug}`;
-
-  return (
-    <article className="mx-auto max-w-3xl px-4 py-10">
-      <nav className="mb-3 text-sm text-ink/60">
-        <Link href={`/${territory}`} className="hover:text-brand">
+  // Every link has a home: an article we haven't written yet shows a friendly,
+  // on-brand "coming soon" instead of a 404.
+  if (!doc) {
+    const title = slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    return (
+      <div style={{ maxWidth: 720, margin: "0 auto", padding: "clamp(48px,8vw,96px) 20px", textAlign: "center" }}>
+        <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--green-dark)", marginBottom: 12 }}>
           {territory.replace(/-/g, " ")}
-        </Link>{" "}
-        ›
-      </nav>
-
-      <h1 className="font-heading text-3xl font-bold leading-tight lg:text-4xl">{doc.title}</h1>
-      <div className="mt-3">
-        <Byline author={doc.author} updated={doc.updated} vetReviewed={doc.vetReviewed} />
-      </div>
-
-      {isPillar && <Disclosure />}
-
-      {/* answer-first intro lives at the top of the MDX body */}
-      <Mdx source={doc.body} />
-
-      {isPillar && doc.products && doc.products.length > 0 && (
-        <ComparisonTable products={doc.products} />
-      )}
-
-      {doc.faq && <FAQ items={doc.faq} />}
-
-      <div className="my-10">
-        <EmailCapture source={`article:${slug}`} />
-      </div>
-
-      {doc.related && doc.related.length > 0 && (
-        <div className="mt-8 border-t border-gray-100 pt-6">
-          <h2 className="mb-3 font-heading text-lg font-bold">Related guides</h2>
-          <ul className="space-y-1">
-            {doc.related.map((r) => (
-              <li key={r}>
-                <Link href={`/${territory}/${r}`} className="text-brand-dark underline">
-                  {r.replace(/-/g, " ")}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
-      )}
+        <h1 style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem,1.4rem+2vw,2.6rem)", color: "var(--ink)", margin: "0 0 12px" }}>{title}</h1>
+        <p style={{ color: "var(--ink-soft)", fontSize: 17, lineHeight: 1.6, maxWidth: 520, margin: "0 auto 24px" }}>
+          We&apos;re still writing this guide. Want a nudge when it&apos;s live? Grab the reminder calendar below — or browse what we&apos;ve published so far.
+        </p>
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBottom: 36 }}>
+          <Link href={`/${territory}`} style={{ background: "var(--green-primary)", color: "#fff", padding: "12px 22px", borderRadius: "var(--radius-pill)", fontFamily: "var(--font-heading)", fontWeight: 600, textDecoration: "none" }}>Browse {territory.replace(/-/g, " ")}</Link>
+          <Link href="/guides" style={{ border: "1.5px solid var(--green-primary)", color: "var(--green-dark)", padding: "12px 22px", borderRadius: "var(--radius-pill)", fontFamily: "var(--font-heading)", fontWeight: 600, textDecoration: "none" }}>All guides</Link>
+        </div>
+        <div style={{ maxWidth: 560, margin: "0 auto" }}><EmailCapture source={`coming-soon:${slug}`} /></div>
+      </div>
+    );
+  }
 
-      <Schema
-        title={doc.title}
-        description={doc.description}
-        url={url}
-        updated={doc.updated}
-        faq={doc.faq}
-      />
-    </article>
+  const url = `${SITE.url}/${territory}/${slug}`;
+  return (
+    <>
+      {doc.type === "pillar" ? <PillarTemplate doc={doc} /> : <ArticleTemplate doc={doc} />}
+      <Schema title={doc.title} description={doc.description} url={url} updated={doc.updated} faq={doc.faq} />
+    </>
   );
 }

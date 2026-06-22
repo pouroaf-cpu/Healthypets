@@ -8,9 +8,9 @@ const COLS = [
 ];
 const LEGAL = [["Privacy", "/privacy"], ["Terms", "/privacy"], ["Affiliate disclosure", "/affiliate-disclosure"], ["Contact", "/contact"]];
 
-function Social({ d, label }) {
+function Social({ d, label, href = "/" }) {
   return (
-    <a href="#" aria-label={label} style={{ width: "38px", height: "38px", borderRadius: "50%", display: "grid", placeItems: "center", background: "rgba(255,255,255,0.10)", color: "#fff", textDecoration: "none" }}>
+    <a href={href} aria-label={label} style={{ width: "38px", height: "38px", borderRadius: "50%", display: "grid", placeItems: "center", background: "rgba(255,255,255,0.10)", color: "#fff", textDecoration: "none" }}>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">{d}</svg>
     </a>
   );

@@ -1,7 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { CTAButton } from "./CTAButton";
-import { ComparisonTable } from "./ComparisonTable";
-import { EmailCapture } from "./EmailCapture";
+import { CTAButton } from "@/components/ds/CTAButton";
+import { ComparisonTable } from "@/components/ds/ComparisonTable";
+import { EmailCapture } from "@/components/ds/EmailCapture";
 
 // Components available inside MDX content (write <CTAButton linkKey="..."/> etc. in articles).
 const components = {
