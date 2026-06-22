@@ -19,13 +19,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "invalid email" }, { status: 400 });
   }
 
-  // Store in Supabase (idempotent on email).
+  // Store in Supabase. insert + ignoreDuplicates => INSERT ON CONFLICT DO NOTHING,
+  // which works under insert-only RLS (no update/select privilege needed).
   const db = supabase();
   if (db) {
-    await db.from("hp_subscribers").upsert(
-      { email, source, pet_type: petType || null },
-      { onConflict: "email" }
-    );
+    await db
+      .from("hp_subscribers")
+      .upsert({ email, source, pet_type: petType || null }, {
+        onConflict: "email",
+        ignoreDuplicates: true,
+      });
   }
 
   // Optional: push to MailerLite group for the re-treat reminder automation.
