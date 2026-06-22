@@ -1,0 +1,47 @@
+/* Healthy Pets — Color tokens */
+:root {
+  /* Brand — green */
+  --green-primary: #2E9E6B;
+  --green-dark: #247A53;
+  --green-light: #E8F5EF;
+
+  /* CTA — coral */
+  --coral: #FF6B5C;
+  --coral-dark: #E85546;
+
+  /* Ink + surfaces */
+  --ink: #1F2A37;        /* primary text */
+  --ink-soft: #45525F;   /* secondary text */
+  --ink-muted: #6B7682;  /* tertiary / captions */
+  --section: #F4F7F5;    /* tinted section background */
+  --white: #FFFFFF;
+  --border: #E3E9E5;     /* hairline borders on tinted bg */
+  --border-soft: #EDF1EE;
+
+  /* Functional */
+  --rating-star: #F5A623;
+  --success: #2E9E6B;
+  --warning: #E8A33D;
+
+  /* ---- Semantic aliases ---- */
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-soft);
+  --text-muted: var(--ink-muted);
+  --text-on-brand: var(--white);
+  --text-on-cta: var(--white);
+
+  --surface-page: var(--white);
+  --surface-section: var(--section);
+  --surface-card: var(--white);
+  --surface-brand: var(--green-primary);
+  --surface-brand-soft: var(--green-light);
+
+  --action-primary: var(--green-primary);
+  --action-primary-hover: var(--green-dark);
+  --action-cta: var(--coral);
+  --action-cta-hover: var(--coral-dark);
+
+  --border-default: var(--border);
+  --border-strong: #CFD9D2;
+  --focus-ring: var(--green-primary);
+}

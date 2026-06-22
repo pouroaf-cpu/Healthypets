@@ -1,0 +1,33 @@
+/* Healthy Pets — base element defaults. */
+:root { color-scheme: light; }
+
+body.hp-body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.hp-heading {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.hp-eyebrow {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-tiny);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--green-dark);
+}
+
+a { color: var(--green-dark); }

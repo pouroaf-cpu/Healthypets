@@ -1,0 +1,8 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Healthy Pets paw-in-leaf mark">
+  <path d="M34 6C34 6 8 4 5 22C2.5 37 20 38 28 30C36 22 34 6 34 6Z" fill="#2E9E6B"></path>
+  <path d="M9.5 33C9.5 33 16 17 33 7" stroke="#E8F5EF" stroke-width="1.8" stroke-linecap="round"></path>
+  <ellipse cx="20" cy="24.5" rx="4.7" ry="4" fill="#FFFFFF"></ellipse>
+  <circle cx="14.6" cy="21.2" r="2" fill="#FFFFFF"></circle>
+  <circle cx="19.4" cy="18.4" r="2.1" fill="#FFFFFF"></circle>
+  <circle cx="24.4" cy="19.8" r="2" fill="#FFFFFF"></circle>
+</svg>
