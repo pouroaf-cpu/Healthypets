@@ -48,8 +48,12 @@ Affiliate commission (~3–7% of cart) on referred sales. Key mechanics:
 - [ ] Register healthypets.co.nz (+ .nz) at a NZ registrar
 - [x] Competitor + long-tail keyword research (`research/competitor-keywords.xlsx`)
 - [x] Content map: 13 pillars + 18 spokes across 9 territories (`content-map.md`, `research/content-queue.xlsx`)
-- [ ] Build site (CMS, email capture, affiliate applications)
-- [ ] Write Phase-1 articles (parasite core)
+- [x] Site system built (Next.js 16 + Tailwind v4, custom on Vercel) — builds clean, 22 routes
+- [x] Deployed to Vercel — project `pouroas-projects/healthypets` → https://healthypets-delta.vercel.app
+- [ ] Add env vars in Vercel (SUPABASE_SERVICE_KEY, GA4, PostHog, GSC, MailerLite) + redeploy
+- [ ] Register healthypets.co.nz and attach as custom domain in Vercel
+- [ ] Apply to affiliate programs (Pet Direct/Linkshop, Petstock/Commission Factory)
+- [ ] Write Phase-1 articles (parasite core) per content-map.md
 
 ## Folder
 
