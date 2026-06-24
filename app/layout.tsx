@@ -20,6 +20,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-NZ">
+      {/* Impact affiliate network site verification (uses `value`, not `content`, so rendered raw) */}
+      <meta {...({ name: "impact-site-verification", value: "f915bff6-435a-455e-975a-148b0bc58b2b" } as Record<string, string>)} />
       <body>
         <Header />
         <main>{children}</main>
