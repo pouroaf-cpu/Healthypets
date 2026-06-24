@@ -1,13 +1,21 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { TERRITORIES } from "@/lib/navigation";
-import { getAllDocs, getDocsByTerritory } from "@/lib/content";
+import { getAllDocs, getDocsByTerritory, getDocsBySpecies } from "@/lib/content";
 import { Card } from "@/components/ds/Card";
 import { Badge } from "@/components/ds/Badge";
 import { HPIcon, PetImage } from "@/components/ds/Icons";
 import { EmailCapture } from "@/components/ds/EmailCapture";
+import { getImage } from "@/lib/images";
+import Image from "next/image";
 
-const EXTRA = ["guides", "cats", "dogs", "supplements"];
+const EXTRA = ["guides", "cats", "dogs"];
+
+const HUB_LABELS: Record<string, string> = {
+  guides: "All Guides",
+  cats: "Cat Health",
+  dogs: "Dog Health",
+};
 
 export function generateStaticParams() {
   return [...TERRITORIES.map((t) => t.href.replace("/", "")), ...EXTRA].map((territory) => ({ territory }));
@@ -15,6 +23,7 @@ export function generateStaticParams() {
 
 function label(territory: string) {
   return (
+    HUB_LABELS[territory] ??
     TERRITORIES.find((t) => t.href === `/${territory}`)?.label ??
     territory.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
   );
@@ -28,7 +37,14 @@ export async function generateMetadata({ params }: { params: Promise<{ territory
 
 export default async function TerritoryPage({ params }: { params: Promise<{ territory: string }> }) {
   const { territory } = await params;
-  const docs = territory === "guides" ? getAllDocs() : getDocsByTerritory(territory);
+  const docs =
+    territory === "guides"
+      ? getAllDocs()
+      : territory === "cats"
+        ? getDocsBySpecies("cat")
+        : territory === "dogs"
+          ? getDocsBySpecies("dog")
+          : getDocsByTerritory(territory);
   const name = label(territory);
 
   return (
@@ -52,10 +68,18 @@ export default async function TerritoryPage({ params }: { params: Promise<{ terr
             </Card>
           ) : (
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }} className="hp-hub-grid">
-              {docs.map((d) => (
+              {docs.map((d) => {
+                const hero = d.image ? getImage(d.image) : undefined;
+                return (
                 <Link key={d.slug} href={`/${d.territory}/${d.slug}`} style={{ textDecoration: "none" }}>
                   <Card hoverLift padding="none" style={{ height: "100%", display: "flex", flexDirection: "column", overflow: "hidden" }}>
-                    <div style={{ aspectRatio: "16 / 10" }}><PetImage label="" tone="green" icon="smile" radius="0" /></div>
+                    <div style={{ position: "relative", aspectRatio: "16 / 10" }}>
+                      {hero ? (
+                        <Image src={hero.src} alt={hero.alt || d.title} fill sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 360px" style={{ objectFit: "cover" }} />
+                      ) : (
+                        <PetImage label="" tone="green" icon="smile" radius="0" />
+                      )}
+                    </div>
                     <div style={{ padding: 18, display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
                       <div>{d.type === "pillar" ? <Badge tone="light">Buyer&apos;s guide</Badge> : <Badge tone="neutral">Guide</Badge>}</div>
                       <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 16.5, lineHeight: 1.3, color: "var(--ink)", textWrap: "pretty" }}>{d.title}</div>
@@ -63,7 +87,8 @@ export default async function TerritoryPage({ params }: { params: Promise<{ terr
                     </div>
                   </Card>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           )}
 

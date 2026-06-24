@@ -10,6 +10,8 @@ import { Badge } from "./Badge";
 import { Button } from "./Button";
 import { HPIcon } from "./Icons";
 import { EmailCapture } from "./EmailCapture";
+import { Figure } from "./Figure";
+import { SourcesList } from "./SourcesList";
 import { Mdx } from "@/components/Mdx";
 
 function retailerFromKey(key?: string): string | undefined {
@@ -17,6 +19,7 @@ function retailerFromKey(key?: string): string | undefined {
   if (key.includes("petdirect")) return "Pet Direct";
   if (key.includes("petstock")) return "Petstock";
   if (key.includes("animates")) return "Animates";
+  if (key.includes("vetpost")) return "Vetpost";
   return undefined;
 }
 
@@ -57,6 +60,13 @@ export function PillarTemplate({ doc }: { doc: any }) {
 
       <article style={{ background: "var(--white)" }}>
         <div style={{ ...wrap, padding: "clamp(32px,5vw,56px) 20px" }}>
+          {/* HERO IMAGE */}
+          {doc.image && (
+            <div style={{ marginTop: -8, marginBottom: 28 }}>
+              <Figure id={doc.image} alt={doc.title} aspect="16 / 9" priority rounded />
+            </div>
+          )}
+
           {/* QUICK VERDICT */}
           {doc.description && (
             <Card highlight padding="lg" style={{ marginBottom: 28 }}>
@@ -101,6 +111,9 @@ export function PillarTemplate({ doc }: { doc: any }) {
               <div style={{ margin: "8px 0 40px" }}><FAQ items={doc.faq} /></div>
             </>
           )}
+
+          {/* SOURCES */}
+          <SourcesList sources={doc.sources} />
         </div>
 
         {/* EMAIL */}

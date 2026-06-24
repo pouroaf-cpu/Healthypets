@@ -34,6 +34,27 @@ yarn-error.log*
 .env*
 !.env.example
 
+# internal agent/planning docs — never commit (see _agent-system/RULES.md §4 Privacy)
+# README.md is the ONLY doc that may be public.
+STATUS.md
+TASKS.md
+HANDOFF.md
+FILE_MAP.md
+SESSION_LOG.md
+CODEX*.md
+*_TASK.md
+CLAUDE.md
+AGENTS.md
+NAMES.md
+PROJECT.md
+build-plan.md
+content-map.md
+site-spec.md
+wireframes.md
+design-prompt.md
+audience-persona.md
+audience-interests.md
+
 # vercel
 .vercel
 

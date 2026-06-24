@@ -6,6 +6,7 @@ import { Schema } from "@/components/Schema";
 import { PillarTemplate } from "@/components/ds/PillarTemplate";
 import { ArticleTemplate } from "@/components/ds/ArticleTemplate";
 import { EmailCapture } from "@/components/ds/EmailCapture";
+import { getImage } from "@/lib/images";
 
 export function generateStaticParams() {
   return getAllSlugParams();
@@ -58,10 +59,20 @@ export default async function ArticlePage({
   }
 
   const url = `${SITE.url}/${territory}/${slug}`;
+  const heroSrc = doc.image ? getImage(doc.image)?.src : undefined;
   return (
     <>
       {doc.type === "pillar" ? <PillarTemplate doc={doc} /> : <ArticleTemplate doc={doc} />}
-      <Schema title={doc.title} description={doc.description} url={url} updated={doc.updated} faq={doc.faq} />
+      <Schema
+        title={doc.title}
+        description={doc.description}
+        url={url}
+        updated={doc.updated}
+        author={doc.author}
+        image={heroSrc}
+        faq={doc.faq}
+        sources={doc.sources}
+      />
     </>
   );
 }

@@ -3,6 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import type { Product } from "@/components/ComparisonTable";
 import type { QA } from "@/components/FAQ";
+import type { Source } from "@/components/ds/SourcesList";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -21,6 +22,9 @@ export type DocFrontmatter = {
   faq?: QA[];
   products?: Product[];
   related?: string[]; // slugs
+  image?: string; // hero image id (lib/images.ts manifest)
+  sources?: Source[]; // citation list rendered + emitted to JSON-LD
+  species?: "cat" | "dog" | "both"; // for the /cats and /dogs hubs
   draft?: boolean;
 };
 
@@ -53,6 +57,10 @@ export function getDoc(territory: string, slug: string): Doc | undefined {
 
 export function getDocsByTerritory(territory: string): Doc[] {
   return getAllDocs().filter((d) => d.territory === territory);
+}
+
+export function getDocsBySpecies(species: "cat" | "dog"): Doc[] {
+  return getAllDocs().filter((d) => d.species === species || d.species === "both");
 }
 
 export function getAllSlugParams(): { territory: string; slug: string }[] {

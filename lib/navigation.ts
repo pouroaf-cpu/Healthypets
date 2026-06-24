@@ -29,6 +29,8 @@ export const TERRITORIES: NavItem[] = [
   { label: "Gut Health", href: "/gut-health" },
   { label: "Skin & Coat", href: "/skin-and-coat" },
   { label: "Dental", href: "/dental" },
+  { label: "Calming & Anxiety", href: "/calming" },
+  { label: "Supplements", href: "/supplements" },
   { label: "Food", href: "/food" },
 ];
 

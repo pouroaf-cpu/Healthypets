@@ -1,0 +1,414 @@
+[
+  {
+    "id": "best-cat-flea-treatment-nz-hero",
+    "query": "ginger cat",
+    "aspect": "wide",
+    "alt": "ginger cat outdoors"
+  },
+  {
+    "id": "best-cat-flea-treatment-nz-1",
+    "query": "cat grooming",
+    "alt": "person grooming cat with comb"
+  },
+  {
+    "id": "best-cat-flea-treatment-nz-2",
+    "query": "kitten close up",
+    "alt": "kitten close up"
+  },
+  {
+    "id": "best-dog-flea-treatment-nz-hero",
+    "query": "golden retriever",
+    "aspect": "wide",
+    "alt": "dog scratching itself outdoors"
+  },
+  {
+    "id": "best-dog-flea-treatment-nz-1",
+    "query": "dog vet",
+    "alt": "dog at vet check up"
+  },
+  {
+    "id": "best-dog-flea-treatment-nz-2",
+    "query": "happy dog running grass",
+    "alt": "happy dog running grass"
+  },
+  {
+    "id": "how-to-get-rid-of-fleas-on-cats-hero",
+    "query": "cat fur",
+    "aspect": "wide",
+    "alt": "cat being brushed flea comb"
+  },
+  {
+    "id": "how-to-get-rid-of-fleas-on-cats-1",
+    "query": "cat grooming",
+    "alt": "cat washing grooming"
+  },
+  {
+    "id": "cat-flea-and-worm-treatment-nz-hero",
+    "query": "cat owner",
+    "aspect": "wide",
+    "alt": "cat being held by owner"
+  },
+  {
+    "id": "cat-flea-and-worm-treatment-nz-1",
+    "query": "cat indoors",
+    "alt": "cat relaxing indoors"
+  },
+  {
+    "id": "dog-flea-and-worm-treatment-nz-hero",
+    "query": "dog chew",
+    "aspect": "wide",
+    "alt": "owner giving dog a chew treat"
+  },
+  {
+    "id": "dog-flea-and-worm-treatment-nz-1",
+    "query": "happy dog",
+    "alt": "dog outdoors happy"
+  },
+  {
+    "id": "how-to-get-rid-of-fleas-in-house-nz-hero",
+    "query": "vacuum cleaner",
+    "aspect": "wide",
+    "alt": "vacuuming living room carpet"
+  },
+  {
+    "id": "how-to-get-rid-of-fleas-in-house-nz-1",
+    "query": "laundry",
+    "alt": "washing pet bedding laundry"
+  },
+  {
+    "id": "natural-flea-treatment-for-cats-nz-hero",
+    "query": "cat sitting in sunlight window",
+    "aspect": "wide",
+    "alt": "cat sitting in sunlight window"
+  },
+  {
+    "id": "natural-flea-treatment-for-cats-nz-1",
+    "query": "cat grooming licking paw",
+    "alt": "cat grooming licking paw"
+  },
+  {
+    "id": "advantage-vs-revolution-vs-bravecto-nz-hero",
+    "query": "cat and dog together",
+    "aspect": "wide",
+    "alt": "cat and dog together"
+  },
+  {
+    "id": "advantage-vs-revolution-vs-bravecto-nz-1",
+    "query": "veterinary medicine",
+    "alt": "pet owner reading product label"
+  },
+  {
+    "id": "best-worming-tablets-for-dogs-nz-hero",
+    "query": "dog with owner at home",
+    "aspect": "wide",
+    "alt": "dog with owner at home"
+  },
+  {
+    "id": "best-worming-tablets-for-dogs-nz-1",
+    "query": "dog medicine",
+    "alt": "dog being given a tablet"
+  },
+  {
+    "id": "best-worming-tablets-for-dogs-nz-2",
+    "query": "healthy dog",
+    "alt": "healthy dog outdoors"
+  },
+  {
+    "id": "cat-worming-tablets-nz-hero",
+    "query": "cat lying down relaxed",
+    "aspect": "wide",
+    "alt": "cat lying down relaxed"
+  },
+  {
+    "id": "cat-worming-tablets-nz-1",
+    "query": "cat at the vet",
+    "alt": "cat at the vet"
+  },
+  {
+    "id": "cat-worming-tablets-nz-2",
+    "query": "kitten playing",
+    "alt": "kitten playing"
+  },
+  {
+    "id": "worming-tablets-for-puppies-nz-hero",
+    "query": "puppy on grass",
+    "aspect": "wide",
+    "alt": "puppy on grass"
+  },
+  {
+    "id": "worming-tablets-for-puppies-nz-1",
+    "query": "puppy being held",
+    "alt": "puppy being held"
+  },
+  {
+    "id": "best-joint-supplements-for-dogs-nz-hero",
+    "query": "old dog",
+    "aspect": "wide",
+    "alt": "senior dog lying down"
+  },
+  {
+    "id": "best-joint-supplements-for-dogs-nz-1",
+    "query": "labrador",
+    "alt": "older labrador outdoors"
+  },
+  {
+    "id": "best-joint-supplements-for-dogs-nz-2",
+    "query": "dog walking on beach",
+    "alt": "dog walking on beach"
+  },
+  {
+    "id": "arthritis-in-dogs-treatment-nz-hero",
+    "query": "old dog resting",
+    "aspect": "wide",
+    "alt": "old dog resting"
+  },
+  {
+    "id": "arthritis-in-dogs-treatment-nz-1",
+    "query": "old dog",
+    "alt": "senior dog with grey muzzle"
+  },
+  {
+    "id": "when-to-start-dog-joint-supplements-hero",
+    "query": "dog running",
+    "aspect": "wide",
+    "alt": "young active dog jumping"
+  },
+  {
+    "id": "when-to-start-dog-joint-supplements-1",
+    "query": "dog at different ages",
+    "alt": "dog at different ages"
+  },
+  {
+    "id": "best-probiotics-for-dogs-nz-hero",
+    "query": "dog eating",
+    "aspect": "wide",
+    "alt": "dog eating from bowl"
+  },
+  {
+    "id": "best-probiotics-for-dogs-nz-1",
+    "query": "happy healthy dog",
+    "alt": "happy healthy dog"
+  },
+  {
+    "id": "best-probiotics-for-dogs-nz-2",
+    "query": "dog with food bowl",
+    "alt": "dog with food bowl"
+  },
+  {
+    "id": "probiotics-for-cats-nz-hero",
+    "query": "cat eating from bowl",
+    "aspect": "wide",
+    "alt": "cat eating from bowl"
+  },
+  {
+    "id": "probiotics-for-cats-nz-1",
+    "query": "cat looking healthy",
+    "alt": "cat looking healthy"
+  },
+  {
+    "id": "dog-diarrhoea-causes-and-treatment-nz-hero",
+    "query": "dog resting on floor",
+    "aspect": "wide",
+    "alt": "dog resting on floor"
+  },
+  {
+    "id": "dog-diarrhoea-causes-and-treatment-nz-1",
+    "query": "dog drinking water",
+    "alt": "dog drinking water"
+  },
+  {
+    "id": "dog-allergies-treatment-relief-nz-hero",
+    "query": "dog scratching ear",
+    "aspect": "wide",
+    "alt": "dog scratching ear"
+  },
+  {
+    "id": "dog-allergies-treatment-relief-nz-1",
+    "query": "dog being bathed",
+    "alt": "dog being bathed"
+  },
+  {
+    "id": "dog-allergies-treatment-relief-nz-2",
+    "query": "dog licking paw",
+    "alt": "dog itchy skin paw licking"
+  },
+  {
+    "id": "dog-ear-infections-cleaning-treatment-nz-hero",
+    "query": "dog with floppy ears",
+    "aspect": "wide",
+    "alt": "dog with floppy ears"
+  },
+  {
+    "id": "dog-ear-infections-cleaning-treatment-nz-1",
+    "query": "cleaning a dogs ear",
+    "alt": "cleaning a dogs ear"
+  },
+  {
+    "id": "dog-ear-infections-cleaning-treatment-nz-2",
+    "query": "spaniel dog ears",
+    "alt": "spaniel dog ears"
+  },
+  {
+    "id": "best-medicated-dog-shampoo-nz-hero",
+    "query": "dog bath",
+    "aspect": "wide",
+    "alt": "dog being washed bath"
+  },
+  {
+    "id": "best-medicated-dog-shampoo-nz-1",
+    "query": "wet dog",
+    "alt": "wet dog after bath"
+  },
+  {
+    "id": "dog-and-cat-dental-care-nz-hero",
+    "query": "dog mouth",
+    "aspect": "wide",
+    "alt": "dog showing teeth smile"
+  },
+  {
+    "id": "dog-and-cat-dental-care-nz-1",
+    "query": "dog smiling",
+    "alt": "brushing dog teeth"
+  },
+  {
+    "id": "dog-and-cat-dental-care-nz-2",
+    "query": "cat yawning teeth",
+    "alt": "cat yawning teeth"
+  },
+  {
+    "id": "best-dental-chews-for-dogs-nz-hero",
+    "query": "dog chewing a treat",
+    "aspect": "wide",
+    "alt": "dog chewing a treat"
+  },
+  {
+    "id": "best-dental-chews-for-dogs-nz-1",
+    "query": "dog with dental chew",
+    "alt": "dog with dental chew"
+  },
+  {
+    "id": "best-dental-treats-for-cats-nz-hero",
+    "query": "cat eating",
+    "aspect": "wide",
+    "alt": "cat eating a treat"
+  },
+  {
+    "id": "best-dental-treats-for-cats-nz-1",
+    "query": "cat mouth",
+    "alt": "cat with clean teeth"
+  },
+  {
+    "id": "calming-products-for-anxious-dogs-nz-hero",
+    "query": "scared dog",
+    "aspect": "wide",
+    "alt": "anxious dog hiding"
+  },
+  {
+    "id": "calming-products-for-anxious-dogs-nz-1",
+    "query": "dog bed",
+    "alt": "calm dog in bed"
+  },
+  {
+    "id": "calming-products-for-anxious-dogs-nz-2",
+    "query": "dog cuddling owner",
+    "alt": "dog cuddling owner"
+  },
+  {
+    "id": "dog-anxiety-signs-and-help-nz-hero",
+    "query": "sad dog",
+    "aspect": "wide",
+    "alt": "scared dog during thunderstorm"
+  },
+  {
+    "id": "dog-anxiety-signs-and-help-nz-1",
+    "query": "dog looking worried",
+    "alt": "dog looking worried"
+  },
+  {
+    "id": "calming-sprays-for-cats-nz-hero",
+    "query": "shy cat",
+    "aspect": "wide",
+    "alt": "cat hiding under furniture"
+  },
+  {
+    "id": "calming-sprays-for-cats-nz-1",
+    "query": "relaxed cat sleeping",
+    "alt": "relaxed cat sleeping"
+  },
+  {
+    "id": "best-dog-supplements-nz-hero",
+    "query": "healthy dog shiny coat",
+    "aspect": "wide",
+    "alt": "healthy dog shiny coat"
+  },
+  {
+    "id": "best-dog-supplements-nz-1",
+    "query": "dog with supplement",
+    "alt": "dog with supplement"
+  },
+  {
+    "id": "best-dog-supplements-nz-2",
+    "query": "dog playing",
+    "alt": "active dog outdoors"
+  },
+  {
+    "id": "best-supplements-for-senior-dogs-nz-hero",
+    "query": "old dog face",
+    "aspect": "wide",
+    "alt": "senior dog grey face"
+  },
+  {
+    "id": "best-supplements-for-senior-dogs-nz-1",
+    "query": "old dog resting peacefully",
+    "alt": "old dog resting peacefully"
+  },
+  {
+    "id": "best-cat-food-nz-hero",
+    "query": "cat food",
+    "aspect": "wide",
+    "alt": "cat eating food bowl"
+  },
+  {
+    "id": "best-cat-food-nz-1",
+    "query": "cat food bowls",
+    "alt": "cat food bowls"
+  },
+  {
+    "id": "best-cat-food-nz-2",
+    "query": "happy cat",
+    "alt": "happy cat licking lips"
+  },
+  {
+    "id": "best-dog-food-nz-hero",
+    "query": "dog eating",
+    "aspect": "wide",
+    "alt": "dog eating from bowl"
+  },
+  {
+    "id": "best-dog-food-nz-1",
+    "query": "dog food",
+    "alt": "dog food kibble bowl"
+  },
+  {
+    "id": "best-dog-food-nz-2",
+    "query": "happy dog",
+    "alt": "healthy dog after meal"
+  },
+  {
+    "id": "can-i-give-my-dog-human-medicine-nz-hero",
+    "query": "dog looking up at owner",
+    "aspect": "wide",
+    "alt": "dog looking up at owner"
+  },
+  {
+    "id": "can-i-give-my-dog-human-medicine-nz-1",
+    "query": "dog with first aid",
+    "alt": "dog with first aid"
+  },
+  {
+    "id": "home-hero",
+    "query": "cat dog",
+    "aspect": "wide",
+    "alt": "A happy cat and dog"
+  }
+]

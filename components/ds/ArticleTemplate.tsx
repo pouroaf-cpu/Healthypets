@@ -5,6 +5,8 @@ import { AffiliateDisclosure } from "./AffiliateDisclosure";
 import { Card } from "./Card";
 import { HPIcon } from "./Icons";
 import { EmailCapture } from "./EmailCapture";
+import { Figure } from "./Figure";
+import { SourcesList } from "./SourcesList";
 import { Mdx } from "@/components/Mdx";
 
 const wrap: React.CSSProperties = { maxWidth: 720, margin: "0 auto", padding: "0 20px" };
@@ -28,6 +30,11 @@ export function ArticleTemplate({ doc }: { doc: any }) {
 
       <article style={{ background: "var(--white)" }}>
         <div style={{ ...wrap, padding: "clamp(28px,4vw,48px) 20px" }}>
+          {doc.image && (
+            <div style={{ marginTop: -4, marginBottom: 24 }}>
+              <Figure id={doc.image} alt={doc.title} aspect="16 / 9" priority rounded />
+            </div>
+          )}
           <AffiliateDisclosure variant="compact" style={{ marginBottom: 24 }} />
           <Mdx source={doc.body} />
 
@@ -46,6 +53,8 @@ export function ArticleTemplate({ doc }: { doc: any }) {
               <FAQ items={doc.faq} />
             </div>
           )}
+
+          <SourcesList sources={doc.sources} />
         </div>
 
         <div style={{ ...wrap, padding: "0 20px clamp(40px,5vw,56px)" }}><EmailCapture source={`article:${doc.slug}`} /></div>
