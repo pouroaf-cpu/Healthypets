@@ -4,7 +4,9 @@
 export const SITE = {
   name: "Healthy Pets",
   domain: "healthypets.co.nz",
-  url: "https://healthypets.co.nz",
+  // Canonical host is www — apex 308-redirects to www, and Google indexed www.
+  // All metadata (sitemap, robots, schema, metadataBase) derives from this.
+  url: "https://www.healthypets.co.nz",
   tagline: "Honest pet-health advice for Kiwi cat & dog owners",
   description:
     "Independent, vet-informed New Zealand guides and product comparisons for flea & worming, supplements, food and pet health — with the best NZ buys.",
