@@ -37,6 +37,9 @@ yarn-error.log*
 # local MCP config — holds personal OAuth secrets-file path; never commit (public repo)
 .mcp.json
 
+# local Claude Code project settings (MCP approvals etc.) — personal, not committed
+.claude/settings.local.json
+
 # internal agent/planning docs — never commit (see _agent-system/RULES.md §4 Privacy)
 # README.md is the ONLY doc that may be public.
 STATUS.md
