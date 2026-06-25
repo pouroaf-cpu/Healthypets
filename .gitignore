@@ -34,6 +34,9 @@ yarn-error.log*
 .env*
 !.env.example
 
+# local MCP config — holds personal OAuth secrets-file path; never commit (public repo)
+.mcp.json
+
 # internal agent/planning docs — never commit (see _agent-system/RULES.md §4 Privacy)
 # README.md is the ONLY doc that may be public.
 STATUS.md
