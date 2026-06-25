@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { SITE } from "@/lib/navigation";
@@ -22,6 +23,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-NZ">
       {/* Impact affiliate network site verification (uses `value`, not `content`, so rendered raw) */}
       <meta {...({ name: "impact-site-verification", value: "f915bff6-435a-455e-975a-148b0bc58b2b" } as Record<string, string>)} />
+      {/* Ahrefs Web Analytics (public site key — client-side tracker) */}
+      <Script
+        src="https://analytics.ahrefs.com/analytics.js"
+        data-key="ORsSw+/XZNzaHbqdXKhToQ"
+        strategy="afterInteractive"
+        async
+      />
       <body>
         <Header />
         <main>{children}</main>
