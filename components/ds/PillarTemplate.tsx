@@ -54,7 +54,7 @@ export function PillarTemplate({ doc }: { doc: any }) {
           </div>
           <Eyebrow>{territoryLabel}</Eyebrow>
           <h1 style={{ margin: "0 0 18px", fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(2rem, 1.4rem + 2.8vw, 3.1rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: "var(--ink)" }}>{doc.title}</h1>
-          <AuthorByline author={doc.author || "The Healthy Pets Team"} role="Healthy Pets" date={doc.updated ? `Updated ${doc.updated}` : undefined} vetReviewedBy={doc.vetReviewed ? "a registered NZ vet" : null} />
+          <AuthorByline author={doc.author || "The Healthy Pets Team"} role="Healthy Pets" date={doc.updated ? `Updated ${doc.updated}` : undefined} />
         </div>
       </section>
 

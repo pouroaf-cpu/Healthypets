@@ -24,7 +24,7 @@ export function ArticleTemplate({ doc }: { doc: any }) {
             <Link href={`/${doc.territory}`} style={{ color: "var(--ink-soft)", textDecoration: "none" }}>{territoryLabel}</Link>
           </div>
           <h1 style={{ margin: "0 0 16px", fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.8rem, 1.3rem + 2.2vw, 2.7rem)", lineHeight: 1.12, letterSpacing: "-0.02em", color: "var(--ink)" }}>{doc.title}</h1>
-          <AuthorByline author={doc.author || "The Healthy Pets Team"} role="Healthy Pets" date={doc.updated ? `Updated ${doc.updated}` : undefined} vetReviewedBy={doc.vetReviewed ? "a registered NZ vet" : null} />
+          <AuthorByline author={doc.author || "The Healthy Pets Team"} role="Healthy Pets" date={doc.updated ? `Updated ${doc.updated}` : undefined} />
         </div>
       </section>
 

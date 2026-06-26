@@ -83,7 +83,7 @@ export default async function TerritoryPage({ params }: { params: Promise<{ terr
                     <div style={{ padding: 18, display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
                       <div>{d.type === "pillar" ? <Badge tone="light">Buyer&apos;s guide</Badge> : <Badge tone="neutral">Guide</Badge>}</div>
                       <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 16.5, lineHeight: 1.3, color: "var(--ink)", textWrap: "pretty" }}>{d.title}</div>
-                      <div style={{ marginTop: "auto", paddingTop: 6, fontSize: 13, color: "var(--ink-muted)", display: "flex", alignItems: "center", gap: 6 }}><HPIcon name="check" size={14} color="var(--green-primary)" /> Vet-reviewed</div>
+                      <div style={{ marginTop: "auto", paddingTop: 6, fontSize: 13, color: "var(--ink-muted)", display: "flex", alignItems: "center", gap: 6 }}><HPIcon name="check" size={14} color="var(--green-primary)" /> Independent &amp; honest</div>
                     </div>
                   </Card>
                 </Link>

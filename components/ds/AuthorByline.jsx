@@ -1,13 +1,11 @@
 // @ts-nocheck
-import { VetReviewed } from "./VetReviewed.jsx";
 
-// Author byline with avatar, name, role, date, and optional vet-reviewed mark (E-E-A-T).
+// Author byline with avatar, name, role, and date.
 export function AuthorByline({
   author = "Megan Clark",
   role = "Senior Editor, Healthy Pets",
   date = "Updated June 2026",
   avatar,
-  vetReviewedBy = "Dr. Anna Whitfield BVSc",
   readTime,
   style = {},
 }) {
@@ -25,7 +23,6 @@ export function AuthorByline({
           <div style={{ fontSize: "13px", color: "var(--ink-muted)" }}>{role}{date ? ` · ${date}` : ""}{readTime ? ` · ${readTime}` : ""}</div>
         </div>
       </div>
-      {vetReviewedBy && <div style={{ paddingLeft: "4px" }}><VetReviewed variant="line" name={vetReviewedBy} /></div>}
     </div>
   );
 }

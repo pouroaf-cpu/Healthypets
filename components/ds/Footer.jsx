@@ -28,7 +28,7 @@ export function Footer({ logoSrc = "/logo-mark.svg", style = {} }) {
               <span style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "19px" }}>Healthy Pets</span>
             </div>
             <p style={{ margin: "0 0 16px", fontSize: "14px", lineHeight: 1.6, color: "rgba(255,255,255,0.72)", maxWidth: "300px" }}>
-              Honest, practical pet-health advice for Kiwi cat &amp; dog owners. NZ products, NZ prices, vet-reviewed.
+              Honest, practical pet-health advice for Kiwi cat &amp; dog owners. NZ products, NZ prices.
             </p>
             <div style={{ display: "flex", gap: "10px" }}>
               <Social label="Facebook" d={<path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9z" />} />
