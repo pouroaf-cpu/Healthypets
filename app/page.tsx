@@ -144,7 +144,6 @@ export default function Home() {
               <Button variant="secondary" size="lg" as="a" href="/guides">Browse all guides</Button>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 18, marginTop: 26, color: "var(--ink-muted)", fontSize: 13.5, flexWrap: "wrap" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}><HPIcon name="shield" size={17} color="var(--green-primary)" /> Vet-reviewed</span>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}><HPIcon name="check" size={17} color="var(--green-primary)" /> NZ$ prices</span>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}><HPIcon name="check" size={17} color="var(--green-primary)" /> Independent</span>
             </div>
@@ -173,7 +172,7 @@ export default function Home() {
             </div>
 
             <div style={{ position: "absolute", top: 150, left: "-4%", zIndex: 6, transform: "rotate(-9deg)", width: 78, height: 78, borderRadius: "50%", background: "var(--green-primary)", color: "#fff", display: "grid", placeItems: "center", textAlign: "center", boxShadow: "0 8px 18px rgba(80,52,28,0.25)", border: "2px dashed rgba(255,255,255,0.6)" }}>
-              <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 11, lineHeight: 1.15 }}>VET<br />REVIEWED</div>
+              <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 11, lineHeight: 1.15 }}>100%<br />INDEPENDENT</div>
             </div>
 
             <span className="hp-bob" aria-hidden="true" style={{ position: "absolute", top: -18, left: "44%", fontSize: 40, zIndex: 1, filter: "drop-shadow(0 5px 7px rgba(80,52,28,0.18))" }}>🐩</span>
@@ -234,7 +233,7 @@ export default function Home() {
                   <div style={{ padding: 18, display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
                     <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 11.5, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--green-dark)" }}>{g.kicker}</div>
                     <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 16.5, lineHeight: 1.3, color: "var(--ink)", textWrap: "pretty" }}>{g.title}</div>
-                    <div style={{ marginTop: "auto", paddingTop: 6, fontSize: 13, color: "var(--ink-muted)", display: "flex", alignItems: "center", gap: 6 }}><HPIcon name="check" size={14} color="var(--green-primary)" /> {g.read} read · Vet-reviewed</div>
+                    <div style={{ marginTop: "auto", paddingTop: 6, fontSize: 13, color: "var(--ink-muted)", display: "flex", alignItems: "center", gap: 6 }}><HPIcon name="check" size={14} color="var(--green-primary)" /> {g.read} read · Independent &amp; honest</div>
                   </div>
                 </Card>
               </Link>
@@ -265,7 +264,7 @@ export default function Home() {
             <Eyebrow>Why Healthy Pets</Eyebrow>
             <h2 style={{ margin: "0 0 16px", fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem)", color: "var(--ink)", letterSpacing: "-0.02em" }}>A trusted guide — not a vet, not a shop</h2>
             <p style={{ margin: "0 0 16px", fontSize: 16.5, lineHeight: 1.7, color: "var(--ink-soft)" }}>
-              We&apos;re Kiwi pet owners ourselves. Every guide is researched, written in plain English, and <strong style={{ color: "var(--ink)" }}>reviewed by a registered NZ vet</strong> before it goes live. We recommend products we&apos;d use on our own cats and dogs.
+              We&apos;re Kiwi pet owners ourselves. Every guide is <strong style={{ color: "var(--ink)" }}>researched, fact-checked, and written in plain English</strong> before it goes live. We recommend products we&apos;d use on our own cats and dogs.
             </p>
             <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
               {["We check real NZ$ prices at NZ retailers", "Our picks are honest — never paid placements", "Always a budget option and a premium option", "Vet-informed, and we'll tell you when to call yours"].map((t) => (
