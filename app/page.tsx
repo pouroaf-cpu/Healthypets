@@ -8,8 +8,9 @@ import { EmailCapture } from "@/components/ds/EmailCapture";
 import { HPIcon } from "@/components/ds/Icons";
 
 // Homepage — "beige scrapbook edition" ported from the Healthy Pets Design System
-// (claude.ai/design project 3ed375). Warm-brown palette override applies to THIS page
-// only (the rest of the site keeps brand green); coral stays reserved for CTAs.
+// (claude.ai/design project 3ed375). The warm-brown/beige palette is now the SITE-WIDE
+// default (see app/ds/colors.css); this BEIGE block re-affirms those values and adds the
+// --font-hand (Caveat) handwriting font used by the scrapbook elements on this page.
 
 const PILLAR = "/flea-and-worming/best-cat-flea-treatment-nz";
 

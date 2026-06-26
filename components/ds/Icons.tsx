@@ -49,7 +49,9 @@ export function HPIcon({
 }
 
 const TONES: Record<string, string> = {
-  green: "linear-gradient(135deg, #E8F5EF 0%, #D4ECE0 100%)",
+  // "green" is the default placeholder tone; under the site-wide beige theme it is a
+  // warm cream→tan gradient (not mint) so image-less cards stay on-theme.
+  green: "linear-gradient(135deg, #F2E6D1 0%, #E3CDA9 100%)",
   sky: "linear-gradient(135deg, #EAF2FB 0%, #DCEBF7 100%)",
   sand: "linear-gradient(135deg, #FBF1E6 0%, #F6E4CE 100%)",
   blush: "linear-gradient(135deg, #FCEDEB 0%, #FBDDD8 100%)",

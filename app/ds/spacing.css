@@ -21,7 +21,7 @@
   --shadow-md: 0 6px 20px rgba(31, 42, 55, 0.08);
   --shadow-lg: 0 16px 40px rgba(31, 42, 55, 0.10);
   --shadow-cta: 0 8px 20px rgba(255, 107, 92, 0.30);
-  --shadow-focus: 0 0 0 3px rgba(46, 158, 107, 0.35);
+  --shadow-focus: 0 0 0 3px rgba(156, 106, 65, 0.35);
 
   --container: 1120px;
   --container-narrow: 720px;
