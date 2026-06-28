@@ -1,0 +1,207 @@
+{
+  "animates-black-hawk-cat": {
+    "src": "/product-images/animates-black-hawk-cat.png",
+    "alt": "Black Hawk — product photo",
+    "sourceUrl": "https://www.animates.co.nz/black-hawk-healthy-benefits-cat-hairball-chicken-2kg.html"
+  },
+  "animates-black-hawk-dog": {
+    "src": "/product-images/animates-black-hawk-dog.jpg",
+    "alt": "Black Hawk — product photo",
+    "sourceUrl": "https://www.animates.co.nz/black-hawk-lamb-rice-adult-dog-food-20kg.html"
+  },
+  "animates-paw-complete-calm": {
+    "src": "/product-images/animates-paw-complete-calm.jpg",
+    "alt": "PAW Complete Calm — product photo",
+    "sourceUrl": "https://www.animates.co.nz/blackmores-paw-complete-calm-300g.html"
+  },
+  "animates-paw-gentle-ear-cleaner": {
+    "src": "/product-images/animates-paw-gentle-ear-cleaner.jpg",
+    "alt": "PAW Gentle Ear Cleaner — product photo",
+    "sourceUrl": "https://www.animates.co.nz/blackmores-paw-gentle-ear-cleaner-120ml.html"
+  },
+  "animates-purina-pro-plan-cat": {
+    "src": "/product-images/animates-purina-pro-plan-cat.jpg",
+    "alt": "Purina Pro Plan / One — product photo",
+    "sourceUrl": "https://www.animates.co.nz/proplan-chicken-rice-cat-food-85g.html"
+  },
+  "animates-purina-pro-plan-dog": {
+    "src": "/product-images/animates-purina-pro-plan-dog.jpg",
+    "alt": "Purina Pro Plan / One — product photo",
+    "sourceUrl": "https://www.animates.co.nz/pro-plan-dog-performance-20kg.html"
+  },
+  "animates-thundershirt": {
+    "src": "/product-images/animates-thundershirt.png",
+    "alt": "Thundershirt — product photo",
+    "sourceUrl": "https://www.animates.co.nz/thundershirt-grey-dog-calming-polo-small.html"
+  },
+  "petdirect-4cyte-canine": {
+    "src": "/product-images/petdirect-4cyte-canine.webp",
+    "alt": "4CYTE Canine — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/4cyte-canine-granules/"
+  },
+  "petdirect-adaptil-diffuser": {
+    "src": "/product-images/petdirect-adaptil-diffuser.webp",
+    "alt": "Adaptil Diffuser — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/diffuser-refill-48ml/"
+  },
+  "petdirect-advantage-cat": {
+    "src": "/product-images/petdirect-advantage-cat.webp",
+    "alt": "Advantage — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/advantage-cat-0-4kg/"
+  },
+  "petdirect-advantage-dog": {
+    "src": "/product-images/petdirect-advantage-dog.webp",
+    "alt": "Advantage — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/advantage-dog-25kg/"
+  },
+  "petdirect-advocate-cat": {
+    "src": "/product-images/petdirect-advocate-cat.webp",
+    "alt": "Advocate — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/advocate-cat-4kg/"
+  },
+  "petdirect-drontal-cat": {
+    "src": "/product-images/petdirect-drontal-cat.webp",
+    "alt": "Drontal Allwormer for Cats — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/drontal-allwormer-for-cats/"
+  },
+  "petdirect-drontal-dog": {
+    "src": "/product-images/petdirect-drontal-dog.webp",
+    "alt": "Drontal Allwormer — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/drontal-tasty-bone-allwormer-for-dogs/"
+  },
+  "petdirect-greenies-dog": {
+    "src": "/product-images/petdirect-greenies-dog.webp",
+    "alt": "Greenies Dental Treats — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/greenies-original-dental-bulk-dog-treats/"
+  },
+  "petdirect-hills-science-diet-cat": {
+    "src": "/product-images/petdirect-hills-science-diet-cat.webp",
+    "alt": "Hill's Science Diet — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/hills-science-diet-adult-dry-cat-food/"
+  },
+  "petdirect-hills-science-diet-dog": {
+    "src": "/product-images/petdirect-hills-science-diet-dog.webp",
+    "alt": "Hill's Science Diet — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/adult-sensitive-stomach-skin-dry-dog-food/"
+  },
+  "petdirect-nexgard-spectra": {
+    "src": "/product-images/petdirect-nexgard-spectra.webp",
+    "alt": "NexGard Spectra — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/spectra-dog-flea-treatment/"
+  },
+  "petdirect-revolution-plus": {
+    "src": "/product-images/petdirect-revolution-plus.webp",
+    "alt": "Revolution Plus — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/revolution-plus-cat/"
+  },
+  "petdirect-royal-canin-cat": {
+    "src": "/product-images/petdirect-royal-canin-cat.webp",
+    "alt": "Royal Canin — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/fit-dry-cat-food/"
+  },
+  "petdirect-simparica-trio": {
+    "src": "/product-images/petdirect-simparica-trio.webp",
+    "alt": "Simparica Trio — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/simparica-trio-flea-treatment/"
+  },
+  "petdirect-vetplus-aktivait": {
+    "src": "/product-images/petdirect-vetplus-aktivait.webp",
+    "alt": "Aktivait — product photo",
+    "sourceUrl": "https://petdirect.co.nz/p/vet-plus-aktivait-for-dogs/"
+  },
+  "petstock-adaptil-collar": {
+    "src": "/product-images/petstock-adaptil-collar.jpg",
+    "alt": "Adaptil Collar — product photo",
+    "sourceUrl": "https://www.petstock.co.nz/products/adaptil-collar"
+  },
+  "petstock-bravecto-chew-dog": {
+    "src": "/product-images/petstock-bravecto-chew-dog.jpg",
+    "alt": "Bravecto chew — product photo",
+    "sourceUrl": "https://www.petstock.co.nz/products/bravecto-flea-tick-chewable-treatment-for-large-dogs-20-40kg"
+  },
+  "petstock-bravecto-plus-cat": {
+    "src": "/product-images/petstock-bravecto-plus-cat.jpg",
+    "alt": "Bravecto Plus — product photo",
+    "sourceUrl": "https://www.petstock.co.nz/products/bravecto-plus-cat-spot-on-treatment-for-medium-cats-2-8-6-25kg"
+  },
+  "petstock-k9-natural-dog": {
+    "src": "/product-images/petstock-k9-natural-dog.jpg",
+    "alt": "K9 Natural — product photo",
+    "sourceUrl": "https://www.petstock.co.nz/products/k9-natural-hoki-beef-feast-freeze-dried-dog-food"
+  },
+  "petstock-milbemax-cat": {
+    "src": "/product-images/petstock-milbemax-cat.jpg",
+    "alt": "Milbemax for Cats — product photo",
+    "sourceUrl": "https://www.petstock.co.nz/products/milbemax-cat-wormer-2-8kg"
+  },
+  "petstock-milbemax-dog": {
+    "src": "/product-images/petstock-milbemax-dog.png",
+    "alt": "Milbemax — product photo",
+    "sourceUrl": "https://www.petstock.co.nz/products/milbemax-dog-wormer-2tb"
+  },
+  "petstock-sashas-blend": {
+    "src": "/product-images/petstock-sashas-blend.jpg",
+    "alt": "Sasha's Blend — product photo",
+    "sourceUrl": "https://www.petstock.com.au/products/sashas-blend-nutritional-supplement-for-dogs-250g"
+  },
+  "petstock-seresto-cat": {
+    "src": "/product-images/petstock-seresto-cat.jpg",
+    "alt": "Seresto collar — product photo",
+    "sourceUrl": "https://www.petstock.co.nz/products/seresto-cat-kitten-flea-collar"
+  },
+  "petstock-seresto-dog": {
+    "src": "/product-images/petstock-seresto-dog.jpg",
+    "alt": "Seresto collar — product photo",
+    "sourceUrl": "https://www.petstock.co.nz/products/seresto-dog-flea-collar"
+  },
+  "petstock-ziwi-peak-cat": {
+    "src": "/product-images/petstock-ziwi-peak-cat.jpg",
+    "alt": "Ziwi Peak — product photo",
+    "sourceUrl": "https://www.petstock.co.nz/products/ziwi-peak-lamb-air-dried-cat-food"
+  },
+  "petstock-ziwi-peak-dog": {
+    "src": "/product-images/petstock-ziwi-peak-dog.jpg",
+    "alt": "Ziwi Peak — product photo",
+    "sourceUrl": "https://www.petstock.co.nz/products/ziwi-peak-air-dried-tripe-lamb-dog-food"
+  },
+  "vetpost-aloveen-shampoo": {
+    "src": "/product-images/vetpost-aloveen-shampoo.jpg",
+    "alt": "Aloveen Shampoo — product photo",
+    "sourceUrl": "https://vetpost.co.nz/aloveen-shampoo-250ml/"
+  },
+  "vetpost-endogard-dog": {
+    "src": "/product-images/vetpost-endogard-dog.png",
+    "alt": "Endogard — product photo",
+    "sourceUrl": "https://vetpost.co.nz/endogard-large-dog-20kg-single-tablets/"
+  },
+  "vetpost-epi-otic-ear-cleaner": {
+    "src": "/product-images/vetpost-epi-otic-ear-cleaner.png",
+    "alt": "Epi-Otic Ear Cleaner — product photo",
+    "sourceUrl": "https://vetpost.co.nz/epiotic-ear-cleaner/"
+  },
+  "vetpost-glyde-mobility": {
+    "src": "/product-images/vetpost-glyde-mobility.png",
+    "alt": "Glyde Mobility Chews — product photo",
+    "sourceUrl": "https://vetpost.co.nz/glyde-joint-health-chews-for-dogs/"
+  },
+  "vetpost-malaseb-shampoo": {
+    "src": "/product-images/vetpost-malaseb-shampoo.jpg",
+    "alt": "Malaseb Shampoo — product photo",
+    "sourceUrl": "https://vetpost.co.nz/malaseb-shampoo-250mls/"
+  },
+  "vetpost-oravet-chews": {
+    "src": "/product-images/vetpost-oravet-chews.jpg",
+    "alt": "OraVet Dental Chews — product photo",
+    "sourceUrl": "https://hardypaw.com/products/oravet-dental-hygiene-chews-for-medium-dogs"
+  },
+  "vetpost-profender-cat": {
+    "src": "/product-images/vetpost-profender-cat.png",
+    "alt": "Profender Spot-On — product photo",
+    "sourceUrl": "https://vetpost.co.nz/profender-all-wormer-spot-on-5-8kg-2-pack/"
+  },
+  "vetpost-protexin-pro-kolin": {
+    "src": "/product-images/vetpost-protexin-pro-kolin.png",
+    "alt": "Protexin Pro-Kolin — product photo",
+    "sourceUrl": "https://vetpost.co.nz/pro-kolin/"
+  }
+}

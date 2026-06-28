@@ -1,0 +1,272 @@
+[
+  {
+    "linkKey": "animates-black-hawk-cat",
+    "name": "Black Hawk",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-black-hawk-dog",
+    "name": "Black Hawk",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-blackmores-paw-fish-oil",
+    "name": "PAW Fish Oil (Omega-3)",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-canex-dog",
+    "name": "Canex",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-felex-cat",
+    "name": "Felex Allwormer for Cats",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-paw-complete-calm",
+    "name": "PAW Complete Calm",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-paw-dermega",
+    "name": "PAW Dermega",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-paw-digesticare",
+    "name": "PAW DigestiCare",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-paw-gentle-ear-cleaner",
+    "name": "PAW Gentle Ear Cleaner",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-plaqueoff",
+    "name": "ProDen PlaqueOff",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-purina-pro-plan-cat",
+    "name": "Purina Pro Plan / One",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-purina-pro-plan-dog",
+    "name": "Purina Pro Plan / One",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-thundershirt",
+    "name": "Thundershirt",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "animates-yumove-dog",
+    "name": "YuMOVE",
+    "retailer": "animates"
+  },
+  {
+    "linkKey": "petdirect-4cyte-canine",
+    "name": "4CYTE Canine",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-adaptil-diffuser",
+    "name": "Adaptil Diffuser",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-advantage-cat",
+    "name": "Advantage",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-advantage-dog",
+    "name": "Advantage",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-advocate-cat",
+    "name": "Advocate",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-antinol-rapid",
+    "name": "Antinol Rapid",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-drontal-cat",
+    "name": "Drontal Allwormer for Cats",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-drontal-dog",
+    "name": "Drontal Allwormer",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-greenies-dog",
+    "name": "Greenies Dental Treats",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-hills-science-diet-cat",
+    "name": "Hill's Science Diet",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-hills-science-diet-dog",
+    "name": "Hill's Science Diet",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-nexgard-spectra",
+    "name": "NexGard Spectra",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-revolution-plus",
+    "name": "Revolution Plus",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-royal-canin-cat",
+    "name": "Royal Canin",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-royal-canin-dog",
+    "name": "Royal Canin",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-simparica-trio",
+    "name": "Simparica Trio",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-vetplus-aktivait",
+    "name": "Aktivait",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petdirect-zesty-paws-probiotic",
+    "name": "Zesty Paws Probiotic Chews",
+    "retailer": "petdirect"
+  },
+  {
+    "linkKey": "petstock-adaptil-collar",
+    "name": "Adaptil Collar",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "petstock-bravecto-chew-dog",
+    "name": "Bravecto chew",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "petstock-bravecto-plus-cat",
+    "name": "Bravecto Plus",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "petstock-k9-natural-dog",
+    "name": "K9 Natural",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "petstock-milbemax-cat",
+    "name": "Milbemax for Cats",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "petstock-milbemax-dog",
+    "name": "Milbemax",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "petstock-sashas-blend",
+    "name": "Sasha's Blend",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "petstock-seresto-cat",
+    "name": "Seresto collar",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "petstock-seresto-dog",
+    "name": "Seresto collar",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "petstock-ziwi-peak-cat",
+    "name": "Ziwi Peak",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "petstock-ziwi-peak-dog",
+    "name": "Ziwi Peak",
+    "retailer": "petstock"
+  },
+  {
+    "linkKey": "vetpost-aloveen-shampoo",
+    "name": "Aloveen Shampoo",
+    "retailer": "vetpost"
+  },
+  {
+    "linkKey": "vetpost-endogard-dog",
+    "name": "Endogard",
+    "retailer": "vetpost"
+  },
+  {
+    "linkKey": "vetpost-epi-otic-ear-cleaner",
+    "name": "Epi-Otic Ear Cleaner",
+    "retailer": "vetpost"
+  },
+  {
+    "linkKey": "vetpost-glyde-mobility",
+    "name": "Glyde Mobility Chews",
+    "retailer": "vetpost"
+  },
+  {
+    "linkKey": "vetpost-malaseb-shampoo",
+    "name": "Malaseb Shampoo",
+    "retailer": "vetpost"
+  },
+  {
+    "linkKey": "vetpost-oravet-chews",
+    "name": "OraVet Dental Chews",
+    "retailer": "vetpost"
+  },
+  {
+    "linkKey": "vetpost-profender-cat",
+    "name": "Profender Spot-On",
+    "retailer": "vetpost"
+  },
+  {
+    "linkKey": "vetpost-protexin-pro-kolin",
+    "name": "Protexin Pro-Kolin",
+    "retailer": "vetpost"
+  },
+  {
+    "linkKey": "vetpost-virbac-cet-chews",
+    "name": "Virbac C.E.T. Enzymatic Chews",
+    "retailer": "vetpost"
+  },
+  {
+    "linkKey": "vetpost-virbac-toothpaste",
+    "name": "Virbac Enzymatic Pet Toothpaste",
+    "retailer": "vetpost"
+  },
+  {
+    "linkKey": "vetpost-zylkene-dog",
+    "name": "Zylkene",
+    "retailer": "vetpost"
+  }
+]
