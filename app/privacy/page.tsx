@@ -15,11 +15,10 @@ export default function Privacy() {
         If you join our email list we store your email address to send the reminder calendar and
         related updates. We use privacy-respecting analytics to understand how the site is used.
       </p>
-      <h2>Affiliate links &amp; cookies</h2>
+      <h2>Outbound links</h2>
       <p>
-        When you click an outbound product link, the retailer or affiliate network may set a cookie
-        to attribute any purchase. We don&apos;t control those cookies — see the relevant
-        retailer&apos;s privacy policy.
+        When you click an outbound product link, the retailer may set its own cookies. We
+        don&apos;t control those cookies — see the relevant retailer&apos;s privacy policy.
       </p>
       <h2>Your choices</h2>
       <p>

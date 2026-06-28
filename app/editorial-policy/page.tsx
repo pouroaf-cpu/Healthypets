@@ -9,8 +9,8 @@ export default function EditorialPolicy() {
       <p>How we research, write and review content at Healthy Pets.</p>
       <h2>Independent recommendations</h2>
       <p>
-        Our picks are based on research, product suitability for NZ pets, and real-world value —
-        never on commission rates. We recommend budget options when they&apos;re the smart choice.
+        Our picks are based on research, product suitability for NZ pets, and real-world value. We
+        recommend budget options when they&apos;re the smart choice.
       </p>
       <h2>Vet-informed, not vet advice</h2>
       <p>

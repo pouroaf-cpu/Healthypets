@@ -4,7 +4,6 @@ import { ComparisonTable } from "./ComparisonTable";
 import { TopPick } from "./TopPick";
 import { FAQ } from "./FAQ";
 import { CTAButton } from "./CTAButton";
-import { AffiliateDisclosure } from "./AffiliateDisclosure";
 import { Card } from "./Card";
 import { Badge } from "./Badge";
 import { Button } from "./Button";
@@ -79,8 +78,6 @@ export function PillarTemplate({ doc }: { doc: any }) {
               )}
             </Card>
           )}
-
-          <AffiliateDisclosure style={{ marginBottom: 32 }} />
 
           {/* WRITER'S BODY (MDX) */}
           <Mdx source={doc.body} />

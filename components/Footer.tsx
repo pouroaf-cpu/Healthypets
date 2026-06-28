@@ -44,11 +44,7 @@ export function Footer() {
         </div>
 
         <p className="mt-10 border-t border-gray-200 pt-6 text-xs text-ink/60">
-          © {SITE.name} · New Zealand ·{" "}
-          <Link href="/affiliate-disclosure" className="underline">
-            Affiliate disclosure
-          </Link>{" "}
-          — we may earn a commission from links, at no extra cost to you.
+          © {SITE.name} · New Zealand
         </p>
       </div>
     </footer>

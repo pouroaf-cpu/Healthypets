@@ -4,9 +4,9 @@
 const COLS = [
   { h: "Pet health", links: [["Flea & Worming", "/flea-and-worming"], ["Joint & Mobility", "/joint-and-mobility"], ["Gut Health", "/gut-health"], ["Skin & Coat", "/skin-and-coat"], ["Dental Care", "/dental"]] },
   { h: "By pet", links: [["Cats", "/cats"], ["Dogs", "/dogs"], ["Kittens", "/cats"], ["Puppies", "/dogs"], ["Senior pets", "/guides"]] },
-  { h: "Company", links: [["About us", "/about"], ["Editorial policy", "/editorial-policy"], ["How we review", "/editorial-policy"], ["Affiliate disclosure", "/affiliate-disclosure"], ["Contact", "/contact"]] },
+  { h: "Company", links: [["About us", "/about"], ["Editorial policy", "/editorial-policy"], ["How we review", "/editorial-policy"], ["Contact", "/contact"]] },
 ];
-const LEGAL = [["Privacy", "/privacy"], ["Terms", "/privacy"], ["Affiliate disclosure", "/affiliate-disclosure"], ["Contact", "/contact"]];
+const LEGAL = [["Privacy", "/privacy"], ["Terms", "/privacy"], ["Contact", "/contact"]];
 
 function Social({ d, label, href = "/" }) {
   return (
@@ -63,7 +63,7 @@ export function Footer({ logoSrc = "/logo-mark.svg", style = {} }) {
           </div>
         </div>
         <p style={{ margin: "20px 0 0", fontSize: "12px", color: "rgba(255,255,255,0.45)", lineHeight: 1.6, maxWidth: "720px" }}>
-          Healthy Pets provides general information only and is not a substitute for veterinary advice. Always consult your vet about your pet&apos;s health. We may earn commission from links to NZ retailers.
+          Healthy Pets provides general information only and is not a substitute for veterinary advice. Always consult your vet about your pet&apos;s health.
         </p>
       </div>
 

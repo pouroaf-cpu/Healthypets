@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { AuthorByline } from "./AuthorByline";
 import { FAQ } from "./FAQ";
-import { AffiliateDisclosure } from "./AffiliateDisclosure";
 import { Card } from "./Card";
 import { HPIcon } from "./Icons";
 import { EmailCapture } from "./EmailCapture";
@@ -35,7 +34,6 @@ export function ArticleTemplate({ doc }: { doc: any }) {
               <Figure id={doc.image} alt={doc.title} aspect="16 / 9" priority rounded />
             </div>
           )}
-          <AffiliateDisclosure variant="compact" style={{ marginBottom: 24 }} />
           <Mdx source={doc.body} />
 
           {/* Link up to the pillar / territory */}

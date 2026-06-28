@@ -44,7 +44,6 @@ export const FOOTER = {
     { label: "Contact", href: "/contact" },
   ],
   legal: [
-    { label: "Affiliate disclosure", href: "/affiliate-disclosure" },
     { label: "Privacy", href: "/privacy" },
   ],
 };
