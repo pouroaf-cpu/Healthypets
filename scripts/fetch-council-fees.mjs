@@ -27,11 +27,28 @@ const safeJSON = (s) => { try { return JSON.parse(s); } catch { return null; } }
 const slug = (n) => n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 function findFeesUrl(name) {
-  const web = safeJSON(fc(`search ${JSON.stringify(name + " dog registration fees")} --limit 6 --json`))?.data?.web || [];
-  // prefer a council .govt.nz/.nz page whose path looks like dog/animal fees
-  const gov = web.filter((r) => /\.govt\.nz|council\.nz|\.co\.nz/.test(r.url || "") && !/wikipedia|facebook|reddit|petmall|rnz/.test(r.url));
-  const feeish = gov.find((r) => /dog|animal|registration|fee/i.test(r.url));
-  return (feeish || gov[0] || web[0] || {}).url || "";
+  // Two queries — fee-schedule pages are usually titled "fees and charges", not the dog page.
+  const q1 = safeJSON(fc(`search ${JSON.stringify(name + " dog registration fees and charges")} --limit 6 --json`))?.data?.web || [];
+  const q2 = safeJSON(fc(`search ${JSON.stringify(name + " animal fees dog registration")} --limit 6 --json`))?.data?.web || [];
+  const seen = new Set();
+  const all = [...q1, ...q2].filter((r) => r.url && !seen.has(r.url) && seen.add(r.url));
+  const bad = /wikipedia|facebook|reddit|petmall|rnz|stuff\.co|topsouthnow|scoop|\/news\//i;
+  // Distinctive council token (longest word after dropping District/City/Council) — the chosen
+  // result MUST contain it in its url or title, so we never grab another council's fee page.
+  const key = name.toLowerCase().replace(/district|city|council|lakes|the/g, " ").trim().split(/\s+/).filter((w) => w.length > 3).sort((a, b) => b.length - a.length)[0] || "";
+  const scored = all
+    .filter((r) => /\.govt\.nz|council\.nz/.test(r.url) && !bad.test(r.url))
+    .filter((r) => !key || `${r.url} ${r.title || ""}`.toLowerCase().includes(key))
+    .map((r) => {
+      const u = r.url.toLowerCase();
+      let s = 0;
+      if (/fees|charges/.test(u)) s += 3; // fee-schedule pages win
+      if (/dog|animal/.test(u)) s += 1;
+      if (/register|registration/.test(u)) s += 1;
+      return { r, s };
+    })
+    .sort((a, b) => b.s - a.s);
+  return (scored[0]?.r || {}).url || "";
 }
 function feeLines(md) {
   return md.split("\n").filter((l) => /\$[0-9]/.test(l) && !/\$[0-9].{0,3}(million|m\b|,000,000)/i.test(l)).map((l) => l.trim()).slice(0, 22);

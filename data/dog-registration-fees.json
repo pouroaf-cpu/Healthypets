@@ -923,6 +923,362 @@
         "applicationFee": null,
         "url": "https://www.rotorualakescouncil.nz/dogs-animal-control/dogs-online-registration"
       }
+    },
+    {
+      "slug": "upper-hutt",
+      "name": "Upper Hutt City",
+      "type": "city",
+      "sourceUrl": "https://www.upperhutt.govt.nz/council/fees-and-charges/Animal-management",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 104,
+          "late": 155.5
+        },
+        {
+          "id": "ro-desexed",
+          "label": "Responsible owner — desexed",
+          "requires": {
+            "responsibleOwner": true,
+            "desexed": true
+          },
+          "onTime": 104,
+          "late": 155.5
+        },
+        {
+          "id": "ro",
+          "label": "Responsible owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 116,
+          "late": 173
+        },
+        {
+          "id": "desexed",
+          "label": "General — desexed",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 156,
+          "late": 232.5
+        },
+        {
+          "id": "entire",
+          "label": "General registration (entire)",
+          "requires": {},
+          "onTime": 173,
+          "late": 259.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Police dog",
+          "amount": 58.7,
+          "note": "late $87.55"
+        },
+        {
+          "label": "Classified dangerous dog",
+          "amount": 260,
+          "note": "late $385"
+        },
+        {
+          "label": "Micro-chipping",
+          "amount": 41.2
+        },
+        {
+          "label": "Permit to keep more than two dogs",
+          "amount": 82.4
+        }
+      ],
+      "notes": "",
+      "responsibleOwnerScheme": {
+        "name": "Responsible owner (SO)",
+        "applicationFee": null,
+        "url": "https://www.upperhutt.govt.nz/council/fees-and-charges/Animal-management"
+      }
+    },
+    {
+      "slug": "timaru",
+      "name": "Timaru District",
+      "type": "district",
+      "sourceUrl": "https://www.timaru.govt.nz/council/publications/fees-and-charges/dog-registration",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working / rural pet dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 51,
+          "late": 51
+        },
+        {
+          "id": "selected",
+          "label": "Selected dog owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 51,
+          "late": 51
+        },
+        {
+          "id": "neutered",
+          "label": "Neutered dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 82,
+          "late": 82
+        },
+        {
+          "id": "entire",
+          "label": "Entire dog (not desexed)",
+          "requires": {},
+          "onTime": 154,
+          "late": 154
+        }
+      ],
+      "extras": [
+        {
+          "label": "New puppy (3–12 months)",
+          "amount": 47
+        },
+        {
+          "label": "Dangerous dog (entire)",
+          "amount": 231,
+          "note": "neutered $123 / rural $77"
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 6
+        }
+      ],
+      "notes": "Single annual fee that pro-rates by month for dogs first registered after July; new-puppy registration is always $47. Confirm any late-payment penalty with the council.",
+      "responsibleOwnerScheme": {
+        "name": "Selected Owners Policy (SOP)",
+        "applicationFee": 54,
+        "url": "https://www.timaru.govt.nz/council/publications/fees-and-charges/dog-registration"
+      }
+    },
+    {
+      "slug": "waitaki",
+      "name": "Waitaki District",
+      "type": "district",
+      "sourceUrl": "https://www.waitaki.govt.nz/Services/Fees-and-Charges/Animal-Control",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working / farm pet dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 39,
+          "late": 39
+        },
+        {
+          "id": "selected",
+          "label": "Selected owner dog",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 52.5,
+          "late": 52.5
+        },
+        {
+          "id": "neutered",
+          "label": "Neutered non-working dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 105,
+          "late": 105
+        },
+        {
+          "id": "entire",
+          "label": "Non-working dog (entire)",
+          "requires": {},
+          "onTime": 130.5,
+          "late": 130.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Selected Owner / Multiple Dog Permit",
+          "amount": 50
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 10
+        }
+      ],
+      "notes": "Flat annual fee. Confirm any late-payment penalty with the council.",
+      "responsibleOwnerScheme": {
+        "name": "Selected owner",
+        "applicationFee": 50,
+        "url": "https://www.waitaki.govt.nz/Services/Fees-and-Charges/Animal-Control"
+      }
+    },
+    {
+      "slug": "horowhenua",
+      "name": "Horowhenua District",
+      "type": "district",
+      "sourceUrl": "https://www.horowhenua.govt.nz/Services/Home-Property/Dogs-Animals/Animal-Control-Fees-Charges",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 96.5,
+          "late": 96.5
+        },
+        {
+          "id": "rdoa-desexed",
+          "label": "Responsible Dog Owner Approval — desexed",
+          "requires": {
+            "responsibleOwner": true,
+            "desexed": true
+          },
+          "onTime": 109.5,
+          "late": 109.5
+        },
+        {
+          "id": "rdoa",
+          "label": "Responsible Dog Owner Approval — entire",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 154,
+          "late": 154
+        },
+        {
+          "id": "desexed",
+          "label": "De-sexed pet",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 130,
+          "late": 130
+        },
+        {
+          "id": "entire",
+          "label": "Entire pet",
+          "requires": {},
+          "onTime": 220,
+          "late": 220
+        }
+      ],
+      "extras": [
+        {
+          "label": "Dangerous dog (de-sexed)",
+          "amount": 195,
+          "note": "entire $330"
+        },
+        {
+          "label": "Superannuitant owner (desexed)",
+          "amount": 109.5
+        },
+        {
+          "label": "Replacement disc",
+          "amount": 8.9
+        }
+      ],
+      "notes": "2026/27 fees (flat annual). A late-registration penalty applies to puppies first registered after nine months; confirm the general late penalty with the council.",
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner Approval (RDOA)",
+        "applicationFee": 78.5,
+        "url": "https://www.horowhenua.govt.nz/Services/Home-Property/Dogs-Animals/Animal-Control-Fees-Charges"
+      }
     }
   ]
 }

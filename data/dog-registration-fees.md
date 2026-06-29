@@ -116,6 +116,7 @@ Status: ✅ verified · ⬜ to do · ⚠️ needs attention (JS page / unusual s
 | 66 | Invercargill City | | | | ⬜ |
 | 67 | Chatham Islands (territory) | | | | ⬜ |
 
+**Progress: 17 / 67 verified.** 2026-06-30 (local Firecrawl): + Upper Hutt, Timaru, Waitaki, Horowhenua (Horowhenua already on 2026/27). Improved scraper targeting (fees-and-charges query + cross-council domain guard — caught Gisborne/Napier→Hastings and S.Taranaki→Taupō PDF mismatches). Still buried/JS/PDF: Gisborne, Napier, Kāpiti, Dunedin, Invercargill, Ashburton, Manawatū, South Taranaki, Tasman (news-only).
 **Progress: 13 / 67 verified.** 2026-06-29: Auckland, Wellington, Christchurch, Hamilton, Tauranga.
 2026-06-30: Palmerston North, Lower Hutt, Nelson, Whangārei, Hastings (2025/26 — re-check 1 Jul);
 Taupō, Selwyn, Rotorua (already on **2026/27**, no re-check needed).
