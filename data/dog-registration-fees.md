@@ -122,3 +122,26 @@ Taupō, Selwyn, Rotorua (already on **2026/27**, no re-check needed).
 Remaining 54 + the five 2025/26 ones → bulk pass on/after **1 July 2026** (TASK 2).
 Still need re-targeting (wrong page / JS / PDF): Dunedin, Queenstown, Kāpiti, Porirua, Marlborough,
 Waimakariri, Gisborne, Invercargill, New Plymouth, Napier, Western Bay of Plenty, Waikato District.
+
+### 2026-06-29 — annual 2026/27 pass attempted, **could not complete (blocked)**
+The 1 July 2026/27 refresh was attempted but **no fee numbers were changed**, for two reasons:
+
+1. **Most council fee pages block automated fetching.** Of 14 council pages probed with the
+   `WebFetch` tool (the only scraper available this run — no local Firecrawl CLI), only **3 were
+   reachable**: Christchurch, Hamilton, Tauranga. The other **11 returned HTTP 403/406**:
+   Auckland, Wellington, Taupō, Selwyn, Dunedin, Palmerston North, Whangārei, Rotorua, Hutt City,
+   Nelson, Hastings. This is **upstream WAF blocking by the councils' own servers** — confirmed
+   *not* an egress-policy denial (agent-proxy `recentRelayFailures` was empty).
+2. **The 2026/27 schedules aren't republished yet.** The 3 reachable pages still showed the
+   **2025/26** figures unchanged (Christchurch's page header still reads "2025/2026", early-payment
+   due "31 July 2025"; Hamilton Cat 1 $97 / Cat 2 $177 and Tauranga $133/$199.50 are identical to
+   the values already on file). As of 29 Jun the new-year fees were not yet live, even though the
+   Auckland 2026/27 *season* news post exists.
+
+Per the project rule (*never invent figures, never trust third-party aggregators like petme /
+petrescue, "better blank than wrong"*), nothing was bulk-bumped. The existing **13 councils remain
+valid for 2025/26** (already `lastVerified` 2026-06-29 for the reachable ones).
+
+**Next run:** re-attempt on/after **1 July 2026** once councils republish, and use a fetch path that
+isn't WAF-blocked — the Firecrawl scraper in `scripts/fetch-council-fees.mjs`, which `WebFetch`
+cannot substitute for on ~80% of council sites.
