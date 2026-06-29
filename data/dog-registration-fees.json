@@ -181,6 +181,59 @@
         { "label": "Apply to keep more than two dogs", "amount": 35 }
       ],
       "notes": "No separate desexed discount in the main schedule."
+    },
+    {
+      "slug": "taupo", "name": "Taupō District", "type": "district",
+      "sourceUrl": "https://www.taupodc.govt.nz/rules-regulations-and-licenses/dogs-and-other-animals/1registration",
+      "lastVerified": "2026-06-30", "year": "2026/27",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
+        { "id": "working", "label": "Working dog", "requires": { "workingDog": true }, "onTime": 43, "late": 43 },
+        { "id": "responsible", "label": "Responsible Owner (entire)", "requires": { "responsibleOwner": true }, "onTime": 80, "late": 100, "note": "Late adds the ~$20 penalty — confirm with council." },
+        { "id": "desexed", "label": "Desexed dog", "requires": { "desexed": true }, "onTime": 105, "late": 125, "note": "Entire fee less the $15 desexed discount." },
+        { "id": "entire", "label": "Entire dog", "requires": {}, "onTime": 120, "late": 140 }
+      ],
+      "extras": [
+        { "label": "Responsible Owner application fee", "amount": 43 },
+        { "label": "Replacement tag", "amount": 16 },
+        { "label": "Keep more than two dogs (urban)", "amount": 135 }
+      ],
+      "notes": "2026/27 fees. Late is a flat +$20 after 31 July; $15 discount for desexed dogs."
+    },
+    {
+      "slug": "selwyn", "name": "Selwyn District", "type": "district",
+      "sourceUrl": "https://www.selwyn.govt.nz/services/dogs-And-animals/dogs/fees-and-charges",
+      "lastVerified": "2026-06-30", "year": "2026/27",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": false, "workingRate": false, "responsibleOwner": false },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
+        { "id": "standard", "label": "Dog registration", "requires": {}, "onTime": 68, "late": 102 }
+      ],
+      "extras": [
+        { "label": "Dangerous dog", "amount": 102, "note": "late $153" },
+        { "label": "Replacement tag", "amount": 5.14 },
+        { "label": "Kennel licence application", "amount": 123.24 }
+      ],
+      "notes": "2026/27 fees. Flat fee; 50% late penalty after 31 July; pro-rata for pups registered mid-year. Confirm any desexed/working discount with the council."
+    },
+    {
+      "slug": "rotorua", "name": "Rotorua Lakes", "type": "district",
+      "sourceUrl": "https://www.rotorualakescouncil.nz/dogs-animal-control/dogs-online-registration",
+      "lastVerified": "2026-06-30", "year": "2026/27",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
+        { "id": "rural", "label": "Rural domiciled dog", "requires": { "workingDog": true }, "onTime": 90, "late": 135 },
+        { "id": "selected", "label": "Selected dog owner status", "requires": { "responsibleOwner": true }, "onTime": 90, "late": 135 },
+        { "id": "desexed", "label": "Desexed dog (urban)", "requires": { "desexed": true }, "onTime": 114, "late": 176.5, "note": "Urban fee less the $11 desexing rebate." },
+        { "id": "urban", "label": "Urban domiciled dog", "requires": {}, "onTime": 125, "late": 187.5 }
+      ],
+      "extras": [{ "label": "Microchip implant", "amount": 34 }],
+      "notes": "2026/27 fees. Late penalty is a flat add-on ($62.50 urban / $45 rural); $11 rebate for desexed dogs."
     }
   ]
 }
