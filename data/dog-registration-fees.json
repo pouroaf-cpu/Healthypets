@@ -95,6 +95,92 @@
         { "label": "Kennel licence (more than two dogs)", "amount": 103 }
       ],
       "notes": "Tauranga charges a single flat fee (no desexed/working/owner discount in the main schedule)."
+    },
+    {
+      "slug": "palmerston-north", "name": "Palmerston North City", "type": "city",
+      "sourceUrl": "https://www.pncc.govt.nz/Services/Dogs-and-other-animals/Dogs/Register-your-dog",
+      "lastVerified": "2026-06-30", "year": "2025/26",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law (Dog Control Act 1996)." },
+        { "id": "working", "label": "Rural working dog", "requires": { "workingDog": true }, "onTime": 65, "late": 97.5 },
+        { "id": "preferred", "label": "Preferred owner", "requires": { "responsibleOwner": true }, "onTime": 103, "late": 154.5 },
+        { "id": "desexed", "label": "Desexed dog", "requires": { "desexed": true }, "onTime": 140, "late": 210 },
+        { "id": "entire", "label": "General registration (entire)", "requires": {}, "onTime": 189, "late": 283.5 }
+      ],
+      "extras": [],
+      "notes": "Infringement fee for an unregistered dog is $300."
+    },
+    {
+      "slug": "hutt-city", "name": "Lower Hutt (Hutt City)", "type": "city",
+      "sourceUrl": "https://www.huttcity.govt.nz/services/dogs/fees-and-charges",
+      "lastVerified": "2026-06-30", "year": "2025/26",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
+        { "id": "working", "label": "Working dog", "requires": { "workingDog": true }, "onTime": 95, "late": 95 },
+        { "id": "rdo", "label": "Responsible Dog Owner (RDO)", "requires": { "responsibleOwner": true }, "onTime": 95, "late": 195, "note": "Late reverts to standard: $195 neutered / $253 entire." },
+        { "id": "neutered", "label": "Neutered dog", "requires": { "desexed": true }, "onTime": 138, "late": 195 },
+        { "id": "entire", "label": "Entire dog", "requires": {}, "onTime": 194, "late": 253 }
+      ],
+      "extras": [
+        { "label": "Working dog (secondary)", "amount": 48.5 },
+        { "label": "Classified dangerous dog", "amount": 230, "note": "late $310" }
+      ],
+      "notes": ""
+    },
+    {
+      "slug": "nelson", "name": "Nelson City", "type": "unitary",
+      "sourceUrl": "https://www.nelson.govt.nz/2services/91dog-control/dog-ownership-fees",
+      "lastVerified": "2026-06-30", "year": "2025/26",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": false },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
+        { "id": "working", "label": "Community working dog (police/seeing-eye/hearing)", "requires": { "workingDog": true }, "onTime": 5.79, "late": 5.79 },
+        { "id": "desexed", "label": "Desexed dog", "requires": { "desexed": true }, "onTime": 67.37, "late": 101.06 },
+        { "id": "entire", "label": "Standard dog", "requires": {}, "onTime": 121.06, "late": 181.59 }
+      ],
+      "extras": [{ "label": "Microchip insertion", "amount": 46.32 }],
+      "notes": "Fee reduces pro-rata each month if first registered after July. 50% penalty after 1 August."
+    },
+    {
+      "slug": "whangarei", "name": "Whangārei District", "type": "district",
+      "sourceUrl": "https://www.wdc.govt.nz/Council/Council-documents/Fees-and-Charges/Animal-Fees",
+      "lastVerified": "2026-06-30", "year": "2025/26",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": false },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
+        { "id": "working", "label": "Working dog", "requires": { "workingDog": true }, "onTime": 83, "late": 125 },
+        { "id": "desexed", "label": "Desexed pet", "requires": { "desexed": true }, "onTime": 108, "late": 162 },
+        { "id": "entire", "label": "Pet (entire)", "requires": {}, "onTime": 124, "late": 186 }
+      ],
+      "extras": [
+        { "label": "Dangerous dog", "amount": 270, "note": "late $405" },
+        { "label": "Replacement tag", "amount": 9 }
+      ],
+      "notes": ""
+    },
+    {
+      "slug": "hastings", "name": "Hastings District", "type": "district",
+      "sourceUrl": "https://www.hastingsdc.govt.nz/services/animal-education/fees-and-costs/",
+      "lastVerified": "2026-06-30", "year": "2025/26",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": false, "workingRate": true, "responsibleOwner": true },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
+        { "id": "working", "label": "Rural/working dog", "requires": { "workingDog": true }, "onTime": 70, "late": 105 },
+        { "id": "selected", "label": "Selected Owner Policy", "requires": { "responsibleOwner": true }, "onTime": 97, "late": 145 },
+        { "id": "full", "label": "Full fee", "requires": {}, "onTime": 140, "late": 210 }
+      ],
+      "extras": [
+        { "label": "Micro-chipping (incl. chip)", "amount": 51 },
+        { "label": "Apply to keep more than two dogs", "amount": 35 }
+      ],
+      "notes": "No separate desexed discount in the main schedule."
     }
   ]
 }
