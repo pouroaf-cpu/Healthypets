@@ -34,7 +34,22 @@ export type Council = {
   categories: FeeCategory[];
   extras: Extra[];
   notes?: string;
+  responsibleOwnerScheme?: { name: string; applicationFee: number | null; url: string };
 };
+
+// Generic "how to qualify" for a council good-owner scheme — the specifics vary by council,
+// so we keep this general and link to the council. (Per-council criteria to be added later.)
+export const RESPONSIBLE_OWNER_CRITERIA =
+  "Typically you must apply and qualify: no recent dog infringements or convictions, your dog microchipped (and often desexed), a securely fenced property, and a history of on-time registration. Criteria vary by council — check yours.";
+
+// National "menacing by breed" list under the Dog Control Act 1996 (same for every council).
+export const MENACING_BREEDS = [
+  "American Pit Bull Terrier",
+  "Dogo Argentino",
+  "Brazilian Fila (Fila Brasileiro)",
+  "Japanese Tosa",
+  "Perro de Presa Canario",
+];
 
 const COUNCILS = (data.councils as Council[]).slice().sort((a, b) => a.name.localeCompare(b.name));
 export const META = data._meta as { year: string; yearRuns: string; lastBulkVerified: string; note: string };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DogRegFeeCalculator } from "@/components/tools/DogRegFeeCalculator";
-import { META, listCouncils } from "@/lib/dog-reg-fees";
+import { META, listCouncils, MENACING_BREEDS } from "@/lib/dog-reg-fees";
 
 const CAVEATS: { t: string; d: string }[] = [
   { t: "Guide, hearing & disability assist dogs are free", d: "Registration is free for certified assist dogs everywhere, by law (Dog Control Act 1996)." },
@@ -88,6 +88,31 @@ export default function DogRegFeesPage() {
               ))}
             </div>
           </div>
+
+          {/* Dangerous & menacing breeds — national, not per-council. Expandable info box. */}
+          <details style={{ marginTop: 36, background: "var(--white)", border: "1px solid var(--border)", borderRadius: "var(--radius-md)" }}>
+            <summary style={{ cursor: "pointer", listStyle: "none", padding: "14px 18px", fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 16, color: "var(--ink)", display: "flex", alignItems: "center", gap: 10 }}>
+              <span aria-hidden="true" style={{ flex: "none", width: 22, height: 22, borderRadius: "50%", background: "var(--green-primary)", color: "#fff", display: "grid", placeItems: "center", fontSize: 13, fontWeight: 700 }}>i</span>
+              Dangerous &amp; menacing breeds — what NZ law says
+              <span aria-hidden="true" style={{ marginLeft: "auto", color: "var(--ink-muted)", fontSize: 13 }}>tap to expand</span>
+            </summary>
+            <div style={{ padding: "0 18px 16px", fontSize: 14.5, lineHeight: 1.7, color: "var(--ink-soft)" }}>
+              <p style={{ margin: "0 0 10px" }}>
+                Unlike the fees, the <strong>breed list is national, not set by councils.</strong> Under the Dog Control Act 1996,
+                dogs of these breeds/types are <strong>&ldquo;menacing by breed&rdquo;</strong> everywhere in NZ — they must be
+                muzzled in public and neutered:
+              </p>
+              <ul style={{ margin: "0 0 10px", paddingLeft: 20 }}>
+                {MENACING_BREEDS.map((b) => <li key={b} style={{ marginBottom: 2 }}>{b}</li>)}
+              </ul>
+              <p style={{ margin: 0 }}>
+                Importing these breeds is banned. Separately, a council can classify any individual dog as
+                <strong> menacing or dangerous by behaviour</strong> (e.g. after an attack) — that&apos;s case-by-case, not
+                breed-based. What <em>does</em> vary between councils is the <strong>dangerous-dog registration fee</strong>,
+                not the breed list.
+              </p>
+            </div>
+          </details>
 
           <div style={{ marginTop: 36, fontSize: 14.5, lineHeight: 1.7, color: "var(--ink-soft)" }}>
             <h2 style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 20, color: "var(--ink)", margin: "0 0 8px" }}>

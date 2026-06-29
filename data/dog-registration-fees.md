@@ -33,6 +33,14 @@ Per-council categories vary. Common axes captured: `onTime` vs `late` fee, `dese
 disability-assist (usually free), plus `extras` (microchip, multi-dog permit, dangerous dog),
 `cutoffDate`, `penaltyRule`, optional `proRataByMonth`.
 
+**Also collect (added 2026-06-30):**
+- `responsibleOwnerScheme: { name, applicationFee, url }` — the council's good-owner discount
+  scheme. Powers the info box that pops up when the "responsible owner" toggle is on. Capture the
+  scheme's own page URL + any per-council qualifying criteria where available (generic criteria
+  live in `lib/dog-reg-fees.ts RESPONSIBLE_OWNER_CRITERIA` for now).
+- `dangerousDog: { onTime, late }` — the dangerous-dog registration fee (varies per council; the
+  menacing *breed* list is national, see `MENACING_BREEDS`, so it is NOT per-council data).
+
 ---
 
 ## Councils (67 territorial authorities)

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   listCouncils, getCouncil, matchCategory, tierForDate, amountForTier,
-  fmt, TIER_LABEL, META, type Selection, type Tier,
+  fmt, TIER_LABEL, META, RESPONSIBLE_OWNER_CRITERIA, type Selection, type Tier,
 } from "@/lib/dog-reg-fees";
 
 const TOGGLES: { key: keyof Selection; label: string; hint: string }[] = [
@@ -122,6 +122,23 @@ export function DogRegFeeCalculator() {
           <div style={{ marginTop: 16, fontSize: 14, color: "var(--ink-soft)" }}>
             <strong style={{ color: "var(--ink)" }}>Due date:</strong> {council.dueDate} each year (registration year {META.yearRuns}).
           </div>
+
+          {/* Pops up when the responsible-owner toggle is on and this council runs a scheme */}
+          {sel.responsibleOwner && council.responsibleOwnerScheme && (
+            <div style={{ marginTop: 16, padding: "14px 16px", background: "var(--green-light)", border: "1px solid var(--border)", borderRadius: "var(--radius-md)" }}>
+              <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 6 }}>
+                <span aria-hidden="true" style={{ flex: "none", width: 20, height: 20, borderRadius: "50%", background: "var(--green-primary)", color: "#fff", display: "grid", placeItems: "center", fontSize: 12, fontWeight: 700, fontFamily: "var(--font-heading)" }}>i</span>
+                <strong style={{ fontFamily: "var(--font-heading)", fontSize: 15, color: "var(--ink)" }}>{council.responsibleOwnerScheme.name} — how to get this rate</strong>
+              </div>
+              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.6, color: "var(--ink-soft)" }}>
+                {RESPONSIBLE_OWNER_CRITERIA}
+                {council.responsibleOwnerScheme.applicationFee ? ` A one-off application fee of ${fmt(council.responsibleOwnerScheme.applicationFee)} applies.` : ""}{" "}
+                <a href={council.responsibleOwnerScheme.url} target="_blank" rel="noopener noreferrer" style={{ color: "var(--green-dark)", textDecoration: "underline", fontWeight: 600 }}>
+                  Apply / details ↗
+                </a>
+              </p>
+            </div>
+          )}
 
           {council.extras.length > 0 && (
             <div style={{ marginTop: 14 }}>

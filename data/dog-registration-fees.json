@@ -7,233 +7,922 @@
   },
   "councils": [
     {
-      "slug": "auckland", "name": "Auckland", "type": "unitary",
+      "slug": "auckland",
+      "name": "Auckland",
+      "type": "unitary",
       "sourceUrl": "https://www.aucklandcouncil.govt.nz/en/dogs-animals/register-your-dog/dog-registration-discounts.html",
-      "lastVerified": "2026-06-29", "year": "2025/26",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "lastVerified": "2026-06-29",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0 },
-        { "id": "working", "label": "Working dog", "requires": { "workingDog": true }, "onTime": 41, "late": 50 },
-        { "id": "rdol-desexed", "label": "Responsible Dog Owner Licence — desexed", "requires": { "responsibleOwner": true, "desexed": true }, "onTime": 78, "late": 171 },
-        { "id": "rdol-standard", "label": "Responsible Dog Owner Licence — standard", "requires": { "responsibleOwner": true }, "onTime": 92, "late": 225 },
-        { "id": "desexed", "label": "Desexed dog", "requires": { "desexed": true }, "onTime": 131, "late": 171 },
-        { "id": "standard", "label": "Standard dog (entire)", "requires": {}, "onTime": 182, "late": 225 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 41,
+          "late": 50
+        },
+        {
+          "id": "rdol-desexed",
+          "label": "Responsible Dog Owner Licence — desexed",
+          "requires": {
+            "responsibleOwner": true,
+            "desexed": true
+          },
+          "onTime": 78,
+          "late": 171
+        },
+        {
+          "id": "rdol-standard",
+          "label": "Responsible Dog Owner Licence — standard",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 92,
+          "late": 225
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 131,
+          "late": 171
+        },
+        {
+          "id": "standard",
+          "label": "Standard dog (entire)",
+          "requires": {},
+          "onTime": 182,
+          "late": 225
+        }
       ],
       "extras": [
-        { "label": "SuperGold Community Services combo card holder", "amount": 79, "note": "alternative rate; late $103" }
+        {
+          "label": "SuperGold Community Services combo card holder",
+          "amount": 79,
+          "note": "alternative rate; late $103"
+        }
       ],
-      "notes": "All fees include the $2.50 National Dog Database levy."
+      "notes": "All fees include the $2.50 National Dog Database levy.",
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner Licence (RDOL)",
+        "applicationFee": null,
+        "url": "https://www.aucklandcouncil.govt.nz/en/dogs-animals/register-your-dog/dog-registration-discounts.html"
+      }
     },
     {
-      "slug": "wellington", "name": "Wellington City", "type": "city",
+      "slug": "wellington",
+      "name": "Wellington City",
+      "type": "city",
       "sourceUrl": "https://wellington.govt.nz/dogs-and-other-animals/dogs/register-your-dog/fees",
-      "lastVerified": "2026-06-29", "year": "2025/26",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "lastVerified": "2026-06-29",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
       "categories": [
-        { "id": "guide", "label": "Approved guide/hearing dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0 },
-        { "id": "working", "label": "Working dog", "requires": { "workingDog": true }, "onTime": 61, "late": 92 },
-        { "id": "accredited", "label": "Accredited Dog Owner", "requires": { "responsibleOwner": true }, "onTime": 71.5, "late": 217.5, "note": "Late reverts to standard: $217.50 desexed / $300 entire." },
-        { "id": "desexed", "label": "Desexed dog", "requires": { "desexed": true }, "onTime": 145, "late": 217.5 },
-        { "id": "entire", "label": "Entire dog", "requires": {}, "onTime": 200, "late": 300 }
+        {
+          "id": "guide",
+          "label": "Approved guide/hearing dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 61,
+          "late": 92
+        },
+        {
+          "id": "accredited",
+          "label": "Accredited Dog Owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 71.5,
+          "late": 217.5,
+          "note": "Late reverts to standard: $217.50 desexed / $300 entire."
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 145,
+          "late": 217.5
+        },
+        {
+          "id": "entire",
+          "label": "Entire dog",
+          "requires": {},
+          "onTime": 200,
+          "late": 300
+        }
       ],
       "extras": [
-        { "label": "Multiple-dog application (more than three dogs)", "amount": 42 },
-        { "label": "Replacement registration tag", "amount": 14.25 }
+        {
+          "label": "Multiple-dog application (more than three dogs)",
+          "amount": 42
+        },
+        {
+          "label": "Replacement registration tag",
+          "amount": 14.25
+        }
       ],
-      "notes": "Includes the $2.50 National Dog Database levy. Puppies are charged pro-rata to 30 June."
+      "notes": "Includes the $2.50 National Dog Database levy. Puppies are charged pro-rata to 30 June.",
+      "responsibleOwnerScheme": {
+        "name": "Accredited Dog Owner",
+        "applicationFee": null,
+        "url": "https://wellington.govt.nz/dogs-and-other-animals/dogs/register-your-dog/fees"
+      }
     },
     {
-      "slug": "christchurch", "name": "Christchurch City", "type": "city",
+      "slug": "christchurch",
+      "name": "Christchurch City",
+      "type": "city",
       "sourceUrl": "https://ccc.govt.nz/the-council/plans-strategies-policies-and-bylaws/plans/long-term-plan-and-annual-plans/fees-and-charges/fees-animal-management",
-      "lastVerified": "2026-06-29", "year": "2025/26",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "lastVerified": "2026-06-29",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0 },
-        { "id": "working", "label": "Working/rural dog (first dog)", "requires": { "workingDog": true }, "onTime": 31, "late": 45 },
-        { "id": "rdo", "label": "Responsible Dog Owner (first dog)", "requires": { "responsibleOwner": true }, "onTime": 62, "late": 93 },
-        { "id": "desexed", "label": "Spayed/neutered dog", "requires": { "desexed": true }, "onTime": 86, "late": 129 },
-        { "id": "entire", "label": "Un-neutered dog", "requires": {}, "onTime": 98, "late": 147 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0
+        },
+        {
+          "id": "working",
+          "label": "Working/rural dog (first dog)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 31,
+          "late": 45
+        },
+        {
+          "id": "rdo",
+          "label": "Responsible Dog Owner (first dog)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 62,
+          "late": 93
+        },
+        {
+          "id": "desexed",
+          "label": "Spayed/neutered dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 86,
+          "late": 129
+        },
+        {
+          "id": "entire",
+          "label": "Un-neutered dog",
+          "requires": {},
+          "onTime": 98,
+          "late": 147
+        }
       ],
       "extras": [
-        { "label": "More-than-two-dogs licence", "amount": 75 },
-        { "label": "Dangerous dog (un-neutered)", "amount": 147, "note": "late $220" }
+        {
+          "label": "More-than-two-dogs licence",
+          "amount": 75
+        },
+        {
+          "label": "Dangerous dog (un-neutered)",
+          "amount": 147,
+          "note": "late $220"
+        }
       ],
-      "notes": "Fee reduces pro-rata each month if first registered partway through the year."
+      "notes": "Fee reduces pro-rata each month if first registered partway through the year.",
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner (RDO)",
+        "applicationFee": null,
+        "url": "https://ccc.govt.nz/the-council/plans-strategies-policies-and-bylaws/plans/long-term-plan-and-annual-plans/fees-and-charges/fees-animal-management"
+      }
     },
     {
-      "slug": "hamilton", "name": "Hamilton City", "type": "city",
+      "slug": "hamilton",
+      "name": "Hamilton City",
+      "type": "city",
       "sourceUrl": "https://hamilton.govt.nz/do-it-online/pay-it/renew-a-dog-registration",
-      "lastVerified": "2026-06-29", "year": "2025/26",
-      "dueDate": "30 June", "cutoffs": { "afterDueFrom": "07-01", "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": false, "workingRate": false, "responsibleOwner": true },
+      "lastVerified": "2026-06-29",
+      "year": "2025/26",
+      "dueDate": "30 June",
+      "cutoffs": {
+        "afterDueFrom": "07-01",
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": false,
+        "responsibleOwner": true
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "afterDue": 0, "late": 0, "note": "Free by law (Dog Control Act 1996)." },
-        { "id": "cat1", "label": "Category 1 (responsible/known good owner)", "requires": { "responsibleOwner": true }, "onTime": 97, "afterDue": 113, "late": 169.5 },
-        { "id": "cat2", "label": "Category 2 (standard)", "requires": {}, "onTime": 177, "afterDue": 192, "late": 288 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "afterDue": 0,
+          "late": 0,
+          "note": "Free by law (Dog Control Act 1996)."
+        },
+        {
+          "id": "cat1",
+          "label": "Category 1 (responsible/known good owner)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 97,
+          "afterDue": 113,
+          "late": 169.5
+        },
+        {
+          "id": "cat2",
+          "label": "Category 2 (standard)",
+          "requires": {},
+          "onTime": 177,
+          "afterDue": 192,
+          "late": 288
+        }
       ],
       "extras": [
-        { "label": "Permit to keep 3+ dogs", "amount": 90, "note": "then $43/yr to renew" }
+        {
+          "label": "Permit to keep 3+ dogs",
+          "amount": 90,
+          "note": "then $43/yr to renew"
+        }
       ],
-      "notes": "Hamilton classifies by owner Category, not desexed/working. Extra $15 discount for renewing by 30 June; +50% penalty after 31 July."
+      "notes": "Hamilton classifies by owner Category, not desexed/working. Extra $15 discount for renewing by 30 June; +50% penalty after 31 July.",
+      "responsibleOwnerScheme": {
+        "name": "Category 1 (responsible owner)",
+        "applicationFee": null,
+        "url": "https://hamilton.govt.nz/do-it-online/pay-it/renew-a-dog-registration"
+      }
     },
     {
-      "slug": "tauranga", "name": "Tauranga City", "type": "city",
+      "slug": "tauranga",
+      "name": "Tauranga City",
+      "type": "city",
       "sourceUrl": "https://www.tauranga.govt.nz/Council/Fees-and-charges/Animal-service-fees",
-      "lastVerified": "2026-06-29", "year": "2025/26",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": false, "workingRate": false, "responsibleOwner": false },
+      "lastVerified": "2026-06-29",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": false,
+        "responsibleOwner": false
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law (Dog Control Act 1996)." },
-        { "id": "normal", "label": "Normal dog", "requires": {}, "onTime": 133, "late": 199.5 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law (Dog Control Act 1996)."
+        },
+        {
+          "id": "normal",
+          "label": "Normal dog",
+          "requires": {},
+          "onTime": 133,
+          "late": 199.5
+        }
       ],
       "extras": [
-        { "label": "Microchip fee", "amount": 34 },
-        { "label": "Dangerous dog (classified)", "amount": 199.5, "note": "late $299.20" },
-        { "label": "Kennel licence (more than two dogs)", "amount": 103 }
+        {
+          "label": "Microchip fee",
+          "amount": 34
+        },
+        {
+          "label": "Dangerous dog (classified)",
+          "amount": 199.5,
+          "note": "late $299.20"
+        },
+        {
+          "label": "Kennel licence (more than two dogs)",
+          "amount": 103
+        }
       ],
       "notes": "Tauranga charges a single flat fee (no desexed/working/owner discount in the main schedule)."
     },
     {
-      "slug": "palmerston-north", "name": "Palmerston North City", "type": "city",
+      "slug": "palmerston-north",
+      "name": "Palmerston North City",
+      "type": "city",
       "sourceUrl": "https://www.pncc.govt.nz/Services/Dogs-and-other-animals/Dogs/Register-your-dog",
-      "lastVerified": "2026-06-30", "year": "2025/26",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law (Dog Control Act 1996)." },
-        { "id": "working", "label": "Rural working dog", "requires": { "workingDog": true }, "onTime": 65, "late": 97.5 },
-        { "id": "preferred", "label": "Preferred owner", "requires": { "responsibleOwner": true }, "onTime": 103, "late": 154.5 },
-        { "id": "desexed", "label": "Desexed dog", "requires": { "desexed": true }, "onTime": 140, "late": 210 },
-        { "id": "entire", "label": "General registration (entire)", "requires": {}, "onTime": 189, "late": 283.5 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law (Dog Control Act 1996)."
+        },
+        {
+          "id": "working",
+          "label": "Rural working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 65,
+          "late": 97.5
+        },
+        {
+          "id": "preferred",
+          "label": "Preferred owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 103,
+          "late": 154.5
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 140,
+          "late": 210
+        },
+        {
+          "id": "entire",
+          "label": "General registration (entire)",
+          "requires": {},
+          "onTime": 189,
+          "late": 283.5
+        }
       ],
       "extras": [],
-      "notes": "Infringement fee for an unregistered dog is $300."
+      "notes": "Infringement fee for an unregistered dog is $300.",
+      "responsibleOwnerScheme": {
+        "name": "Preferred owner",
+        "applicationFee": null,
+        "url": "https://www.pncc.govt.nz/Services/Dogs-and-other-animals/Dogs/Register-your-dog"
+      }
     },
     {
-      "slug": "hutt-city", "name": "Lower Hutt (Hutt City)", "type": "city",
+      "slug": "hutt-city",
+      "name": "Lower Hutt (Hutt City)",
+      "type": "city",
       "sourceUrl": "https://www.huttcity.govt.nz/services/dogs/fees-and-charges",
-      "lastVerified": "2026-06-30", "year": "2025/26",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
-        { "id": "working", "label": "Working dog", "requires": { "workingDog": true }, "onTime": 95, "late": 95 },
-        { "id": "rdo", "label": "Responsible Dog Owner (RDO)", "requires": { "responsibleOwner": true }, "onTime": 95, "late": 195, "note": "Late reverts to standard: $195 neutered / $253 entire." },
-        { "id": "neutered", "label": "Neutered dog", "requires": { "desexed": true }, "onTime": 138, "late": 195 },
-        { "id": "entire", "label": "Entire dog", "requires": {}, "onTime": 194, "late": 253 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 95,
+          "late": 95
+        },
+        {
+          "id": "rdo",
+          "label": "Responsible Dog Owner (RDO)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 95,
+          "late": 195,
+          "note": "Late reverts to standard: $195 neutered / $253 entire."
+        },
+        {
+          "id": "neutered",
+          "label": "Neutered dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 138,
+          "late": 195
+        },
+        {
+          "id": "entire",
+          "label": "Entire dog",
+          "requires": {},
+          "onTime": 194,
+          "late": 253
+        }
       ],
       "extras": [
-        { "label": "Working dog (secondary)", "amount": 48.5 },
-        { "label": "Classified dangerous dog", "amount": 230, "note": "late $310" }
+        {
+          "label": "Working dog (secondary)",
+          "amount": 48.5
+        },
+        {
+          "label": "Classified dangerous dog",
+          "amount": 230,
+          "note": "late $310"
+        }
       ],
-      "notes": ""
+      "notes": "",
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner (RDO)",
+        "applicationFee": null,
+        "url": "https://www.huttcity.govt.nz/services/dogs/fees-and-charges"
+      }
     },
     {
-      "slug": "nelson", "name": "Nelson City", "type": "unitary",
+      "slug": "nelson",
+      "name": "Nelson City",
+      "type": "unitary",
       "sourceUrl": "https://www.nelson.govt.nz/2services/91dog-control/dog-ownership-fees",
-      "lastVerified": "2026-06-30", "year": "2025/26",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": false },
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
-        { "id": "working", "label": "Community working dog (police/seeing-eye/hearing)", "requires": { "workingDog": true }, "onTime": 5.79, "late": 5.79 },
-        { "id": "desexed", "label": "Desexed dog", "requires": { "desexed": true }, "onTime": 67.37, "late": 101.06 },
-        { "id": "entire", "label": "Standard dog", "requires": {}, "onTime": 121.06, "late": 181.59 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Community working dog (police/seeing-eye/hearing)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 5.79,
+          "late": 5.79
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 67.37,
+          "late": 101.06
+        },
+        {
+          "id": "entire",
+          "label": "Standard dog",
+          "requires": {},
+          "onTime": 121.06,
+          "late": 181.59
+        }
       ],
-      "extras": [{ "label": "Microchip insertion", "amount": 46.32 }],
+      "extras": [
+        {
+          "label": "Microchip insertion",
+          "amount": 46.32
+        }
+      ],
       "notes": "Fee reduces pro-rata each month if first registered after July. 50% penalty after 1 August."
     },
     {
-      "slug": "whangarei", "name": "Whangārei District", "type": "district",
+      "slug": "whangarei",
+      "name": "Whangārei District",
+      "type": "district",
       "sourceUrl": "https://www.wdc.govt.nz/Council/Council-documents/Fees-and-Charges/Animal-Fees",
-      "lastVerified": "2026-06-30", "year": "2025/26",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": false },
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
-        { "id": "working", "label": "Working dog", "requires": { "workingDog": true }, "onTime": 83, "late": 125 },
-        { "id": "desexed", "label": "Desexed pet", "requires": { "desexed": true }, "onTime": 108, "late": 162 },
-        { "id": "entire", "label": "Pet (entire)", "requires": {}, "onTime": 124, "late": 186 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 83,
+          "late": 125
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed pet",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 108,
+          "late": 162
+        },
+        {
+          "id": "entire",
+          "label": "Pet (entire)",
+          "requires": {},
+          "onTime": 124,
+          "late": 186
+        }
       ],
       "extras": [
-        { "label": "Dangerous dog", "amount": 270, "note": "late $405" },
-        { "label": "Replacement tag", "amount": 9 }
+        {
+          "label": "Dangerous dog",
+          "amount": 270,
+          "note": "late $405"
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 9
+        }
       ],
       "notes": ""
     },
     {
-      "slug": "hastings", "name": "Hastings District", "type": "district",
+      "slug": "hastings",
+      "name": "Hastings District",
+      "type": "district",
       "sourceUrl": "https://www.hastingsdc.govt.nz/services/animal-education/fees-and-costs/",
-      "lastVerified": "2026-06-30", "year": "2025/26",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": false, "workingRate": true, "responsibleOwner": true },
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
-        { "id": "working", "label": "Rural/working dog", "requires": { "workingDog": true }, "onTime": 70, "late": 105 },
-        { "id": "selected", "label": "Selected Owner Policy", "requires": { "responsibleOwner": true }, "onTime": 97, "late": 145 },
-        { "id": "full", "label": "Full fee", "requires": {}, "onTime": 140, "late": 210 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Rural/working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 70,
+          "late": 105
+        },
+        {
+          "id": "selected",
+          "label": "Selected Owner Policy",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 97,
+          "late": 145
+        },
+        {
+          "id": "full",
+          "label": "Full fee",
+          "requires": {},
+          "onTime": 140,
+          "late": 210
+        }
       ],
       "extras": [
-        { "label": "Micro-chipping (incl. chip)", "amount": 51 },
-        { "label": "Apply to keep more than two dogs", "amount": 35 }
+        {
+          "label": "Micro-chipping (incl. chip)",
+          "amount": 51
+        },
+        {
+          "label": "Apply to keep more than two dogs",
+          "amount": 35
+        }
       ],
-      "notes": "No separate desexed discount in the main schedule."
+      "notes": "No separate desexed discount in the main schedule.",
+      "responsibleOwnerScheme": {
+        "name": "Selected Owner Policy",
+        "applicationFee": 35,
+        "url": "https://www.hastingsdc.govt.nz/services/animal-education/fees-and-costs/"
+      }
     },
     {
-      "slug": "taupo", "name": "Taupō District", "type": "district",
+      "slug": "taupo",
+      "name": "Taupō District",
+      "type": "district",
       "sourceUrl": "https://www.taupodc.govt.nz/rules-regulations-and-licenses/dogs-and-other-animals/1registration",
-      "lastVerified": "2026-06-30", "year": "2026/27",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
-        { "id": "working", "label": "Working dog", "requires": { "workingDog": true }, "onTime": 43, "late": 43 },
-        { "id": "responsible", "label": "Responsible Owner (entire)", "requires": { "responsibleOwner": true }, "onTime": 80, "late": 100, "note": "Late adds the ~$20 penalty — confirm with council." },
-        { "id": "desexed", "label": "Desexed dog", "requires": { "desexed": true }, "onTime": 105, "late": 125, "note": "Entire fee less the $15 desexed discount." },
-        { "id": "entire", "label": "Entire dog", "requires": {}, "onTime": 120, "late": 140 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 43,
+          "late": 43
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible Owner (entire)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 80,
+          "late": 100,
+          "note": "Late adds the ~$20 penalty — confirm with council."
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 105,
+          "late": 125,
+          "note": "Entire fee less the $15 desexed discount."
+        },
+        {
+          "id": "entire",
+          "label": "Entire dog",
+          "requires": {},
+          "onTime": 120,
+          "late": 140
+        }
       ],
       "extras": [
-        { "label": "Responsible Owner application fee", "amount": 43 },
-        { "label": "Replacement tag", "amount": 16 },
-        { "label": "Keep more than two dogs (urban)", "amount": 135 }
+        {
+          "label": "Responsible Owner application fee",
+          "amount": 43
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 16
+        },
+        {
+          "label": "Keep more than two dogs (urban)",
+          "amount": 135
+        }
       ],
-      "notes": "2026/27 fees. Late is a flat +$20 after 31 July; $15 discount for desexed dogs."
+      "notes": "2026/27 fees. Late is a flat +$20 after 31 July; $15 discount for desexed dogs.",
+      "responsibleOwnerScheme": {
+        "name": "Responsible Owner",
+        "applicationFee": 43,
+        "url": "https://www.taupodc.govt.nz/rules-regulations-and-licenses/dogs-and-other-animals/1registration"
+      }
     },
     {
-      "slug": "selwyn", "name": "Selwyn District", "type": "district",
+      "slug": "selwyn",
+      "name": "Selwyn District",
+      "type": "district",
       "sourceUrl": "https://www.selwyn.govt.nz/services/dogs-And-animals/dogs/fees-and-charges",
-      "lastVerified": "2026-06-30", "year": "2026/27",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": false, "workingRate": false, "responsibleOwner": false },
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": false,
+        "responsibleOwner": false
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
-        { "id": "standard", "label": "Dog registration", "requires": {}, "onTime": 68, "late": 102 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "standard",
+          "label": "Dog registration",
+          "requires": {},
+          "onTime": 68,
+          "late": 102
+        }
       ],
       "extras": [
-        { "label": "Dangerous dog", "amount": 102, "note": "late $153" },
-        { "label": "Replacement tag", "amount": 5.14 },
-        { "label": "Kennel licence application", "amount": 123.24 }
+        {
+          "label": "Dangerous dog",
+          "amount": 102,
+          "note": "late $153"
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 5.14
+        },
+        {
+          "label": "Kennel licence application",
+          "amount": 123.24
+        }
       ],
       "notes": "2026/27 fees. Flat fee; 50% late penalty after 31 July; pro-rata for pups registered mid-year. Confirm any desexed/working discount with the council."
     },
     {
-      "slug": "rotorua", "name": "Rotorua Lakes", "type": "district",
+      "slug": "rotorua",
+      "name": "Rotorua Lakes",
+      "type": "district",
       "sourceUrl": "https://www.rotorualakescouncil.nz/dogs-animal-control/dogs-online-registration",
-      "lastVerified": "2026-06-30", "year": "2026/27",
-      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
-      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
       "categories": [
-        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law." },
-        { "id": "rural", "label": "Rural domiciled dog", "requires": { "workingDog": true }, "onTime": 90, "late": 135 },
-        { "id": "selected", "label": "Selected dog owner status", "requires": { "responsibleOwner": true }, "onTime": 90, "late": 135 },
-        { "id": "desexed", "label": "Desexed dog (urban)", "requires": { "desexed": true }, "onTime": 114, "late": 176.5, "note": "Urban fee less the $11 desexing rebate." },
-        { "id": "urban", "label": "Urban domiciled dog", "requires": {}, "onTime": 125, "late": 187.5 }
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "rural",
+          "label": "Rural domiciled dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 90,
+          "late": 135
+        },
+        {
+          "id": "selected",
+          "label": "Selected dog owner status",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 90,
+          "late": 135
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog (urban)",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 114,
+          "late": 176.5,
+          "note": "Urban fee less the $11 desexing rebate."
+        },
+        {
+          "id": "urban",
+          "label": "Urban domiciled dog",
+          "requires": {},
+          "onTime": 125,
+          "late": 187.5
+        }
       ],
-      "extras": [{ "label": "Microchip implant", "amount": 34 }],
-      "notes": "2026/27 fees. Late penalty is a flat add-on ($62.50 urban / $45 rural); $11 rebate for desexed dogs."
+      "extras": [
+        {
+          "label": "Microchip implant",
+          "amount": 34
+        }
+      ],
+      "notes": "2026/27 fees. Late penalty is a flat add-on ($62.50 urban / $45 rural); $11 rebate for desexed dogs.",
+      "responsibleOwnerScheme": {
+        "name": "Selected dog owner status",
+        "applicationFee": null,
+        "url": "https://www.rotorualakescouncil.nz/dogs-animal-control/dogs-online-registration"
+      }
     }
   ]
 }
