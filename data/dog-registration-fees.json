@@ -1,0 +1,100 @@
+{
+  "_meta": {
+    "year": "2025/26",
+    "yearRuns": "1 July – 30 June",
+    "lastBulkVerified": "2026-06-29",
+    "note": "Fees NZD incl GST, scraped from each council's own page. Re-verify every 1 July (see data/dog-registration-fees.md). 'onTime' = paid by the council's cutoff; 'late' = penalty fee; 'afterDue' = middle tier where a council has one."
+  },
+  "councils": [
+    {
+      "slug": "auckland", "name": "Auckland", "type": "unitary",
+      "sourceUrl": "https://www.aucklandcouncil.govt.nz/en/dogs-animals/register-your-dog/dog-registration-discounts.html",
+      "lastVerified": "2026-06-29", "year": "2025/26",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0 },
+        { "id": "working", "label": "Working dog", "requires": { "workingDog": true }, "onTime": 41, "late": 50 },
+        { "id": "rdol-desexed", "label": "Responsible Dog Owner Licence — desexed", "requires": { "responsibleOwner": true, "desexed": true }, "onTime": 78, "late": 171 },
+        { "id": "rdol-standard", "label": "Responsible Dog Owner Licence — standard", "requires": { "responsibleOwner": true }, "onTime": 92, "late": 225 },
+        { "id": "desexed", "label": "Desexed dog", "requires": { "desexed": true }, "onTime": 131, "late": 171 },
+        { "id": "standard", "label": "Standard dog (entire)", "requires": {}, "onTime": 182, "late": 225 }
+      ],
+      "extras": [
+        { "label": "SuperGold Community Services combo card holder", "amount": 79, "note": "alternative rate; late $103" }
+      ],
+      "notes": "All fees include the $2.50 National Dog Database levy."
+    },
+    {
+      "slug": "wellington", "name": "Wellington City", "type": "city",
+      "sourceUrl": "https://wellington.govt.nz/dogs-and-other-animals/dogs/register-your-dog/fees",
+      "lastVerified": "2026-06-29", "year": "2025/26",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "categories": [
+        { "id": "guide", "label": "Approved guide/hearing dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0 },
+        { "id": "working", "label": "Working dog", "requires": { "workingDog": true }, "onTime": 61, "late": 92 },
+        { "id": "accredited", "label": "Accredited Dog Owner", "requires": { "responsibleOwner": true }, "onTime": 71.5, "late": 217.5, "note": "Late reverts to standard: $217.50 desexed / $300 entire." },
+        { "id": "desexed", "label": "Desexed dog", "requires": { "desexed": true }, "onTime": 145, "late": 217.5 },
+        { "id": "entire", "label": "Entire dog", "requires": {}, "onTime": 200, "late": 300 }
+      ],
+      "extras": [
+        { "label": "Multiple-dog application (more than three dogs)", "amount": 42 },
+        { "label": "Replacement registration tag", "amount": 14.25 }
+      ],
+      "notes": "Includes the $2.50 National Dog Database levy. Puppies are charged pro-rata to 30 June."
+    },
+    {
+      "slug": "christchurch", "name": "Christchurch City", "type": "city",
+      "sourceUrl": "https://ccc.govt.nz/the-council/plans-strategies-policies-and-bylaws/plans/long-term-plan-and-annual-plans/fees-and-charges/fees-animal-management",
+      "lastVerified": "2026-06-29", "year": "2025/26",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": true, "workingRate": true, "responsibleOwner": true },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0 },
+        { "id": "working", "label": "Working/rural dog (first dog)", "requires": { "workingDog": true }, "onTime": 31, "late": 45 },
+        { "id": "rdo", "label": "Responsible Dog Owner (first dog)", "requires": { "responsibleOwner": true }, "onTime": 62, "late": 93 },
+        { "id": "desexed", "label": "Spayed/neutered dog", "requires": { "desexed": true }, "onTime": 86, "late": 129 },
+        { "id": "entire", "label": "Un-neutered dog", "requires": {}, "onTime": 98, "late": 147 }
+      ],
+      "extras": [
+        { "label": "More-than-two-dogs licence", "amount": 75 },
+        { "label": "Dangerous dog (un-neutered)", "amount": 147, "note": "late $220" }
+      ],
+      "notes": "Fee reduces pro-rata each month if first registered partway through the year."
+    },
+    {
+      "slug": "hamilton", "name": "Hamilton City", "type": "city",
+      "sourceUrl": "https://hamilton.govt.nz/do-it-online/pay-it/renew-a-dog-registration",
+      "lastVerified": "2026-06-29", "year": "2025/26",
+      "dueDate": "30 June", "cutoffs": { "afterDueFrom": "07-01", "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": false, "workingRate": false, "responsibleOwner": true },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "afterDue": 0, "late": 0, "note": "Free by law (Dog Control Act 1996)." },
+        { "id": "cat1", "label": "Category 1 (responsible/known good owner)", "requires": { "responsibleOwner": true }, "onTime": 97, "afterDue": 113, "late": 169.5 },
+        { "id": "cat2", "label": "Category 2 (standard)", "requires": {}, "onTime": 177, "afterDue": 192, "late": 288 }
+      ],
+      "extras": [
+        { "label": "Permit to keep 3+ dogs", "amount": 90, "note": "then $43/yr to renew" }
+      ],
+      "notes": "Hamilton classifies by owner Category, not desexed/working. Extra $15 discount for renewing by 30 June; +50% penalty after 31 July."
+    },
+    {
+      "slug": "tauranga", "name": "Tauranga City", "type": "city",
+      "sourceUrl": "https://www.tauranga.govt.nz/Council/Fees-and-charges/Animal-service-fees",
+      "lastVerified": "2026-06-29", "year": "2025/26",
+      "dueDate": "31 July", "cutoffs": { "lateFrom": "08-01" },
+      "supports": { "desexedDiscount": false, "workingRate": false, "responsibleOwner": false },
+      "categories": [
+        { "id": "disability", "label": "Disability assist dog", "requires": { "disabilityAssist": true }, "onTime": 0, "late": 0, "note": "Free by law (Dog Control Act 1996)." },
+        { "id": "normal", "label": "Normal dog", "requires": {}, "onTime": 133, "late": 199.5 }
+      ],
+      "extras": [
+        { "label": "Microchip fee", "amount": 34 },
+        { "label": "Dangerous dog (classified)", "amount": 199.5, "note": "late $299.20" },
+        { "label": "Kennel licence (more than two dogs)", "amount": 103 }
+      ],
+      "notes": "Tauranga charges a single flat fee (no desexed/working/owner discount in the main schedule)."
+    }
+  ]
+}

@@ -4,6 +4,7 @@
 const COLS = [
   { h: "Pet health", links: [["Flea & Worming", "/flea-and-worming"], ["Joint & Mobility", "/joint-and-mobility"], ["Gut Health", "/gut-health"], ["Skin & Coat", "/skin-and-coat"], ["Dental Care", "/dental"]] },
   { h: "By pet", links: [["Cats", "/cats"], ["Dogs", "/dogs"], ["Kittens", "/cats"], ["Puppies", "/dogs"], ["Senior pets", "/guides"]] },
+  { h: "Free tools", links: [["Dog registration fee calculator", "/tools/dog-registration-fees"]] },
   { h: "Company", links: [["About us", "/about"], ["Editorial policy", "/editorial-policy"], ["How we review", "/editorial-policy"], ["Contact", "/contact"]] },
 ];
 const LEGAL = [["Privacy", "/privacy"], ["Terms", "/privacy"], ["Contact", "/contact"]];
@@ -21,7 +22,7 @@ export function Footer({ logoSrc = "/logo-mark.svg", style = {} }) {
   return (
     <footer style={{ background: "var(--ink)", color: "#fff", ...style }}>
       <div style={{ maxWidth: "var(--container)", margin: "0 auto", padding: "56px 20px 28px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(220px, 1.3fr) repeat(3, 1fr)", gap: "40px 32px" }} className="hp-foot-grid">
+        <div style={{ display: "grid", gridTemplateColumns: "minmax(220px, 1.3fr) repeat(4, 1fr)", gap: "40px 32px" }} className="hp-foot-grid">
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
               <img src={logoSrc} width="34" height="34" alt="" style={{ background: "#fff", borderRadius: "9px", padding: "2px" }} />
