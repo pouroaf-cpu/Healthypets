@@ -108,4 +108,9 @@ Status: ✅ verified · ⬜ to do · ⚠️ needs attention (JS page / unusual s
 | 66 | Invercargill City | | | | ⬜ |
 | 67 | Chatham Islands (territory) | | | | ⬜ |
 
-**Progress: 5 / 67 verified** (2026-06-29 POC).
+**Progress: 13 / 67 verified.** 2026-06-29: Auckland, Wellington, Christchurch, Hamilton, Tauranga.
+2026-06-30: Palmerston North, Lower Hutt, Nelson, Whangārei, Hastings (2025/26 — re-check 1 Jul);
+Taupō, Selwyn, Rotorua (already on **2026/27**, no re-check needed).
+Remaining 54 + the five 2025/26 ones → bulk pass on/after **1 July 2026** (TASK 2).
+Still need re-targeting (wrong page / JS / PDF): Dunedin, Queenstown, Kāpiti, Porirua, Marlborough,
+Waimakariri, Gisborne, Invercargill, New Plymouth, Napier, Western Bay of Plenty, Waikato District.
