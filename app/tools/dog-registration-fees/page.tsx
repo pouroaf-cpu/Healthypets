@@ -111,6 +111,9 @@ export default function DogRegFeesPage() {
                 breed-based. What <em>does</em> vary between councils is the <strong>dangerous-dog registration fee</strong>,
                 not the breed list.
               </p>
+              <p style={{ margin: "10px 0 0", fontWeight: 600, color: "var(--ink)" }}>
+                No NZ council can ban a breed — these national rules apply everywhere.
+              </p>
             </div>
           </details>
 
