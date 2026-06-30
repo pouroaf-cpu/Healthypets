@@ -1,15 +1,46 @@
 import posthog from "posthog-js";
 
-// Thin, safe event wrapper. No-ops when PostHog isn't initialised (e.g. the key is
-// absent in local dev) so analytics can never throw into the UX. Import `track`
-// everywhere instead of calling posthog.capture directly.
+// Events fired before posthog.init() has run (e.g. a component's mount effect that
+// races ahead of <Analytics/>'s init effect) are buffered here and replayed once the
+// SDK is ready, so mount-time events like comparison_table_viewed aren't dropped.
+const pending: Array<[string, Record<string, unknown> | undefined]> = [];
+let draining = false;
+
+function drain() {
+  if (typeof window === "undefined") return;
+  if (posthog.__loaded) {
+    while (pending.length) {
+      const [event, props] = pending.shift()!;
+      try {
+        posthog.capture(event, props);
+      } catch {
+        /* best-effort */
+      }
+    }
+  } else if (pending.length && !draining) {
+    // posthog.init() runs in <Analytics/>'s effect moments later — poll briefly.
+    draining = true;
+    setTimeout(() => {
+      draining = false;
+      drain();
+    }, 300);
+  }
+}
+
+// Thin, safe event wrapper. Buffers until PostHog is ready and no-ops on the server,
+// so analytics can never throw into the UX. Import `track` everywhere instead of
+// calling posthog.capture directly.
 export function track(event: string, props?: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
   try {
-    if (typeof window !== "undefined" && posthog.__loaded) {
+    if (posthog.__loaded) {
       posthog.capture(event, props);
+    } else {
+      pending.push([event, props]);
+      drain();
     }
   } catch {
-    // analytics is best-effort — never let it break a click or render
+    // analytics is best-effort — never let it break the UX
   }
 }
 
