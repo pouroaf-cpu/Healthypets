@@ -73,7 +73,7 @@ export function PillarTemplate({ doc }: { doc: any }) {
               <p style={{ margin: 0, fontSize: 17.5, lineHeight: 1.7, color: "var(--ink)" }}>{doc.description}</p>
               {premium && (
                 <div style={{ display: "flex", gap: 12, marginTop: 18, flexWrap: "wrap" }}>
-                  <CTAButton retailer={retailerFromKey(premium.linkKey)} linkKey={premium.linkKey} />
+                  <CTAButton retailer={retailerFromKey(premium.linkKey)} linkKey={premium.linkKey} position="pillar_premium" />
                 </div>
               )}
             </Card>

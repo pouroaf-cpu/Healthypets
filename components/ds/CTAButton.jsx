@@ -1,8 +1,12 @@
 // @ts-nocheck
 "use client";
 
+import { track, retailerFromKey, pagePath } from "@/lib/analytics";
+
 // Coral affiliate CTA. Routes through /go/<linkKey> (cloaked + click-logged) when linkKey
 // is given; falls back to href. rel=sponsored nofollow, opens in a new tab.
+// `position` records WHERE the click came from (inline / comparison_table / top_pick /
+// pillar_premium) so PostHog can break affiliate clicks down by placement.
 export function CTAButton({
   children = "Check price",
   retailer,
@@ -10,6 +14,7 @@ export function CTAButton({
   href,
   size = "md",
   fullWidth = false,
+  position = "inline",
   style = {},
   ...rest
 }) {
@@ -20,6 +25,18 @@ export function CTAButton({
   };
   const label = retailer ? `Check price at ${retailer}` : children;
   const target = linkKey ? `/go/${linkKey}` : href || "#";
+
+  // Fire the affiliate-click event before the browser opens the new tab. The /go route
+  // still logs server-side to Supabase as a redundant backup.
+  const handleClick = () => {
+    track("affiliate_click", {
+      link_key: linkKey ?? null,
+      retailer: retailerFromKey(linkKey) ?? retailer ?? null,
+      href: linkKey ? null : href ?? null,
+      position,
+      page_path: pagePath(),
+    });
+  };
 
   const base = {
     display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px",
@@ -37,6 +54,7 @@ export function CTAButton({
       target="_blank"
       rel="sponsored nofollow noopener"
       style={base}
+      onClick={handleClick}
       onMouseEnter={(e) => (e.currentTarget.style.background = "var(--coral-dark)")}
       onMouseLeave={(e) => (e.currentTarget.style.background = "var(--coral)")}
       onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.97)")}

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Badge } from "./Badge.jsx";
 import { CTAButton } from "./CTAButton.jsx";
 import { getProductImage } from "@/lib/product-images";
+import { track, pagePath } from "@/lib/analytics";
 
 // Square product packshot chip. White-padded so transparent PNGs and white-bg JPEGs
 // both read as a tidy product thumbnail. Renders nothing if we have no photo yet.
@@ -49,6 +50,17 @@ function useIsNarrow(bp = 760) {
 // Responsive product comparison. rows: [{ product, bestFor, protects, price, rating, retailer, linkKey, topPick, note }]
 export function ComparisonTable({ rows = [], style = {} }) {
   const narrow = useIsNarrow();
+
+  // Top of the affiliate funnel: a reader has seen the comparison table on this page.
+  useEffect(() => {
+    track("comparison_table_viewed", {
+      product_count: rows.length,
+      products: rows.map((r) => r.linkKey).filter(Boolean),
+      page_path: pagePath(),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const th = { textAlign: "left", fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "12px", letterSpacing: "0.04em", textTransform: "uppercase", color: "var(--ink-muted)", padding: "0 16px 12px", whiteSpace: "nowrap" };
   const td = { padding: "18px 16px", verticalAlign: "middle", fontSize: "15px", color: "var(--ink-soft)" };
 
@@ -70,7 +82,7 @@ export function ComparisonTable({ rows = [], style = {} }) {
               <dt style={{ color: "var(--ink-muted)" }}>Protects</dt><dd style={{ margin: 0, color: "var(--ink)" }}>{r.protects}</dd>
               {r.price && <><dt style={{ color: "var(--ink-muted)" }}>Price</dt><dd style={{ margin: 0, color: "var(--ink)", fontWeight: 600 }}>{r.price}</dd></>}
             </dl>
-            <CTAButton retailer={r.retailer} linkKey={r.linkKey} href={r.href} fullWidth size="sm" />
+            <CTAButton retailer={r.retailer} linkKey={r.linkKey} href={r.href} position="comparison_table" fullWidth size="sm" />
           </div>
         ))}
       </div>
@@ -110,7 +122,7 @@ export function ComparisonTable({ rows = [], style = {} }) {
               <td style={{ ...td, fontWeight: 600, color: "var(--ink)", whiteSpace: "nowrap" }}>{r.price || "—"}</td>
               <td style={td}><Stars value={r.rating} /></td>
               <td style={{ ...td, textAlign: "right", borderRadius: "0 var(--radius-md) var(--radius-md) 0" }}>
-                <CTAButton retailer={r.retailer} linkKey={r.linkKey} href={r.href} size="sm" />
+                <CTAButton retailer={r.retailer} linkKey={r.linkKey} href={r.href} position="comparison_table" size="sm" />
               </td>
             </tr>
           ))}

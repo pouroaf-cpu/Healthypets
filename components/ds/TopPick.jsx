@@ -20,7 +20,7 @@ export function TopPick({ kind = "budget", product, tagline, price, rating, reta
         <p style={{ margin: 0, fontSize: "14.5px", lineHeight: 1.55, color: "var(--ink-soft)" }}>{tagline}</p>
         <div style={{ marginTop: "auto", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", paddingTop: "8px" }}>
           {price && <span style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "20px", color: "var(--ink)" }}>{price}</span>}
-          <CTAButton retailer={retailer} linkKey={linkKey} href={href} size="sm" />
+          <CTAButton retailer={retailer} linkKey={linkKey} href={href} position={`top_pick_${kind}`} size="sm" />
         </div>
       </div>
     </div>
