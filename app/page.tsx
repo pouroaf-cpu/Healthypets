@@ -6,6 +6,7 @@ import { Badge } from "@/components/ds/Badge";
 import { TrustStrip } from "@/components/ds/TrustStrip";
 import { EmailCapture } from "@/components/ds/EmailCapture";
 import { HPIcon } from "@/components/ds/Icons";
+import { TOOLS } from "@/lib/navigation";
 
 // Homepage — "beige scrapbook edition" ported from the Healthy Pets Design System
 // (claude.ai/design project 3ed375). The warm-brown/beige palette is now the SITE-WIDE
@@ -242,6 +243,32 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* FREE TOOLS */}
+      <Section>
+        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 20, marginBottom: 32, flexWrap: "wrap" }}>
+          <div>
+            <Eyebrow>Free tools</Eyebrow>
+            <h2 style={{ margin: 0, fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem)", color: "var(--ink)", letterSpacing: "-0.02em" }}>Handy tools for Kiwi pet owners</h2>
+          </div>
+          <Button variant="ghost" as="a" href="/tools" iconRight={<HPIcon name="arrowRight" size={17} />}>See all tools</Button>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 18 }} className="hp-tools-grid">
+          {TOOLS.map((t) => (
+            <Link key={t.href} href={t.href} style={{ textDecoration: "none" }}>
+              <Card hoverLift padding="lg" style={{ height: "100%", display: "flex", alignItems: "flex-start", gap: 16 }}>
+                <span style={{ width: 58, height: 58, borderRadius: "var(--radius-md)", flex: "none", background: "var(--green-light)", display: "grid", placeItems: "center", fontSize: 30 }}>🧮</span>
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 11.5, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--green-dark)" }}>Free tool</div>
+                  <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 17, color: "var(--ink)", lineHeight: 1.3 }}>{t.label}</div>
+                  <div style={{ fontSize: 13.5, color: "var(--ink-muted)", lineHeight: 1.6 }}>{t.blurb}</div>
+                  <span style={{ marginTop: 4, display: "inline-flex", alignItems: "center", gap: 7, color: "var(--green-primary)", fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 14 }}>Open the tool <span aria-hidden="true">→</span></span>
+                </div>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
       {/* TRUST STRIP */}
       <Section>
         <div style={{ background: "var(--white)", border: "1px solid var(--border-soft)", borderRadius: "var(--radius-xl)", boxShadow: "var(--shadow-sm)", padding: "clamp(24px, 4vw, 36px)" }}>
@@ -292,7 +319,7 @@ export default function Home() {
           .hp-why { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 560px) {
-          .hp-terr-grid, .hp-guide-grid { grid-template-columns: 1fr !important; }
+          .hp-terr-grid, .hp-guide-grid, .hp-tools-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>
