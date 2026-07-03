@@ -16,7 +16,7 @@ NZ dog registration runs **1 July → 30 June**. Each council sets its own fees 
 - The calculator must show a **"fees verified for the 20xx/yy year — last checked <date>"**
   line + source link, and a soft warning if `lastVerified` is older than the current 1 July.
 
-> Last pass **2026-06-30** (annual 2026/27 refresh). **43 / 67** councils now in the dataset.
+> Last pass **2026-07-03** (Firecrawl/DataForSEO WAF-crack run). **66 / 67** councils now in the dataset — only Queenstown-Lakes remains (its 2026/27 fee table renders values client-side and is unreadable).
 
 ## How the data is pulled
 1. `node scripts/fetch-council-fees.mjs <slug>` — Firecrawl-scrapes the council's fees page.
@@ -49,76 +49,78 @@ Status: ✅ verified · ⬜ to do · ⚠️ blocked/not-published (could not ver
 
 | # | Council | Verified | Yr | Status |
 |---|---------|----------|----|--------|
-| 1 | Far North District | | | ⚠️ WAF (page + fees PDF 403/503) |
+| 1 | Far North District | 2026-07-03 | 26/27 | ✅ (due 31 Aug; FINAL fees PDF) |
 | 2 | Whangārei District | 2026-06-30 | 25/26 | ✅ (26/27 not yet posted) |
 | 3 | Kaipara District | 2026-06-30 | 26/27 | ✅ (due 31 Aug; working/non-working only) |
 | 4 | Auckland (unitary) | 2026-06-29 | 25/26 | ⚠️ Akamai 406 — 26/27 season open but $ on blocked page |
-| 5 | Thames-Coromandel District | | | ⚠️ WAF (403/503 all pages + PDF) |
-| 6 | Hauraki District | | | ⚠️ WAF (403 / 202 JS-challenge) |
+| 5 | Thames-Coromandel District | 2026-07-03 | 26/27 | ✅ (flat $110; 4th+ working dog free) |
+| 6 | Hauraki District | 2026-07-03 | 26/27 | ✅ (ROL scheme) |
 | 7 | Waikato District | 2026-06-30 | 26/27 | ✅ (owner classifications) |
 | 8 | Matamata-Piako District | 2026-06-30 | 26/27 | ✅ (DRAFT schedule; live page WAF) |
 | 9 | Hamilton City | 2026-06-30 | 25/26 | ✅ (Category 1/2; page states no year) |
 | 10 | Waipā District | 2026-06-30 | 26/27 | ✅ (DRAFT schedule; due 30 Jun) |
 | 11 | Ōtorohanga District | 2026-06-30 | 26/27 | ✅ |
 | 12 | Waitomo District | 2026-06-30 | 26/27 | ✅ |
-| 13 | South Waikato District | | | ⚠️ WAF (AWS JS-challenge) |
+| 13 | South Waikato District | 2026-07-03 | 26/27 | ✅ (owner-class; Firecrawl) |
 | 14 | Taupō District | 2026-06-30 | 26/27 | ✅ |
-| 15 | Western Bay of Plenty District | | | ⚠️ WAF; 26/27 only in Konveio JS viewer (draft) |
+| 15 | Western Bay of Plenty District | 2026-07-03 | 26/27 | ✅ (due 3 Aug) |
 | 16 | Tauranga City | 2026-06-30 | 26/27 | ✅ (flat fee; 26/27 = 25/26 numbers) |
 | 17 | Rotorua Lakes (District) | 2026-06-30 | 26/27 | ✅ |
 | 18 | Whakatāne District | 2026-06-30 | 26/27 | ✅ |
 | 19 | Kawerau District | 2026-06-30 | 25/26 | ✅ (26/27 not yet posted; PDF) |
-| 20 | Ōpōtiki District | | | ⚠️ WAF (403 / 202 JS-challenge) |
-| 21 | Gisborne (unitary) | | | ⚠️ Cloudflare "Just a moment" challenge |
+| 20 | Ōpōtiki District | 2026-07-03 | 26/27 | ✅ (due 3 Aug) |
+| 21 | Gisborne (unitary) | 2026-07-03 | 26/27 | ✅ (25% late; Selected Owner) |
 | 22 | Wairoa District | 2026-06-30 | 25/26 | ✅ (due 31 Aug; 26/27 not yet posted) |
 | 23 | Hastings District | 2026-06-30 | 25/26 | ✅ |
 | 24 | Napier City | 2026-06-30 | 25/26 | ✅ (page states 25/26; 26/27 not yet posted) |
 | 25 | Central Hawke's Bay District | 2026-06-30 | 26/27 | ✅ (RDO/GoldCard $ not published) |
 | 26 | New Plymouth District | 2026-06-30 | 26/27 | ✅ (PDF has 26/27 column; tiered penalty) |
-| 27 | Stratford District | | | ⚠️ WAF (AWS JS-challenge) |
-| 28 | South Taranaki District | | | ⚠️ WAF (.com domain, AWS JS-challenge) |
-| 29 | Ruapehu District | | | ⚠️ WAF (403 / 202 JS-challenge) |
+| 27 | Stratford District | 2026-07-03 | 26/27 | ✅ (owner-class; Firecrawl) |
+| 28 | South Taranaki District | 2026-07-03 | 26/27 | ✅ (.com; Firecrawl) |
+| 29 | Ruapehu District | 2026-07-03 | 26/27 | ✅ (due 30 Jun; adopted 13 May 2026) |
 | 30 | Whanganui District | 2026-06-30 | 26/27 | ✅ (prompt-pay discount model) |
 | 31 | Rangitīkei District | 2026-06-30 | 26/27 | ✅ (PDF + public notice) |
-| 32 | Manawatū District | | | ⚠️ Cloudflare challenge; fee advised per-application |
+| 32 | Manawatū District | 2026-07-03 | 26/27 | ✅ (schedule exists after all) |
 | 33 | Palmerston North City | 2026-06-30 | 25/26 | ✅ |
-| 34 | Tararua District | | | ⚠️ Cloudflare challenge |
+| 34 | Tararua District | 2026-07-03 | 26/27 | ✅ (due 1 Aug; adopted 24 Apr 2026) |
 | 35 | Horowhenua District | 2026-06-30 | 26/27 | ✅ |
 | 36 | Kāpiti Coast District | 2026-06-30 | 26/27 | ✅ (Class A–I scheme) |
-| 37 | Porirua City | | | ⚠️ WAF (403/503) |
+| 37 | Porirua City | 2026-07-03 | 26/27 | ✅ (WebFetch; +50% late) |
 | 38 | Upper Hutt City | 2026-06-30 | 25/26 | ✅ |
 | 39 | Lower Hutt / Hutt City | 2026-06-30 | 25/26 | ✅ |
 | 40 | Wellington City | 2026-06-30 | 26/27 | ✅ (re-verified; fees rose) |
-| 41 | Masterton District | | | ⚠️ WAF + 26/27 not finalised (~12% rise flagged) |
+| 41 | Masterton District | 2026-07-03 | 26/27 | ✅ (26/27 published after all; RDO) |
 | 42 | Carterton District | 2026-06-30 | 26/27 | ✅ |
 | 43 | South Wairarapa District | 2026-06-30 | 26/27 | ✅ |
 | 44 | Tasman (unitary) | 2026-06-30 | 25/26 | ✅ (by property size; 26/27 not yet posted) |
 | 45 | Nelson City (unitary) | 2026-06-30 | 25/26 | ✅ |
-| 46 | Marlborough (unitary) | | | ⚠️ WAF (AWS JS-challenge) |
-| 47 | Kaikōura District | | | ⚠️ WAF (AWS JS-challenge) |
+| 46 | Marlborough (unitary) | 2026-07-03 | 26/27 | ✅ (Category One/Two) |
+| 47 | Kaikōura District | 2026-07-03 | 26/27 | ✅ (due 30 Aug; working $160 > pet $80) |
 | 48 | Buller District | 2026-06-30 | 26/27 | ✅ |
-| 49 | Grey District | | | ⚠️ WAF (AWS JS-challenge) |
+| 49 | Grey District | 2026-07-03 | 26/27 | ✅ |
 | 50 | Westland District | 2026-06-30 | 25/26 | ✅ (26/27 not yet posted) |
-| 51 | Hurunui District | | | ⚠️ WAF (AWS JS-challenge) |
+| 51 | Hurunui District | 2026-07-03 | 26/27 | ✅ (no desexed rate) |
 | 52 | Waimakariri District | 2026-06-30 | 26/27 | ✅ (owner fee + per-dog fee) |
 | 53 | Christchurch City | 2026-06-30 | 25/26 | ✅ (pro-rata; page still 25/26) |
 | 54 | Selwyn District | 2026-06-30 | 26/27 | ✅ |
-| 55 | Ashburton District | | | ⚠️ WAF (403, incl. PDF assets) |
+| 55 | Ashburton District | 2026-07-03 | 26/27 | ✅ (flat add-on late fees; PDF) |
 | 56 | Timaru District | 2026-06-30 | 25/26 | ✅ |
 | 57 | Mackenzie District | 2026-06-30 | 25/26 | ✅ (Let's Talk PDF; 26/27 unconfirmed) |
-| 58 | Waimate District | | | ⚠️ WAF (AWS JS-CAPTCHA) |
+| 58 | Waimate District | 2026-07-03 | 26/27 | ✅ (Guide PDF; hints confirmed) |
 | 59 | Waitaki District | 2026-06-30 | 25/26 | ✅ |
-| 60 | Central Otago District | | | ⚠️ WAF; 26/27 doc not on Let's Talk |
-| 61 | Queenstown-Lakes District | | | ⚠️ fees page 404; 26/27 not finalised (post-election) |
-| 62 | Dunedin City | | | ⚠️ WAF; only 25/26 in Wayback |
+| 60 | Central Otago District | 2026-07-03 | 26/27 | ✅ (pet $72 / working $12; no late %) |
+| 61 | Queenstown-Lakes District | | | ⚠️ 26/27 table on-page but $ injected client-side — unreadable via Firecrawl/DataForSEO/curl. ONLY council still missing. |
+| 62 | Dunedin City | 2026-07-03 | 26/27 | ✅ (RDO 44% off; fixed 50% late add-on) |
 | 63 | Clutha District | 2026-06-30 | 26/27 | ✅ (PROPOSED schedule, S3 PDF) |
 | 64 | Southland District | 2026-06-30 | 26/27 | ✅ (Animal Control PDF) |
-| 65 | Gore District | | | ⚠️ WAF (403 / 202 JS-challenge) |
+| 65 | Gore District | 2026-07-03 | 26/27 | ✅ (stacking discounts; +40% late) |
 | 66 | Invercargill City | 2026-06-30 | 26/27 | ✅ (Annual Plan PDF via Let's Talk) |
 | 67 | Chatham Islands (territory) | 2026-06-30 | 26/27 | ✅ (year unstated; $50 early/$78 std) |
 
-**Progress: 43 / 67 verified** (26 on **2026/27**, 17 still on **2025/26** awaiting republish).
-Source URLs for every verified council live in `data/dog-registration-fees.json` (`sourceUrl`).
+**Progress: 66 / 67 verified.** Only **Queenstown-Lakes** remains (its 2026/27 fee table is on-page
+but the dollar values are injected client-side — unreadable via Firecrawl, DataForSEO JS-render, or curl).
+The 23 added on 2026-07-03 are all on **2026/27**. Source URLs for every verified council live in
+`data/dog-registration-fees.json` (`sourceUrl`).
 
 ### 2026-06-30 — annual 2026/27 pass (this run): 17 → 43 councils
 Added/verified **26 new councils** + re-verified the 3 reachable existing ones (Tauranga → 26/27;
@@ -129,13 +131,25 @@ Wairoa, Napier, Central Hawke's Bay, New Plymouth, Whanganui, Rangitīkei, Kāpi
 South Wairarapa, Tasman, Buller, Westland, Waimakariri, Mackenzie, Clutha, Southland, Invercargill,
 Chatham Islands.
 
-### Still TODO / blocked (24 councils) — for the next run
-- **WAF / bot-challenge (could not read any $ from council's own site):** Far North, Thames-Coromandel,
-  Hauraki, South Waikato, Western Bay of Plenty, Ōpōtiki, Gisborne, Stratford, South Taranaki,
-  Ruapehu, Manawatū, Tararua, Porirua, Marlborough, Kaikōura, Grey, Hurunui, Ashburton, Waimate,
-  Central Otago, Dunedin, Gore, Auckland *(re-verify)*, Masterton.
-- **Not finalised yet (legitimately no 26/27 figures online as of 30 Jun):** Queenstown-Lakes
-  (post-election plan; page 404), Masterton (~12% rise flagged, not set), Central Otago.
+### 2026-07-03 — WAF-crack run: 43 → 66 councils
+The 24 councils blocked last run were nearly all cracked with tooling the 30-Jun run didn't have:
+**`mcp__dataforseo__on_page_content_parsing`** (JS render + desktop-Chrome `custom_user_agent`) and the
+**Firecrawl CLI** (`firecrawl scrape <url> -f markdown`, which reads PDFs natively). Method: 6 parallel
+`general-purpose` subagents, 4 councils each, each returning schema-ready JSON + verbatim `_evidence`
+per figure; the orchestrator validated (one empty-`requires` fallback, only the 4 valid keys, numeric
+fees) and spot-checked flagged outliers (e.g. Kaikōura working $160 > pet $80 — confirmed against the PDF).
+Added: Far North, Thames-Coromandel, Hauraki, South Waikato, Western Bay of Plenty, Ōpōtiki, Gisborne,
+Ruapehu, Stratford, South Taranaki, Manawatū, Tararua, Porirua, Masterton, Marlborough, Kaikōura, Grey,
+Hurunui, Ashburton, Waimate, Central Otago, Dunedin, Gore. (Several "26/27 not finalised" flags from
+30 Jun — Masterton, Central Otago, Manawatū — turned out to have published schedules after all.)
+
+### Still TODO / blocked (1 council) — for the next run
+- **Queenstown-Lakes:** live page `qldc.govt.nz/services/animal-control/register-your-dog/` DOES have a
+  "2026/2027 Dog Control Registration Fees" table, but every cell renders empty — the dollar values are
+  injected client-side and could not be read via DataForSEO (JS on), Firecrawl, or curl. Page text confirms
+  due 31 July + 50% late penalty. Next run: try the QLDC Annual Plan / Let's Talk fees-and-charges PDF, or
+  the eServices registration portal, rather than the CMS page.
+- **Auckland** remains on 25/26 in the JSON (Akamai 406 on the discounts/calculator pages) — re-verify when reachable.
 
 ## Process notes & learnings
 

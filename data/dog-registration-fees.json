@@ -2,10 +2,87 @@
   "_meta": {
     "year": "2026/27",
     "yearRuns": "1 July – 30 June",
-    "lastBulkVerified": "2026-06-30",
+    "lastBulkVerified": "2026-07-03",
     "note": "Fees NZD incl GST, scraped from each council's own page. Re-verify every 1 July (see data/dog-registration-fees.md). 'onTime' = paid by the council's cutoff; 'late' = penalty fee; 'afterDue' = middle tier where a council has one."
   },
   "councils": [
+    {
+      "slug": "ashburton",
+      "name": "Ashburton District",
+      "type": "district",
+      "sourceUrl": "https://www.ashburtondc.govt.nz/__data/assets/pdf_file/0025/115918/11.0-Animal-Control-26-27.pdf",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": false,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free."
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible dog owner (urban only)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 73,
+          "late": 129,
+          "note": "Late = on-time + $56 urban late-registration penalty (computed). RDO status must be approved before 30 April."
+        },
+        {
+          "id": "desexed",
+          "label": "Urban de-sexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 80,
+          "late": 118,
+          "note": "Late = $80 + $38 late penalty. Reduction only given at start of year on receipt of a vet certificate."
+        },
+        {
+          "id": "standard",
+          "label": "Urban un-neutered dog",
+          "requires": {},
+          "onTime": 120,
+          "late": 176,
+          "note": "Late = $120 + $56 urban late-registration penalty."
+        }
+      ],
+      "extras": [
+        {
+          "label": "Micro-chip fee per dog",
+          "amount": 23
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 14
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 181,
+        "late": 237
+      },
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner (RDO) status",
+        "applicationFee": null,
+        "url": "https://www.ashburtondc.govt.nz/services/dogs-and-animals/dog-registration/dog-registration"
+      },
+      "notes": "2026/27 fees from the official Fees & Charges Schedule '11.0 Animal Control 26-27' PDF (header '1 July 2026 – 30 June 2027'). Late fees are FLAT ADD-ONS, not percentages: urban +$56, urban de-sexed +$38, rural +$38. Rural rates (Rural A/B/C zones only): 1st & 2nd dog $80 each, subsequent $38. Urban is the fallback 'standard'. Dangerous urban $181 (late $181+$56=$237); menacing urban $120. Licence to keep 3+ urban dogs $65."
+    },
     {
       "slug": "auckland",
       "name": "Auckland",
@@ -92,10 +169,10 @@
       }
     },
     {
-      "slug": "wellington",
-      "name": "Wellington City",
-      "type": "city",
-      "sourceUrl": "https://wellington.govt.nz/dogs-and-other-animals/dogs/register-your-dog/fees",
+      "slug": "buller",
+      "name": "Buller District",
+      "type": "district",
+      "sourceUrl": "https://bullerdc.govt.nz/dogs-and-animal-control/dog-registration/",
       "lastVerified": "2026-06-30",
       "year": "2026/27",
       "dueDate": "31 July",
@@ -105,17 +182,141 @@
       "supports": {
         "desexedDiscount": true,
         "workingRate": true,
-        "responsibleOwner": true
+        "responsibleOwner": false
       },
       "categories": [
         {
-          "id": "guide",
-          "label": "Approved guide/hearing dog",
+          "id": "disability",
+          "label": "Disability assist dog",
           "requires": {
             "disabilityAssist": true
           },
           "onTime": 0,
-          "late": 0
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working-desexed",
+          "label": "Working dog — desexed",
+          "requires": {
+            "workingDog": true,
+            "desexed": true
+          },
+          "onTime": 52.5,
+          "late": 78.75
+        },
+        {
+          "id": "working",
+          "label": "Working dog — entire",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 80,
+          "late": 120
+        },
+        {
+          "id": "desexed",
+          "label": "Standard dog — desexed",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 80,
+          "late": 120
+        },
+        {
+          "id": "standard",
+          "label": "Standard dog — entire",
+          "requires": {},
+          "onTime": 100,
+          "late": 150
+        }
+      ],
+      "extras": [],
+      "notes": "2026/27 fees. Late = +50% from 1 August. SuperGold cardholders get 20% off (not applied above). Dogs moving into the district mid-year register free for the remainder."
+    },
+    {
+      "slug": "carterton",
+      "name": "Carterton District",
+      "type": "district",
+      "sourceUrl": "https://cdc.govt.nz/services/animalcontrol/dog-fees/",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": false,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law. (Carterton's page charges certified seeing-eye/hearing dogs 50% of the stated fee, not free; the statutory disability-assist exemption is applied here.)"
+        },
+        {
+          "id": "desexed",
+          "label": "Urban spayed/neutered",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 87,
+          "late": 130.5
+        },
+        {
+          "id": "standard",
+          "label": "Urban entire",
+          "requires": {},
+          "onTime": 115,
+          "late": 172.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Rural owner (1st and 2nd dog)",
+          "amount": 77,
+          "note": "$42 each for subsequent dogs"
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 172.5,
+        "late": 258.75
+      },
+      "notes": "2026/27 schedule (page last updated 15 Jun 2026). Rural owner $77 (1st/2nd dog), $42 subsequent. Owners over 65 (urban) pay $75 on-time / $112.50 late. 50% late penalty for all dogs not registered by 1 August. Dangerous-dog late computed at +50%."
+    },
+    {
+      "slug": "central-hawkes-bay",
+      "name": "Central Hawke's Bay District",
+      "type": "district",
+      "sourceUrl": "https://www.chbdc.govt.nz/services/animal-services/dog-owners/dog-registration/",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law (CHB classes them within the working-dog definition)."
         },
         {
           "id": "working",
@@ -123,52 +324,121 @@
           "requires": {
             "workingDog": true
           },
-          "onTime": 62.5,
-          "late": 94
+          "onTime": 61,
+          "late": 91.5,
+          "note": "Late = up to +50% (computed)."
         },
         {
-          "id": "accredited",
-          "label": "Accredited Dog Owner",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 73,
-          "late": 222,
-          "note": "Late reverts to standard: $222 desexed / $306.50 entire (ADO status lost if not paid by 31 July)."
-        },
-        {
-          "id": "desexed",
-          "label": "Desexed dog",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 148,
-          "late": 222
-        },
-        {
-          "id": "entire",
-          "label": "Entire dog",
+          "id": "standard",
+          "label": "Urban (town) pet dog",
           "requires": {},
-          "onTime": 204,
-          "late": 306.5
+          "onTime": 130,
+          "late": 195,
+          "note": "Late = up to +50% (computed)."
+        }
+      ],
+      "extras": [],
+      "notes": "2026/27 fees (page states 'apply for July 1 2026 - June 30 2027'). Rural pet dog $65 — not shown as a category (no rural toggle). SuperGold (Gold Card) and Responsible Dog Owner reduced fees exist but exact dollar figures are NOT published online ('no change'). After 1 August a penalty of up to 50% of the registration fee per dog applies (late figures computed from the stated up-to-50%)."
+    },
+    {
+      "slug": "central-otago",
+      "name": "Central Otago District",
+      "type": "district",
+      "sourceUrl": "https://www.codc.govt.nz/services/dog-control/dog-registration",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 12,
+          "late": 12,
+          "note": "Council does not publish a late-payment penalty %, so the late fee equals the on-time fee here."
+        },
+        {
+          "id": "standard",
+          "label": "Non-working dog (pet)",
+          "requires": {},
+          "onTime": 72,
+          "late": 72,
+          "note": "Council does not publish a late-payment penalty %, so the late fee equals the on-time fee here."
+        }
+      ],
+      "extras": [],
+      "notes": "Page header reads 'Dog Registration for 2026-2027'. Only two classes: Non-working (pet) $72, Working dog $12 — no desexed or responsible-owner discount. Pro-rata scale reduces $6/month (working $1/month) from August. Re-register each July; deadline 31 July. Unregistered-dog infringement $300. The page does not publish a late-payment penalty percentage, so late = on-time here (conservative)."
+    },
+    {
+      "slug": "chatham-islands",
+      "name": "Chatham Islands",
+      "type": "territory",
+      "sourceUrl": "https://www.cic.govt.nz/services/community-and-culture/animal-control",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "30 June",
+      "cutoffs": {
+        "afterDueFrom": "07-01",
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": false,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "afterDue": 0,
+          "late": 0,
+          "note": "Free by law (Dog Control Act 1996)."
+        },
+        {
+          "id": "standard",
+          "label": "Standard dog registration",
+          "requires": {},
+          "onTime": 50,
+          "afterDue": 78,
+          "late": 78,
+          "note": "$50 early registration (on-time); $78 standard once the early discount is removed."
         }
       ],
       "extras": [
         {
-          "label": "Multiple-dog application (more than three dogs)",
-          "amount": 43
+          "label": "Replacement dog tag",
+          "amount": 5
         },
         {
-          "label": "Replacement registration tag",
-          "amount": 14.5
+          "label": "Impounding fee",
+          "amount": 132
         }
       ],
-      "notes": "2026/27 fees (re-verified 2026-06-30). Includes the $2.50 National Dog Database levy. Late fee = 50% of registration if paid after 31 July. No separate dangerous-dog registration fee published. Puppies are charged pro-rata to 30 June.",
-      "responsibleOwnerScheme": {
-        "name": "Accredited Dog Owner",
-        "applicationFee": null,
-        "url": "https://wellington.govt.nz/dogs-and-other-animals/dogs/register-your-dog/fees"
-      }
+      "notes": "Figures from the Chatham Islands Council animal control page (cic.govt.nz). The page states no registration year; per the Dog Control Policy 2022, dogs must be registered by 30 June for the ensuing year, so applied to 2026/27. Only two amounts are published online ($50 early, $78 standard). Policy says a lower working-dog rate and a dangerous-dog rate (+50%) exist but no dollar figures are published."
     },
     {
       "slug": "christchurch",
@@ -254,6 +524,473 @@
       }
     },
     {
+      "slug": "clutha",
+      "name": "Clutha District",
+      "type": "district",
+      "sourceUrl": "https://hdp-au-prod-app-clth-connect-files.s3.ap-southeast-2.amazonaws.com/7517/7450/9584/Proposed_Fees_and_Charges_bundle.pdf",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Rural working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 54,
+          "late": 81
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible Dog Owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 76,
+          "late": 114
+        },
+        {
+          "id": "standard",
+          "label": "Urban dog",
+          "requires": {},
+          "onTime": 108,
+          "late": 162
+        }
+      ],
+      "extras": [
+        {
+          "label": "Three or more urban dogs (application)",
+          "amount": 76
+        },
+        {
+          "label": "Impounding — first offence",
+          "amount": 83
+        },
+        {
+          "label": "Sustenance per day",
+          "amount": 21
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 162,
+        "late": 243
+      },
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner",
+        "applicationFee": 31,
+        "url": "https://www.cluthadc.govt.nz/council/do-it-online/dog-registrations"
+      },
+      "notes": "2026/27 figures from the council's official Proposed Fees & Charges schedule (S3-hosted PDF; header '1 July 2026 to 30 June 2027'). Council web pages were WAF-blocked. Rural non-working dog is $76/$114. Dangerous dog = base +50% (urban base shown). Late = +50% penalty after 1 August. No desexed discount."
+    },
+    {
+      "slug": "dunedin",
+      "name": "Dunedin City",
+      "type": "city",
+      "sourceUrl": "https://www.dunedin.govt.nz/services/dogs/fees",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Special aid / disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Special Aid Dog Registration Fee $0.00."
+        },
+        {
+          "id": "working",
+          "label": "Working dog (1st)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 62,
+          "late": 93,
+          "note": "1st working dog. 2nd and subsequent working dogs $32 on-time / $48 late."
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible Dog Owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 70,
+          "late": 105
+        },
+        {
+          "id": "desexed",
+          "label": "Neutered non-working dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 117,
+          "late": 180.5,
+          "note": "Non-working July rate $117 (= $127 less $10 neutering rebate). Late = $117 + $63.50 fixed penalty (50% of full fee)."
+        },
+        {
+          "id": "standard",
+          "label": "Non-working dog (entire)",
+          "requires": {},
+          "onTime": 127,
+          "late": 190.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchip implanting",
+          "amount": 48
+        },
+        {
+          "label": "Neutering/spaying rebate",
+          "note": "−$10 off registration (proof required)"
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 190.5,
+        "late": 285.75
+      },
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner",
+        "applicationFee": 49,
+        "url": "https://www.dunedin.govt.nz/services/dogs/fees"
+      },
+      "notes": "Full 2026/27 schedule published (table header '2026/27 fees (GST Inclusive)'; pro-rata heading '1 July 2026 to 30 June 2027'). Late fee is a fixed 50%-of-full-fee penalty added on top (non-working +$63.50, working 1st +$31, RDO +$35, dangerous +$95.25), so late = onTime + that penalty. Responsible Dog Owner status = 44% off; application requires a $49 site visit. Desexed = $10 rebate. Pro-rata monthly scale for mid-year registrations."
+    },
+    {
+      "slug": "far-north",
+      "name": "Far North District",
+      "type": "district",
+      "sourceUrl": "https://www.fndc.govt.nz/__data/assets/pdf_file/0018/3537/Fees-and-Charges-2026_27_FINAL.pdf",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 August",
+      "cutoffs": {
+        "lateFrom": "09-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law (approved-organisation certified)."
+        },
+        {
+          "id": "working",
+          "label": "Working/pig dog (entire)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 69,
+          "late": 92,
+          "note": "Desexed working/pig dog is $48 on-time / $72 late."
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed pet dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 61,
+          "late": 92
+        },
+        {
+          "id": "standard",
+          "label": "Standard pet dog (entire)",
+          "requires": {},
+          "onTime": 82,
+          "late": 113
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchipping",
+          "amount": 37
+        },
+        {
+          "label": "Replacement registration tag",
+          "amount": 5
+        },
+        {
+          "label": "Small dog collar",
+          "amount": 13
+        },
+        {
+          "label": "Large dog collar",
+          "amount": 18
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 92,
+        "late": 138
+      },
+      "notes": "Source: 'Ngā Utu Fees and Charges 2026/27 FINAL' PDF, Animals/Dogs section. On-time window is 1 July–31 August 2026; full fee + late penalty from 1 September 2026–30 June 2027. Not modelled: 10% Gold Card / Community Services Card discount; sixth dog free when five registered. Dangerous-dog fee $92/$138 quoted from the desexed-dog table. Desexed working $48/$72. No responsible-owner licence scheme."
+    },
+    {
+      "slug": "gisborne",
+      "name": "Gisborne District",
+      "type": "unitary",
+      "sourceUrl": "https://www.gdc.govt.nz/council/fees-and-charges",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Guide and hearing dogs",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Guide and hearing dogs free."
+        },
+        {
+          "id": "working",
+          "label": "Working dog (rural livelihood)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 62,
+          "late": 77.5,
+          "note": "Rural livelihood working dogs; de-sex fee $56 on-time. Capped at first 6 dogs. Late computed from stated 25% rule."
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog (normal urban)",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 101,
+          "late": 126.25,
+          "note": "De-sex fee column for normal urban dog; requires vet proof. Late computed from 25% rule."
+        },
+        {
+          "id": "responsible",
+          "label": "Selected owner policy",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 78,
+          "late": 97.5,
+          "note": "De-sex fee $71 on-time. Late computed from 25% rule."
+        },
+        {
+          "id": "standard",
+          "label": "Normal urban dog (entire)",
+          "requires": {},
+          "onTime": 112,
+          "late": 140,
+          "note": "Late computed from stated 25% rule."
+        }
+      ],
+      "extras": [
+        {
+          "label": "Replacement Dog tag",
+          "amount": 18
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 168,
+        "late": 210
+      },
+      "responsibleOwnerScheme": {
+        "name": "Selected Dog Owner Policy",
+        "applicationFee": null,
+        "url": "https://www.gdc.govt.nz/services/dogs-and-animals/dogs/selected-dog-owner-policy"
+      },
+      "notes": "2026/27 fees ('Fee if paid by 31.7.26'). Due 1 July; pay by 31 July to avoid a 25% penalty — all 'late' figures computed onTime × 1.25. Two-column table: base vs de-sex fee (de-sexing needs vet proof). Other tiers not mapped: Probationary $166/$150; Superannuitant $74/$67; Selected-owner Superannuitant $63/$57; NZ licensed dog owner $67/$61. Dangerous shown is entire; dangerous de-sex $152."
+    },
+    {
+      "slug": "gore",
+      "name": "Gore District",
+      "type": "district",
+      "sourceUrl": "https://www.goredc.govt.nz/services/dogs-other-animals/dog-owner-information/registering-a-dog",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 30,
+          "late": 42,
+          "note": "Plus $20 if a complaint/impound/infringement in the last two years. Late = +40%."
+        },
+        {
+          "id": "desexed-responsible",
+          "label": "Neutered dog, no complaints (2yr)",
+          "requires": {
+            "desexed": true,
+            "responsibleOwner": true
+          },
+          "onTime": 65,
+          "late": 91,
+          "note": "Non-working $125 less $40 (neutered) less $20 (no complaints/impounds/infringements in two years) = $65."
+        },
+        {
+          "id": "desexed",
+          "label": "Neutered / spayed non-working dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 85,
+          "late": 119,
+          "note": "$125 less $40 neutering discount."
+        },
+        {
+          "id": "standard",
+          "label": "Non-working dog (entire)",
+          "requires": {},
+          "onTime": 125,
+          "late": 175
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchipping",
+          "amount": 40
+        },
+        {
+          "label": "Licence fee (three or more dogs)",
+          "amount": 159
+        }
+      ],
+      "notes": "Page states 'Dog registration costs 2026/2027'. Non-working dog $125; two stacking discounts: neutered/spayed −$40, and no complaints/impounds/infringements in a two-year period −$20 (combined = $65). Working dog $30 (+$20 if complaint/impound/infringement in two years). Late Registration Fee = +40% (late figures computed onTime × 1.4). $300 infringement for an unregistered dog. Page does not state an explicit late cutoff date — dueDate/lateFrom set to the NZ-standard 31 July / 1 August pending confirmation."
+    },
+    {
+      "slug": "grey",
+      "name": "Grey District",
+      "type": "district",
+      "sourceUrl": "https://www.greydc.govt.nz/04your-council/fees-and-charges/animal-control",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law (Dog Control Act 1996 s.37)."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 56.5,
+          "late": 84.75
+        },
+        {
+          "id": "desexed",
+          "label": "De-sexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 105,
+          "late": 157.5
+        },
+        {
+          "id": "standard",
+          "label": "Pet (entire)",
+          "requires": {},
+          "onTime": 143,
+          "late": 214.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchipping",
+          "amount": 25
+        },
+        {
+          "label": "Replacement registration tag",
+          "amount": 3.5
+        }
+      ],
+      "notes": "2026/27 fees from the council's Animal Control fees & charges tab (1 July 2026 – 30 June 2027). Late column ('from 1 August 2026') = +50%; figures are the council's own stated amounts. 20% Gold Card discount available (viewed at renewal). New/newly-acquired dogs charged pro-rata. No urban/rural split, no responsible-owner scheme."
+    },
+    {
       "slug": "hamilton",
       "name": "Hamilton City",
       "type": "city",
@@ -314,344 +1051,6 @@
         "applicationFee": null,
         "url": "https://hamilton.govt.nz/do-it-online/pay-it/renew-a-dog-registration"
       }
-    },
-    {
-      "slug": "tauranga",
-      "name": "Tauranga City",
-      "type": "city",
-      "sourceUrl": "https://www.tauranga.govt.nz/Council/Fees-and-charges/Animal-service-fees",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": false,
-        "workingRate": false,
-        "responsibleOwner": false
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law (Dog Control Act 1996)."
-        },
-        {
-          "id": "normal",
-          "label": "Normal dog",
-          "requires": {},
-          "onTime": 133,
-          "late": 199.5
-        }
-      ],
-      "extras": [
-        {
-          "label": "Microchip fee",
-          "amount": 34
-        },
-        {
-          "label": "Kennel licence (more than two dogs)",
-          "amount": 103,
-          "note": "variation $51.50"
-        },
-        {
-          "label": "Surrender fee",
-          "amount": 118.5
-        },
-        {
-          "label": "Replacement tag",
-          "amount": 12.5
-        }
-      ],
-      "dangerousDog": {
-        "onTime": 199.5,
-        "late": 299.2
-      },
-      "notes": "2026/27 fees (unchanged from 2025/26). Tauranga charges a single flat fee (no desexed/working/owner discount in the main schedule); on-time fee applies before 1 August."
-    },
-    {
-      "slug": "palmerston-north",
-      "name": "Palmerston North City",
-      "type": "city",
-      "sourceUrl": "https://www.pncc.govt.nz/Services/Dogs-and-other-animals/Dogs/Register-your-dog",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law (Dog Control Act 1996)."
-        },
-        {
-          "id": "working",
-          "label": "Rural working dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 65,
-          "late": 97.5
-        },
-        {
-          "id": "preferred",
-          "label": "Preferred owner",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 103,
-          "late": 154.5
-        },
-        {
-          "id": "desexed",
-          "label": "Desexed dog",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 140,
-          "late": 210
-        },
-        {
-          "id": "entire",
-          "label": "General registration (entire)",
-          "requires": {},
-          "onTime": 189,
-          "late": 283.5
-        }
-      ],
-      "extras": [],
-      "notes": "Infringement fee for an unregistered dog is $300.",
-      "responsibleOwnerScheme": {
-        "name": "Preferred owner",
-        "applicationFee": null,
-        "url": "https://www.pncc.govt.nz/Services/Dogs-and-other-animals/Dogs/Register-your-dog"
-      }
-    },
-    {
-      "slug": "hutt-city",
-      "name": "Lower Hutt (Hutt City)",
-      "type": "city",
-      "sourceUrl": "https://www.huttcity.govt.nz/services/dogs/fees-and-charges",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Working dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 95,
-          "late": 95
-        },
-        {
-          "id": "rdo",
-          "label": "Responsible Dog Owner (RDO)",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 95,
-          "late": 195,
-          "note": "Late reverts to standard: $195 neutered / $253 entire."
-        },
-        {
-          "id": "neutered",
-          "label": "Neutered dog",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 138,
-          "late": 195
-        },
-        {
-          "id": "entire",
-          "label": "Entire dog",
-          "requires": {},
-          "onTime": 194,
-          "late": 253
-        }
-      ],
-      "extras": [
-        {
-          "label": "Working dog (secondary)",
-          "amount": 48.5
-        },
-        {
-          "label": "Classified dangerous dog",
-          "amount": 230,
-          "note": "late $310"
-        }
-      ],
-      "notes": "",
-      "responsibleOwnerScheme": {
-        "name": "Responsible Dog Owner (RDO)",
-        "applicationFee": null,
-        "url": "https://www.huttcity.govt.nz/services/dogs/fees-and-charges"
-      }
-    },
-    {
-      "slug": "nelson",
-      "name": "Nelson City",
-      "type": "unitary",
-      "sourceUrl": "https://www.nelson.govt.nz/2services/91dog-control/dog-ownership-fees",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": false
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Community working dog (police/seeing-eye/hearing)",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 5.79,
-          "late": 5.79
-        },
-        {
-          "id": "desexed",
-          "label": "Desexed dog",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 67.37,
-          "late": 101.06
-        },
-        {
-          "id": "entire",
-          "label": "Standard dog",
-          "requires": {},
-          "onTime": 121.06,
-          "late": 181.59
-        }
-      ],
-      "extras": [
-        {
-          "label": "Microchip insertion",
-          "amount": 46.32
-        }
-      ],
-      "notes": "Fee reduces pro-rata each month if first registered after July. 50% penalty after 1 August."
-    },
-    {
-      "slug": "whangarei",
-      "name": "Whangārei District",
-      "type": "district",
-      "sourceUrl": "https://www.wdc.govt.nz/Council/Council-documents/Fees-and-Charges/Animal-Fees",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": false
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Working dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 83,
-          "late": 125
-        },
-        {
-          "id": "desexed",
-          "label": "Desexed pet",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 108,
-          "late": 162
-        },
-        {
-          "id": "entire",
-          "label": "Pet (entire)",
-          "requires": {},
-          "onTime": 124,
-          "late": 186
-        }
-      ],
-      "extras": [
-        {
-          "label": "Dangerous dog",
-          "amount": 270,
-          "note": "late $405"
-        },
-        {
-          "label": "Replacement tag",
-          "amount": 9
-        }
-      ],
-      "notes": ""
     },
     {
       "slug": "hastings",
@@ -724,11 +1123,11 @@
       }
     },
     {
-      "slug": "taupo",
-      "name": "Taupō District",
+      "slug": "hauraki",
+      "name": "Hauraki District",
       "type": "district",
-      "sourceUrl": "https://www.taupodc.govt.nz/rules-regulations-and-licenses/dogs-and-other-animals/1registration",
-      "lastVerified": "2026-06-30",
+      "sourceUrl": "https://www.hauraki-dc.govt.nz/rules-regulations-licences/dogs-other-animals/fees-dogs-animals",
+      "lastVerified": "2026-07-03",
       "year": "2026/27",
       "dueDate": "31 July",
       "cutoffs": {
@@ -736,7 +1135,7 @@
       },
       "supports": {
         "desexedDiscount": true,
-        "workingRate": true,
+        "workingRate": false,
         "responsibleOwner": true
       },
       "categories": [
@@ -748,26 +1147,17 @@
           },
           "onTime": 0,
           "late": 0,
-          "note": "Free by law."
+          "note": "Free by law (not itemised on page)."
         },
         {
-          "id": "working",
-          "label": "Working dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 43,
-          "late": 43
-        },
-        {
-          "id": "responsible",
-          "label": "Responsible Owner (entire)",
+          "id": "responsible-owner",
+          "label": "Responsible Owner Licence (ROL) dog – entire",
           "requires": {
             "responsibleOwner": true
           },
-          "onTime": 80,
-          "late": 100,
-          "note": "Late adds the ~$20 penalty — confirm with council."
+          "onTime": 85,
+          "late": 217.5,
+          "note": "Desexed ROL dog is $70 on-time. Late = loss of ROL, reverts to general entire penalty $217.50."
         },
         {
           "id": "desexed",
@@ -775,428 +1165,37 @@
           "requires": {
             "desexed": true
           },
-          "onTime": 105,
-          "late": 125,
-          "note": "Entire fee less the $15 desexed discount."
-        },
-        {
-          "id": "entire",
-          "label": "Entire dog",
-          "requires": {},
-          "onTime": 120,
-          "late": 140
-        }
-      ],
-      "extras": [
-        {
-          "label": "Responsible Owner application fee",
-          "amount": 43
-        },
-        {
-          "label": "Replacement tag",
-          "amount": 16
-        },
-        {
-          "label": "Keep more than two dogs (urban)",
-          "amount": 135
-        }
-      ],
-      "notes": "2026/27 fees. Late is a flat +$20 after 31 July; $15 discount for desexed dogs.",
-      "responsibleOwnerScheme": {
-        "name": "Responsible Owner",
-        "applicationFee": 43,
-        "url": "https://www.taupodc.govt.nz/rules-regulations-and-licenses/dogs-and-other-animals/1registration"
-      }
-    },
-    {
-      "slug": "selwyn",
-      "name": "Selwyn District",
-      "type": "district",
-      "sourceUrl": "https://www.selwyn.govt.nz/services/dogs-And-animals/dogs/fees-and-charges",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": false,
-        "workingRate": false,
-        "responsibleOwner": false
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
+          "onTime": 110,
+          "late": 165
         },
         {
           "id": "standard",
-          "label": "Dog registration",
+          "label": "Entire dog",
           "requires": {},
-          "onTime": 68,
-          "late": 102
+          "onTime": 145,
+          "late": 217.5
         }
       ],
       "extras": [
         {
-          "label": "Dangerous dog",
-          "amount": 102,
-          "note": "late $153"
+          "label": "Replacement dog registration tag",
+          "amount": 5
         },
         {
-          "label": "Replacement tag",
-          "amount": 5.14
+          "label": "Responsible Owner Licence (ROL) application fee",
+          "amount": 40
         },
         {
-          "label": "Kennel licence application",
-          "amount": 123.24
+          "label": "Consent to keep more than two dogs (urban)",
+          "amount": 60
         }
       ],
-      "notes": "2026/27 fees. Flat fee; 50% late penalty after 31 July; pro-rata for pups registered mid-year. Confirm any desexed/working discount with the council."
-    },
-    {
-      "slug": "rotorua",
-      "name": "Rotorua Lakes",
-      "type": "district",
-      "sourceUrl": "https://www.rotorualakescouncil.nz/dogs-animal-control/dogs-online-registration",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "rural",
-          "label": "Rural domiciled dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 90,
-          "late": 135
-        },
-        {
-          "id": "selected",
-          "label": "Selected dog owner status",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 90,
-          "late": 135
-        },
-        {
-          "id": "desexed",
-          "label": "Desexed dog (urban)",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 114,
-          "late": 176.5,
-          "note": "Urban fee less the $11 desexing rebate."
-        },
-        {
-          "id": "urban",
-          "label": "Urban domiciled dog",
-          "requires": {},
-          "onTime": 125,
-          "late": 187.5
-        }
-      ],
-      "extras": [
-        {
-          "label": "Microchip implant",
-          "amount": 34
-        }
-      ],
-      "notes": "2026/27 fees. Late penalty is a flat add-on ($62.50 urban / $45 rural); $11 rebate for desexed dogs.",
       "responsibleOwnerScheme": {
-        "name": "Selected dog owner status",
-        "applicationFee": null,
-        "url": "https://www.rotorualakescouncil.nz/dogs-animal-control/dogs-online-registration"
-      }
-    },
-    {
-      "slug": "upper-hutt",
-      "name": "Upper Hutt City",
-      "type": "city",
-      "sourceUrl": "https://www.upperhutt.govt.nz/council/fees-and-charges/Animal-management",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
+        "name": "Responsible Owner Licence (ROL)",
+        "applicationFee": 40,
+        "url": "https://www.hauraki-dc.govt.nz/rules-regulations-licences/dogs-other-animals/responsible-owner"
       },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Working dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 104,
-          "late": 155.5
-        },
-        {
-          "id": "ro-desexed",
-          "label": "Responsible owner — desexed",
-          "requires": {
-            "responsibleOwner": true,
-            "desexed": true
-          },
-          "onTime": 104,
-          "late": 155.5
-        },
-        {
-          "id": "ro",
-          "label": "Responsible owner",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 116,
-          "late": 173
-        },
-        {
-          "id": "desexed",
-          "label": "General — desexed",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 156,
-          "late": 232.5
-        },
-        {
-          "id": "entire",
-          "label": "General registration (entire)",
-          "requires": {},
-          "onTime": 173,
-          "late": 259.5
-        }
-      ],
-      "extras": [
-        {
-          "label": "Police dog",
-          "amount": 58.7,
-          "note": "late $87.55"
-        },
-        {
-          "label": "Classified dangerous dog",
-          "amount": 260,
-          "note": "late $385"
-        },
-        {
-          "label": "Micro-chipping",
-          "amount": 41.2
-        },
-        {
-          "label": "Permit to keep more than two dogs",
-          "amount": 82.4
-        }
-      ],
-      "notes": "",
-      "responsibleOwnerScheme": {
-        "name": "Responsible owner (SO)",
-        "applicationFee": null,
-        "url": "https://www.upperhutt.govt.nz/council/fees-and-charges/Animal-management"
-      }
-    },
-    {
-      "slug": "timaru",
-      "name": "Timaru District",
-      "type": "district",
-      "sourceUrl": "https://www.timaru.govt.nz/council/publications/fees-and-charges/dog-registration",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Working / rural pet dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 51,
-          "late": 51
-        },
-        {
-          "id": "selected",
-          "label": "Selected dog owner",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 51,
-          "late": 51
-        },
-        {
-          "id": "neutered",
-          "label": "Neutered dog",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 82,
-          "late": 82
-        },
-        {
-          "id": "entire",
-          "label": "Entire dog (not desexed)",
-          "requires": {},
-          "onTime": 154,
-          "late": 154
-        }
-      ],
-      "extras": [
-        {
-          "label": "New puppy (3–12 months)",
-          "amount": 47
-        },
-        {
-          "label": "Dangerous dog (entire)",
-          "amount": 231,
-          "note": "neutered $123 / rural $77"
-        },
-        {
-          "label": "Replacement tag",
-          "amount": 6
-        }
-      ],
-      "notes": "Single annual fee that pro-rates by month for dogs first registered after July; new-puppy registration is always $47. Confirm any late-payment penalty with the council.",
-      "responsibleOwnerScheme": {
-        "name": "Selected Owners Policy (SOP)",
-        "applicationFee": 54,
-        "url": "https://www.timaru.govt.nz/council/publications/fees-and-charges/dog-registration"
-      }
-    },
-    {
-      "slug": "waitaki",
-      "name": "Waitaki District",
-      "type": "district",
-      "sourceUrl": "https://www.waitaki.govt.nz/Services/Fees-and-Charges/Animal-Control",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Working / farm pet dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 39,
-          "late": 39
-        },
-        {
-          "id": "selected",
-          "label": "Selected owner dog",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 52.5,
-          "late": 52.5
-        },
-        {
-          "id": "neutered",
-          "label": "Neutered non-working dog",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 105,
-          "late": 105
-        },
-        {
-          "id": "entire",
-          "label": "Non-working dog (entire)",
-          "requires": {},
-          "onTime": 130.5,
-          "late": 130.5
-        }
-      ],
-      "extras": [
-        {
-          "label": "Selected Owner / Multiple Dog Permit",
-          "amount": 50
-        },
-        {
-          "label": "Replacement tag",
-          "amount": 10
-        }
-      ],
-      "notes": "Flat annual fee. Confirm any late-payment penalty with the council.",
-      "responsibleOwnerScheme": {
-        "name": "Selected owner",
-        "applicationFee": 50,
-        "url": "https://www.waitaki.govt.nz/Services/Fees-and-Charges/Animal-Control"
-      }
+      "notes": "Source: Hauraki DC 'Fees for Dogs and Other Animals' page, 'Registration Fees 2026/27' (1 July 2026–30 June 2027). Entire $145/$217.50; Desexed (vet cert) $110/$165; 'Dogs in excess of three' $50/$75 (multi-dog rate, not modelled). ROL: Entire $85, Desexed $70 on-time; missing 31 July disqualifies ROL and the general penalty applies. Penalty = +50%. Disability/guide dogs not itemised — $0 per statutory exemption. ROL applications 1 June–15 July."
     },
     {
       "slug": "horowhenua",
@@ -1293,20 +1292,20 @@
       }
     },
     {
-      "slug": "kaipara",
-      "name": "Kaipara District",
+      "slug": "hurunui",
+      "name": "Hurunui District",
       "type": "district",
-      "sourceUrl": "https://www.kaipara.govt.nz/annual-dog-registration",
-      "lastVerified": "2026-06-30",
+      "sourceUrl": "https://www.hurunui.govt.nz/council/fees-charges/dogs",
+      "lastVerified": "2026-07-03",
       "year": "2026/27",
-      "dueDate": "31 August",
+      "dueDate": "31 July",
       "cutoffs": {
-        "lateFrom": "09-01"
+        "lateFrom": "08-01"
       },
       "supports": {
         "desexedDiscount": false,
         "workingRate": true,
-        "responsibleOwner": false
+        "responsibleOwner": true
       },
       "categories": [
         {
@@ -1317,7 +1316,16 @@
           },
           "onTime": 0,
           "late": 0,
-          "note": "Free by law (Dog Control Act 1996)."
+          "note": "No charge."
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible dog owner category",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 36,
+          "late": 54
         },
         {
           "id": "working",
@@ -1325,383 +1333,28 @@
           "requires": {
             "workingDog": true
           },
-          "onTime": 53,
-          "late": 79,
-          "note": "Reduced to $41 on-time ($79 late) where 4+ dogs are registered to the same owner."
+          "onTime": 36,
+          "late": 54
         },
         {
           "id": "standard",
-          "label": "Non-working dog",
+          "label": "Domestic dog",
           "requires": {},
-          "onTime": 80,
-          "late": 116
-        }
-      ],
-      "extras": [],
-      "notes": "2026/27 fees. Kaipara's on-time deadline is 31 August (late from 1 Sept), unlike most councils' 31 July. Page lists only working/non-working; dangerous/menacing surcharges and multi-dog permits sit in a separate Fees & Charges document not readable for 2026/27. No desexed discount or responsible-owner scheme."
-    },
-    {
-      "slug": "tasman",
-      "name": "Tasman",
-      "type": "unitary",
-      "sourceUrl": "https://tasmandc-publicdocs.azurewebsites.net/api/doc/C8F82D29/35315",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": false,
-        "workingRate": true,
-        "responsibleOwner": false
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Working dog (herding/driving stock)",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 50,
-          "late": 75
-        },
-        {
-          "id": "standard",
-          "label": "Urban dog (property under 1 ha)",
-          "requires": {},
-          "onTime": 90,
-          "late": 135
+          "onTime": 52,
+          "late": 78
         }
       ],
       "extras": [
         {
-          "label": "Replacement tag/disc",
-          "amount": 5
-        },
-        {
-          "label": "Kennel licence",
-          "amount": 220
-        },
-        {
-          "label": "Microchipping (over 6 months)",
-          "amount": 20
-        }
-      ],
-      "notes": "2025/26 schedule (2026/27 not yet published on the council's own site as of 2026-06-30; re-check). Fees set by property size, not desexed status: a rural dog (property 1 ha+) is $70/$105. Dangerous dogs charged +50%. Late = +50% after 31 July. Read from the council's official fees document (council web pages WAF-blocked)."
-    },
-    {
-      "slug": "buller",
-      "name": "Buller District",
-      "type": "district",
-      "sourceUrl": "https://bullerdc.govt.nz/dogs-and-animal-control/dog-registration/",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": false
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working-desexed",
-          "label": "Working dog — desexed",
-          "requires": {
-            "workingDog": true,
-            "desexed": true
-          },
-          "onTime": 52.5,
-          "late": 78.75
-        },
-        {
-          "id": "working",
-          "label": "Working dog — entire",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 80,
-          "late": 120
-        },
-        {
-          "id": "desexed",
-          "label": "Standard dog — desexed",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 80,
-          "late": 120
-        },
-        {
-          "id": "standard",
-          "label": "Standard dog — entire",
-          "requires": {},
-          "onTime": 100,
-          "late": 150
-        }
-      ],
-      "extras": [],
-      "notes": "2026/27 fees. Late = +50% from 1 August. SuperGold cardholders get 20% off (not applied above). Dogs moving into the district mid-year register free for the remainder."
-    },
-    {
-      "slug": "westland",
-      "name": "Westland District",
-      "type": "district",
-      "sourceUrl": "https://www.westlanddc.govt.nz/dogs-and-animal-control/dog-registration/",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": false
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Certified disability assistance dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "NIL / free by law."
-        },
-        {
-          "id": "working",
-          "label": "First working dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 80,
-          "late": 120
-        },
-        {
-          "id": "desexed",
-          "label": "Neutered dog",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 80,
-          "late": 120
-        },
-        {
-          "id": "standard",
-          "label": "Unneutered dog",
-          "requires": {},
-          "onTime": 115,
-          "late": 172.5
-        }
-      ],
-      "extras": [
-        {
-          "label": "Additional working dog",
-          "amount": 40,
-          "note": "late $60"
-        }
-      ],
-      "notes": "2025/26 schedule (2026/27 not yet published as of 2026-06-30; re-check). Late = +50% from 1 August. 20% Gold Card discount on non-working fees. Dangerous dogs +50%."
-    },
-    {
-      "slug": "clutha",
-      "name": "Clutha District",
-      "type": "district",
-      "sourceUrl": "https://hdp-au-prod-app-clth-connect-files.s3.ap-southeast-2.amazonaws.com/7517/7450/9584/Proposed_Fees_and_Charges_bundle.pdf",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": false,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Rural working dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 54,
-          "late": 81
-        },
-        {
-          "id": "responsible",
-          "label": "Responsible Dog Owner",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 76,
-          "late": 114
-        },
-        {
-          "id": "standard",
-          "label": "Urban dog",
-          "requires": {},
-          "onTime": 108,
-          "late": 162
-        }
-      ],
-      "extras": [
-        {
-          "label": "Three or more urban dogs (application)",
-          "amount": 76
-        },
-        {
-          "label": "Impounding — first offence",
-          "amount": 83
-        },
-        {
-          "label": "Sustenance per day",
-          "amount": 21
+          "label": "Replacement dog tag",
+          "amount": 10
         }
       ],
       "dangerousDog": {
-        "onTime": 162,
-        "late": 243
+        "onTime": 78,
+        "late": 117
       },
-      "responsibleOwnerScheme": {
-        "name": "Responsible Dog Owner",
-        "applicationFee": 31,
-        "url": "https://www.cluthadc.govt.nz/council/do-it-online/dog-registrations"
-      },
-      "notes": "2026/27 figures from the council's official Proposed Fees & Charges schedule (S3-hosted PDF; header '1 July 2026 to 30 June 2027'). Council web pages were WAF-blocked. Rural non-working dog is $76/$114. Dangerous dog = base +50% (urban base shown). Late = +50% penalty after 1 August. No desexed discount."
-    },
-    {
-      "slug": "southland",
-      "name": "Southland District",
-      "type": "district",
-      "sourceUrl": "https://www.southlanddc.govt.nz/assets/Fees-and-charges/individual/Fees-and-charges-Animal-control.pdf",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Service dog (disability assist) with current papers",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Working / stock dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 40,
-          "late": 60
-        },
-        {
-          "id": "desexed-ro",
-          "label": "Desexed + responsible owner",
-          "requires": {
-            "desexed": true,
-            "responsibleOwner": true
-          },
-          "onTime": 50,
-          "late": 75
-        },
-        {
-          "id": "responsible",
-          "label": "Responsible owner",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 80,
-          "late": 120
-        },
-        {
-          "id": "desexed",
-          "label": "Desexed dog",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 80,
-          "late": 120
-        },
-        {
-          "id": "standard",
-          "label": "Standard / entire dog",
-          "requires": {},
-          "onTime": 110,
-          "late": 165
-        }
-      ],
-      "extras": [
-        {
-          "label": "Property inspection (verify discount)",
-          "amount": 50
-        },
-        {
-          "label": "Replacement tag (first)",
-          "amount": 6.5
-        },
-        {
-          "label": "Multiple dog licence application",
-          "amount": 50
-        }
-      ],
-      "dangerousDog": {
-        "onTime": 165,
-        "late": 165
-      },
-      "responsibleOwnerScheme": {
-        "name": "Responsible owner",
-        "applicationFee": null,
-        "url": "https://www.southlanddc.govt.nz/council/fees-and-charges/"
-      },
-      "notes": "2026/27 fees from the council's official Animal Control Fees & Charges PDF. Late = +50% after 1 August. Desexed (-$30) and responsible-owner (-$30) discounts stack to $50. Discount evidence must be provided before 1 May. Dangerous dog = base +50% ($110 x1.5)."
+      "notes": "2026/27 fees from the council Fees & Charges > Dogs page. Footnote: 'A 50% increase of the applicable fee will be applied if a registration has not been completed by 1 August 2026' — late = 1.5× (computed). No de-sexed discount. 'Working exempt dog' also $36. Probationary dog owner: working $36, domestic $52. Remission may be granted for a 6th+ dog. Pups mid-year charged pro-rata."
     },
     {
       "slug": "invercargill",
@@ -1809,591 +1462,82 @@
       "notes": "2026/27 fees from the council's official Annual Plan Fees & Charges 2026-2027 PDF (icc.govt.nz pages WAF-blocked). Late fee = +25% after 1 August (late amounts = base x1.25). Dangerous dog: entire $181.50, desexed $157.50. Menacing dog $151.25. Pro-rata monthly for new registrations."
     },
     {
-      "slug": "chatham-islands",
-      "name": "Chatham Islands",
-      "type": "territory",
-      "sourceUrl": "https://www.cic.govt.nz/services/community-and-culture/animal-control",
-      "lastVerified": "2026-06-30",
+      "slug": "kaikoura",
+      "name": "Kaikōura District",
+      "type": "district",
+      "sourceUrl": "https://www.kaikoura.govt.nz/repository/libraries/id:2i17fvyhr17q9scmy0d8/hierarchy/Council/Fees%20and%20charges/Fees%20%26%20Charges%202026-2027%20%282%29.pdf",
+      "lastVerified": "2026-07-03",
       "year": "2026/27",
-      "dueDate": "30 June",
+      "dueDate": "30 August",
       "cutoffs": {
-        "afterDueFrom": "07-01",
-        "lateFrom": "08-01"
+        "lateFrom": "08-31"
       },
       "supports": {
-        "desexedDiscount": false,
-        "workingRate": false,
+        "desexedDiscount": true,
+        "workingRate": true,
         "responsibleOwner": false
       },
       "categories": [
         {
           "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "afterDue": 0,
-          "late": 0,
-          "note": "Free by law (Dog Control Act 1996)."
-        },
-        {
-          "id": "standard",
-          "label": "Standard dog registration",
-          "requires": {},
-          "onTime": 50,
-          "afterDue": 78,
-          "late": 78,
-          "note": "$50 early registration (on-time); $78 standard once the early discount is removed."
-        }
-      ],
-      "extras": [
-        {
-          "label": "Replacement dog tag",
-          "amount": 5
-        },
-        {
-          "label": "Impounding fee",
-          "amount": 132
-        }
-      ],
-      "notes": "Figures from the Chatham Islands Council animal control page (cic.govt.nz). The page states no registration year; per the Dog Control Policy 2022, dogs must be registered by 30 June for the ensuing year, so applied to 2026/27. Only two amounts are published online ($50 early, $78 standard). Policy says a lower working-dog rate and a dangerous-dog rate (+50%) exist but no dollar figures are published."
-    },
-    {
-      "slug": "waikato-district",
-      "name": "Waikato District",
-      "type": "district",
-      "sourceUrl": "https://www.waikatodistrict.govt.nz/services-facilities/animal-control/dogs/dog-registrations/dog-registration-fees-and-dog-owner-classifications",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": false,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
+          "label": "Guide / disability assist dog",
           "requires": {
             "disabilityAssist": true
           },
           "onTime": 0,
           "late": 0,
-          "note": "Free by law."
+          "note": "Guide Dogs — free."
         },
         {
-          "id": "working",
-          "label": "Farm owner (rural/working)",
+          "id": "desexed",
+          "label": "Neutered or Spayed dog",
           "requires": {
-            "workingDog": true
-          },
-          "onTime": 54,
-          "late": 74
-        },
-        {
-          "id": "responsible",
-          "label": "Selected owner",
-          "requires": {
-            "responsibleOwner": true
+            "desexed": true
           },
           "onTime": 60,
-          "late": 80
-        },
-        {
-          "id": "standard",
-          "label": "General owner",
-          "requires": {},
-          "onTime": 120,
-          "late": 140
-        }
-      ],
-      "extras": [
-        {
-          "label": "Property inspection (upgraded classification)",
-          "amount": 20
-        }
-      ],
-      "dangerousDog": {
-        "onTime": 180,
-        "late": 210
-      },
-      "responsibleOwnerScheme": {
-        "name": "Selected owner classification",
-        "applicationFee": null,
-        "url": "https://www.waikatodistrict.govt.nz/services-facilities/animal-control/dogs/dog-registrations/dog-registration-fees-and-dog-owner-classifications"
-      },
-      "notes": "Waikato classifies by owner type. General owner $120/$140 (standard); Selected owner $60/$80 and Approved owner $95/$115 are good-owner tiers (Selected shown for the responsible-owner toggle); Farm owner $54/$74 shown for working/rural. Submit a desexing certificate for a free registration year (dogs registered within the past 12 months, excludes dangerous/menacing). Page schedule effective 2025-2027."
-    },
-    {
-      "slug": "matamata-piako",
-      "name": "Matamata-Piako District",
-      "type": "district",
-      "sourceUrl": "https://www.mpdc.govt.nz/animal-control/registration-fees",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
+          "late": 90
         },
         {
           "id": "working",
-          "label": "Full fee less working-dog rebate",
+          "label": "Working dog",
           "requires": {
             "workingDog": true
           },
-          "onTime": 142,
-          "late": 213
-        },
-        {
-          "id": "desexed",
-          "label": "Full fee less de-sexed rebate",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 142,
-          "late": 213
-        },
-        {
-          "id": "responsible",
-          "label": "Full fee less Responsible Owner rebate",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 157,
-          "late": 235
+          "onTime": 160,
+          "late": 240,
+          "note": "NB: Kaikōura charges working dogs MORE than pet dogs ($160 vs $80) — verbatim from the official schedule. Dog control officers may verify working-dog status under the Dog Control Act 1996."
         },
         {
           "id": "standard",
-          "label": "Full registration fee",
+          "label": "Standard (entire) dog",
           "requires": {},
-          "onTime": 172,
-          "late": 258
-        }
-      ],
-      "extras": [
-        {
-          "label": "Good-behaviour bonus (no complaints/impounding/infringements)",
-          "amount": 35,
-          "note": "discount off the fee"
-        },
-        {
-          "label": "Replacement tags",
-          "amount": 3
-        },
-        {
-          "label": "Microchipping (animal control)",
-          "amount": 50
-        }
-      ],
-      "dangerousDog": {
-        "onTime": 258,
-        "late": 387
-      },
-      "responsibleOwnerScheme": {
-        "name": "Responsible Owner Rebate",
-        "applicationFee": 0,
-        "url": "https://www.mpdc.govt.nz/animal-control/registration-fees"
-      },
-      "notes": "From the council's DRAFT 2026/27 fees schedule adopted for consultation (final live page WAF-blocked). Full fee $172 (verbatim). A $30 rebate applies for ONE of: de-sexed dog, working dog, or Dogs NZ registered breeder (so working and desexed both = $142). Separate Responsible Owner rebate $15. Late = +50% penalty (computed). Dangerous dog = 150% of relevant fee (computed)."
-    },
-    {
-      "slug": "waipa",
-      "name": "Waipā District",
-      "type": "district",
-      "sourceUrl": "https://www.waipadc.govt.nz/services/dogs-and-animals",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "30 June",
-      "cutoffs": {
-        "afterDueFrom": "07-01",
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": false,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "afterDue": 0,
-          "late": 0,
-          "note": "No fee if re-registered by the due date; standard fees apply after."
-        },
-        {
-          "id": "fenced-neutered",
-          "label": "Urban — fencing + neutered rebates",
-          "requires": {
-            "desexed": true,
-            "responsibleOwner": true
-          },
-          "onTime": 82,
-          "afterDue": 82,
-          "late": 123
-        },
-        {
-          "id": "fenced",
-          "label": "Urban — fencing rebate",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 92,
-          "afterDue": 92,
-          "late": 138
-        },
-        {
-          "id": "neutered",
-          "label": "Urban — neutered rebate",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 97,
-          "afterDue": 97,
-          "late": 145.5
-        },
-        {
-          "id": "standard",
-          "label": "Urban — no rebates",
-          "requires": {},
-          "onTime": 107,
-          "afterDue": 107,
-          "late": 160.5
-        }
-      ],
-      "extras": [
-        {
-          "label": "Replacement registration tag",
-          "amount": 3
-        },
-        {
-          "label": "New dog permit (>2 urban / >5 rural)",
-          "amount": 65
-        },
-        {
-          "label": "Microchipping",
-          "amount": 30
-        }
-      ],
-      "responsibleOwnerScheme": {
-        "name": "Fencing rebate (property inspection)",
-        "applicationFee": null,
-        "url": "https://www.waipadc.govt.nz/services/dogs-and-animals"
-      },
-      "notes": "From the council's official DRAFT Schedule of Fees and Charges 2025-27 (have-your-say document). Rural dog (full year) is $64/$96 — not shown as a category (no rural toggle). Due 30 June; +50% penalty from 1 August (the 'late' column = standard + 50% penalty). Dangerous dogs pay an additional 50% of the usual fee. Fencing rebate requires a property inspection; neutered rebate requires a vet certificate."
-    },
-    {
-      "slug": "otorohanga",
-      "name": "Ōtorohanga District",
-      "type": "district",
-      "sourceUrl": "https://www.otodc.govt.nz/council-services/animal-education-and-control/dog-control-fees-and-charges",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": false,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "special-neutered",
-          "label": "Urban Special Owner + Neutered",
-          "requires": {
-            "desexed": true,
-            "responsibleOwner": true
-          },
-          "onTime": 72,
-          "late": 108
-        },
-        {
-          "id": "neutered",
-          "label": "Urban Neutered",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 130,
-          "late": 195
-        },
-        {
-          "id": "special",
-          "label": "Urban Special Owner",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 130,
-          "late": 195
-        },
-        {
-          "id": "standard",
-          "label": "Urban dog",
-          "requires": {},
-          "onTime": 167,
-          "late": 250.5
-        }
-      ],
-      "extras": [
-        {
-          "label": "Replacement collar tag (large)",
-          "amount": 20
-        },
-        {
-          "label": "Microchip",
-          "amount": 36
-        }
-      ],
-      "responsibleOwnerScheme": {
-        "name": "Special Owner",
-        "applicationFee": null,
-        "url": "https://www.otodc.govt.nz/council-services/animal-education-and-control/dog-control-fees-and-charges"
-      },
-      "notes": "Page states 'Dog Registration Fees approved for 1 July 2026 to 30 June 2027'. Rural dogs $72/$108 — not shown as a category (no rural toggle). Late = additional 50% if not registered by 1 August (late figures computed). No dangerous-dog dollar figure published."
-    },
-    {
-      "slug": "waitomo",
-      "name": "Waitomo District",
-      "type": "district",
-      "sourceUrl": "https://www.waitomo.govt.nz/our-services/animal-control/dog-registration-fees/",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": false,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "special",
-          "label": "Special Owner (Dog Control Policy)",
-          "requires": {
-            "responsibleOwner": true
-          },
           "onTime": 80,
           "late": 120
-        },
-        {
-          "id": "neutered",
-          "label": "Urban spayed/neutered",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 102,
-          "late": 153
-        },
-        {
-          "id": "standard",
-          "label": "Urban dog",
-          "requires": {},
-          "onTime": 135,
-          "late": 202.5
         }
       ],
       "extras": [
         {
-          "label": "Replacement registration tag",
-          "amount": 5.6
+          "label": "Microchipping (as a service)",
+          "amount": 60
         },
-        {
-          "label": "Micro-chipping",
-          "amount": 36
-        },
-        {
-          "label": "Consent to keep more than 2 urban dogs",
-          "amount": 70
-        }
-      ],
-      "responsibleOwnerScheme": {
-        "name": "Special Owner",
-        "applicationFee": 41,
-        "url": "https://www.waitomo.govt.nz/our-services/animal-control/dog-registration-fees/"
-      },
-      "notes": "2026/27 fees (confirmed on live site and Annual Plan PDF). Rural dogs $59/$88.50 — not shown as a category (no rural toggle); every 6th of 5 rural dogs free if paid on time. Gold-card urban concession $120/$180. Late = +50%. Dangerous dog = 150% of the otherwise-applicable fee."
-    },
-    {
-      "slug": "whakatane",
-      "name": "Whakatāne District",
-      "type": "district",
-      "sourceUrl": "https://www.whakatane.govt.nz/services/animal-control/dog-registration",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": false
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Assist / disability dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Certified disability assist dogs — no charge."
-        },
-        {
-          "id": "working",
-          "label": "Working dog (herding/hunting)",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 40,
-          "late": 40,
-          "note": "Flat $40 regardless of registration date."
-        },
-        {
-          "id": "desexed",
-          "label": "De-sexed dog",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 68.5,
-          "late": 99
-        },
-        {
-          "id": "standard",
-          "label": "Entire (un-neutered) dog",
-          "requires": {},
-          "onTime": 98,
-          "late": 147.5
-        }
-      ],
-      "extras": [
         {
           "label": "Replacement tag",
-          "amount": 3
-        },
-        {
-          "label": "Infringement for unregistered dog",
-          "amount": 300
+          "amount": 5.5
         }
       ],
       "dangerousDog": {
-        "onTime": 147,
-        "late": 221.25
+        "onTime": 150,
+        "late": 225
       },
-      "notes": "2026/27 fees. Discount deadline 1 August 2026; fees increase after. Dangerous-classified dogs pay an additional 50% on top of the above (dangerousDog = entire +50%)."
+      "notes": "Source: official Fees & Charges 2026-2027 PDF (Animal Control section). Verbatim: Standard $80, Neutered/Spayed $60, Working Dogs $160, Menacing/Dangerous $150, Guide Dogs free, Puppy (≤12 months) $30. Late = 50% penalty if not registered by 30 August 2026 (late from 31 Aug); late figures computed at +50%. Licence to keep more than two dogs in a residential area $40. Note the ō macron in Kaikōura."
     },
     {
-      "slug": "kawerau",
-      "name": "Kawerau District",
+      "slug": "kaipara",
+      "name": "Kaipara District",
       "type": "district",
-      "sourceUrl": "https://www.kaweraudc.govt.nz/sites/www.kaweraudc.govt.nz/files/documents/registration_fees-2025-2026-2025-05-15_0.pdf",
+      "sourceUrl": "https://www.kaipara.govt.nz/annual-dog-registration",
       "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": false,
-        "responsibleOwner": false
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "desexed",
-          "label": "Dog spayed/neutered",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 43,
-          "late": 64.5
-        },
-        {
-          "id": "standard",
-          "label": "Standard registration",
-          "requires": {},
-          "onTime": 86,
-          "late": 129
-        }
-      ],
-      "extras": [
-        {
-          "label": "Replacement tag",
-          "amount": 7
-        },
-        {
-          "label": "Microchipping fee",
-          "amount": 18.5
-        }
-      ],
-      "notes": "2025/26 schedule (2026/27 not yet published as of 2026-06-30; re-check). Late = +50% penalty (computed). Pro-rata monthly schedule applies to puppies/new registrations. No working-dog or responsible-owner rate."
-    },
-    {
-      "slug": "wairoa",
-      "name": "Wairoa District",
-      "type": "district",
-      "sourceUrl": "https://www.wairoadc.govt.nz/services/animal-education/dog-owners/",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
+      "year": "2026/27",
       "dueDate": "31 August",
       "cutoffs": {
         "lateFrom": "09-01"
@@ -2401,325 +1545,6 @@
       "supports": {
         "desexedDiscount": false,
         "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Working dog (Class W)",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 75,
-          "late": 112
-        },
-        {
-          "id": "responsible",
-          "label": "Selected Owner Policy (Class SOP)",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 100,
-          "late": 150
-        },
-        {
-          "id": "standard",
-          "label": "Standard dog (Class S)",
-          "requires": {},
-          "onTime": 146,
-          "late": 219
-        }
-      ],
-      "extras": [
-        {
-          "label": "Infringement fee (unregistered)",
-          "amount": 300
-        }
-      ],
-      "dangerousDog": {
-        "onTime": 365,
-        "late": 547.5
-      },
-      "responsibleOwnerScheme": {
-        "name": "Selected Owner Policy",
-        "applicationFee": null,
-        "url": "https://www.wairoadc.govt.nz/services/animal-education/dog-owners/"
-      },
-      "notes": "2025/26 schedule (2026/27 not yet published as of 2026-06-30; re-check). Wairoa's on-time deadline is 31 August (late from 1 Sept). Menacing dog (Class M) $266/$399. No desexed discount."
-    },
-    {
-      "slug": "whanganui",
-      "name": "Whanganui District",
-      "type": "district",
-      "sourceUrl": "https://www.whanganui.govt.nz/Fees-and-Charges/Dog-fees-and-charges",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Working dog (first three)",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 46.5,
-          "late": 52
-        },
-        {
-          "id": "responsible",
-          "label": "Responsible dog owner (RDO)",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 120,
-          "late": 147
-        },
-        {
-          "id": "desexed",
-          "label": "Non-working neutered/spayed",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 120,
-          "late": 147
-        },
-        {
-          "id": "standard",
-          "label": "Non-working dog (entire/standard)",
-          "requires": {},
-          "onTime": 147,
-          "late": 147
-        }
-      ],
-      "extras": [
-        {
-          "label": "Microchipping",
-          "amount": 32
-        },
-        {
-          "label": "Replacement tag",
-          "amount": 5
-        }
-      ],
-      "dangerousDog": {
-        "onTime": 220.5,
-        "late": 220.5
-      },
-      "responsibleOwnerScheme": {
-        "name": "Responsible Dog Owner (RDO)",
-        "applicationFee": 0,
-        "url": "https://www.whanganui.govt.nz/Fees-and-Charges/Dog-fees-and-charges"
-      },
-      "notes": "Fees set by council resolution 24 March 2026 for 1 July 2026 – 30 June 2027. Whanganui uses a prompt-payment discount model: 'onTime' = paid by 31 July (with discount); 'late' = the standard base fee (no discount). A separate late-payment PENALTY of 150% of the applicable fee applies to registrations paid on or after 1 September. Discounts: neutered -$27, RDO -$27, first-time -$14.50. Dangerous dog = 150% of $147 entire fee = $220.50."
-    },
-    {
-      "slug": "rangitikei",
-      "name": "Rangitīkei District",
-      "type": "district",
-      "sourceUrl": "https://www.rangitikei.govt.nz/services/animal-control/dogs/fees-charges",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "1 August",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "working",
-          "label": "Working dog (each, up to five dogs)",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 56,
-          "late": 82,
-          "note": "Sixth and additional working dogs $13 each (on-time only)."
-        },
-        {
-          "id": "responsible",
-          "label": "Good owner dog (Approved Good Owner)",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 77,
-          "late": 115
-        },
-        {
-          "id": "desexed",
-          "label": "Non-working dog de-sexed",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 110,
-          "late": 160
-        },
-        {
-          "id": "standard",
-          "label": "Non-working dog (entire/standard)",
-          "requires": {},
-          "onTime": 165,
-          "late": 245
-        }
-      ],
-      "extras": [
-        {
-          "label": "Multi Dog Permit",
-          "amount": 36
-        },
-        {
-          "label": "Micro-chipping (incl. National Dog Database)",
-          "amount": 27
-        },
-        {
-          "label": "Replacement tags",
-          "amount": 5
-        }
-      ],
-      "dangerousDog": {
-        "onTime": 247.5,
-        "late": 371.25
-      },
-      "responsibleOwnerScheme": {
-        "name": "Approved Good Owner Classification",
-        "applicationFee": 0,
-        "url": "https://www.rangitikei.govt.nz/services/animal-control/dogs/fees-charges"
-      },
-      "notes": "From the official Fees and Charges 2026/2027 schedule (s37(6) Dog Control Act 1996) plus the council's 4 June 2026 public notice. Payable by 1 August; +50% surcharge on fees not paid before 1 August (produces the 'late' figures). Dangerous dog: de-sexed $165/$247.50, entire $247.50/$371.25 (entire shown)."
-    },
-    {
-      "slug": "napier",
-      "name": "Napier City",
-      "type": "city",
-      "sourceUrl": "https://www.napier.govt.nz/services/animal-education/fees-and-costs/",
-      "lastVerified": "2026-06-30",
-      "year": "2025/26",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": false,
-        "workingRate": true,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Public good dog (e.g. guide dog)",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "No charge."
-        },
-        {
-          "id": "working",
-          "label": "Working dog",
-          "requires": {
-            "workingDog": true
-          },
-          "onTime": 62.5,
-          "late": 93.7
-        },
-        {
-          "id": "responsible",
-          "label": "Responsible Dog Owner",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 94,
-          "late": 146
-        },
-        {
-          "id": "standard",
-          "label": "Full fee",
-          "requires": {},
-          "onTime": 137,
-          "late": 199
-        }
-      ],
-      "extras": [
-        {
-          "label": "Responsible Dog Owner application (one-off)",
-          "amount": 34.4
-        },
-        {
-          "label": "Replacement registration tag",
-          "amount": 7.3
-        },
-        {
-          "label": "Microchipping (incl. National Dog Database)",
-          "amount": 41.6
-        }
-      ],
-      "dangerousDog": {
-        "onTime": 214,
-        "late": 318
-      },
-      "responsibleOwnerScheme": {
-        "name": "Responsible Dog Owner",
-        "applicationFee": 34.4,
-        "url": "https://www.napier.govt.nz/services/animal-education/fees-and-costs/"
-      },
-      "notes": "2025/26 schedule (page states 'approved for 1 July 2025 to 30 June 2026'; 2026/27 not yet published as of 2026-06-30; re-check). Due by 1 August; penalty after 1 August. No separate desexed discount."
-    },
-    {
-      "slug": "central-hawkes-bay",
-      "name": "Central Hawke's Bay District",
-      "type": "district",
-      "sourceUrl": "https://www.chbdc.govt.nz/services/animal-services/dog-owners/dog-registration/",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": false,
-        "workingRate": true,
         "responsibleOwner": false
       },
       "categories": [
@@ -2731,7 +1556,7 @@
           },
           "onTime": 0,
           "late": 0,
-          "note": "Free by law (CHB classes them within the working-dog definition)."
+          "note": "Free by law (Dog Control Act 1996)."
         },
         {
           "id": "working",
@@ -2739,92 +1564,20 @@
           "requires": {
             "workingDog": true
           },
-          "onTime": 61,
-          "late": 91.5,
-          "note": "Late = up to +50% (computed)."
+          "onTime": 53,
+          "late": 79,
+          "note": "Reduced to $41 on-time ($79 late) where 4+ dogs are registered to the same owner."
         },
         {
           "id": "standard",
-          "label": "Urban (town) pet dog",
+          "label": "Non-working dog",
           "requires": {},
-          "onTime": 130,
-          "late": 195,
-          "note": "Late = up to +50% (computed)."
+          "onTime": 80,
+          "late": 116
         }
       ],
       "extras": [],
-      "notes": "2026/27 fees (page states 'apply for July 1 2026 - June 30 2027'). Rural pet dog $65 — not shown as a category (no rural toggle). SuperGold (Gold Card) and Responsible Dog Owner reduced fees exist but exact dollar figures are NOT published online ('no change'). After 1 August a penalty of up to 50% of the registration fee per dog applies (late figures computed from the stated up-to-50%)."
-    },
-    {
-      "slug": "new-plymouth",
-      "name": "New Plymouth District",
-      "type": "district",
-      "sourceUrl": "https://www.npdc.govt.nz/media/k5tby3tz/fees-and-charges-2025-26.pdf",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": false,
-        "responsibleOwner": true
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law."
-        },
-        {
-          "id": "select-desexed",
-          "label": "Urban — select owner (neutered/spayed)",
-          "requires": {
-            "responsibleOwner": true,
-            "desexed": true
-          },
-          "onTime": 98,
-          "late": 122.5
-        },
-        {
-          "id": "select-entire",
-          "label": "Urban — select owner (entire)",
-          "requires": {
-            "responsibleOwner": true
-          },
-          "onTime": 149,
-          "late": 186.25
-        },
-        {
-          "id": "standard",
-          "label": "Urban — non-select owner",
-          "requires": {},
-          "onTime": 191.5,
-          "late": 239.38
-        }
-      ],
-      "extras": [
-        {
-          "label": "Rural reduced fee (3rd & subsequent dogs)",
-          "amount": 37.1
-        },
-        {
-          "label": "Microchipping of impounded dog",
-          "amount": 55.7
-        }
-      ],
-      "notes": "2026/27 column read from NPDC's official Schedule of Fees and Charges (PDF covers 1 July 2025 – 30 June 2027). Rural dog $72.70 (first two dogs)/$37.10 (3rd+) — not shown as a category (no rural toggle). Pensioner (65+) select rates: desexed $92.50, entire $121. Late is a TIERED penalty: +25% after 1 August (shown as 'late'), +50% after 1 December. Dangerous dogs pay applicable fee +50% (no fixed figure published).",
-      "responsibleOwnerScheme": {
-        "name": "Select dog owner",
-        "applicationFee": null,
-        "url": "https://www.npdc.govt.nz/services/dogs-and-animals/dog-registrations/"
-      }
+      "notes": "2026/27 fees. Kaipara's on-time deadline is 31 August (late from 1 Sept), unlike most councils' 31 July. Page lists only working/non-working; dangerous/menacing surcharges and multi-dog permits sit in a separate Fees & Charges document not readable for 2026/27. No desexed discount or responsible-owner scheme."
     },
     {
       "slug": "kapiti",
@@ -2929,69 +1682,12 @@
       "notes": "2026/27 fees. Penalty applies if paid after 5pm, 31 July 2026. Dangerous dog: entire $350/$525 (shown), desexed $200/$300. Owner-over-65 fees equal Approved owner fees."
     },
     {
-      "slug": "carterton",
-      "name": "Carterton District",
+      "slug": "kawerau",
+      "name": "Kawerau District",
       "type": "district",
-      "sourceUrl": "https://cdc.govt.nz/services/animalcontrol/dog-fees/",
+      "sourceUrl": "https://www.kaweraudc.govt.nz/sites/www.kaweraudc.govt.nz/files/documents/registration_fees-2025-2026-2025-05-15_0.pdf",
       "lastVerified": "2026-06-30",
-      "year": "2026/27",
-      "dueDate": "31 July",
-      "cutoffs": {
-        "lateFrom": "08-01"
-      },
-      "supports": {
-        "desexedDiscount": true,
-        "workingRate": false,
-        "responsibleOwner": false
-      },
-      "categories": [
-        {
-          "id": "disability",
-          "label": "Disability assist dog",
-          "requires": {
-            "disabilityAssist": true
-          },
-          "onTime": 0,
-          "late": 0,
-          "note": "Free by law. (Carterton's page charges certified seeing-eye/hearing dogs 50% of the stated fee, not free; the statutory disability-assist exemption is applied here.)"
-        },
-        {
-          "id": "desexed",
-          "label": "Urban spayed/neutered",
-          "requires": {
-            "desexed": true
-          },
-          "onTime": 87,
-          "late": 130.5
-        },
-        {
-          "id": "standard",
-          "label": "Urban entire",
-          "requires": {},
-          "onTime": 115,
-          "late": 172.5
-        }
-      ],
-      "extras": [
-        {
-          "label": "Rural owner (1st and 2nd dog)",
-          "amount": 77,
-          "note": "$42 each for subsequent dogs"
-        }
-      ],
-      "dangerousDog": {
-        "onTime": 172.5,
-        "late": 258.75
-      },
-      "notes": "2026/27 schedule (page last updated 15 Jun 2026). Rural owner $77 (1st/2nd dog), $42 subsequent. Owners over 65 (urban) pay $75 on-time / $112.50 late. 50% late penalty for all dogs not registered by 1 August. Dangerous-dog late computed at +50%."
-    },
-    {
-      "slug": "south-wairarapa",
-      "name": "South Wairarapa District",
-      "type": "district",
-      "sourceUrl": "https://swdc.govt.nz/services/dogs/",
-      "lastVerified": "2026-06-30",
-      "year": "2026/27",
+      "year": "2025/26",
       "dueDate": "31 July",
       "cutoffs": {
         "lateFrom": "08-01"
@@ -3014,44 +1710,40 @@
         },
         {
           "id": "desexed",
-          "label": "Urban desexed",
+          "label": "Dog spayed/neutered",
           "requires": {
             "desexed": true
           },
-          "onTime": 97,
-          "late": 143
+          "onTime": 43,
+          "late": 64.5
         },
         {
           "id": "standard",
-          "label": "Urban entire",
+          "label": "Standard registration",
           "requires": {},
-          "onTime": 138,
-          "late": 205
+          "onTime": 86,
+          "late": 129
         }
       ],
       "extras": [
         {
-          "label": "Permit for more than 2 urban dogs",
-          "amount": 179
+          "label": "Replacement tag",
+          "amount": 7
         },
         {
-          "label": "Replacement registration tag",
-          "amount": 8
+          "label": "Microchipping fee",
+          "amount": 18.5
         }
       ],
-      "dangerousDog": {
-        "onTime": 145,
-        "late": 214
-      },
-      "notes": "2026/27 fees (1 July 2026 – 30 June 2027). Rural rates (not shown — no rural toggle): desexed $53/$78, entire $87/$129, dangerous $79/$119; flat fee for up to 10 rural dogs $275/$412. Late = additional 50% after 1 August. No working-dog or responsible-owner discount published."
+      "notes": "2025/26 schedule (2026/27 not yet published as of 2026-06-30; re-check). Late = +50% penalty (computed). Pro-rata monthly schedule applies to puppies/new registrations. No working-dog or responsible-owner rate."
     },
     {
-      "slug": "waimakariri",
-      "name": "Waimakariri District",
-      "type": "district",
-      "sourceUrl": "https://www.waimakariri.govt.nz/services/fees-and-charges/2025/animal-management",
+      "slug": "hutt-city",
+      "name": "Lower Hutt (Hutt City)",
+      "type": "city",
+      "sourceUrl": "https://www.huttcity.govt.nz/services/dogs/fees-and-charges",
       "lastVerified": "2026-06-30",
-      "year": "2026/27",
+      "year": "2025/26",
       "dueDate": "31 July",
       "cutoffs": {
         "lateFrom": "08-01"
@@ -3059,7 +1751,7 @@
       "supports": {
         "desexedDiscount": true,
         "workingRate": true,
-        "responsibleOwner": false
+        "responsibleOwner": true
       },
       "categories": [
         {
@@ -3070,54 +1762,61 @@
           },
           "onTime": 0,
           "late": 0,
-          "note": "Free by law; also exempt from the per-owner fee."
+          "note": "Free by law."
         },
         {
           "id": "working",
-          "label": "Working dog (incl. owner fee)",
+          "label": "Working dog",
           "requires": {
             "workingDog": true
           },
-          "onTime": 66,
-          "late": 99
+          "onTime": 95,
+          "late": 95
         },
         {
-          "id": "desexed",
-          "label": "Neutered/spayed dog (incl. owner fee)",
+          "id": "rdo",
+          "label": "Responsible Dog Owner (RDO)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 95,
+          "late": 195,
+          "note": "Late reverts to standard: $195 neutered / $253 entire."
+        },
+        {
+          "id": "neutered",
+          "label": "Neutered dog",
           "requires": {
             "desexed": true
           },
-          "onTime": 83,
-          "late": 124.5
+          "onTime": 138,
+          "late": 195
         },
         {
-          "id": "standard",
-          "label": "Entire dog (incl. owner fee)",
+          "id": "entire",
+          "label": "Entire dog",
           "requires": {},
-          "onTime": 111,
-          "late": 166.5
+          "onTime": 194,
+          "late": 253
         }
       ],
       "extras": [
         {
-          "label": "Permit to keep 3+ dogs (urban)",
-          "amount": 190
+          "label": "Working dog (secondary)",
+          "amount": 48.5
         },
         {
-          "label": "Microchipping fee",
-          "amount": 25
-        },
-        {
-          "label": "Multi-year metal tag",
-          "amount": 6.5
+          "label": "Classified dangerous dog",
+          "amount": 230,
+          "note": "late $310"
         }
       ],
-      "dangerousDog": {
-        "onTime": 175,
-        "late": 262.5
-      },
-      "notes": "2026/27 fees (page states 1 July 2026 – 30 June 2027). Waimakariri charges a uniform per-owner fee ($51 on-time / +50% late) PLUS a per-dog fee (entire $60, desexed $32, working $15, dangerous $124). The category amounts above INCLUDE the $51 owner fee (correct for a single-dog owner); the owner fee is charged once regardless of dog count. Late = +50%. No responsible-owner discount.",
-      "responsibleOwnerScheme": null
+      "notes": "",
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner (RDO)",
+        "applicationFee": null,
+        "url": "https://www.huttcity.govt.nz/services/dogs/fees-and-charges"
+      }
     },
     {
       "slug": "mackenzie",
@@ -3197,6 +1896,2940 @@
         "url": "https://www.mackenzie.govt.nz/services/dogs-and-animals/registration-information"
       },
       "notes": "2025/26 schedule read from the council's own Let's Talk fees PDF (mackenzie.govt.nz WAF-blocked; 2026/27 not confirmable — Mackenzie held 2025/26 flat vs 2024/25; re-check). Rural dog $40/$60 — not shown as a category (no rural toggle). Menacing dog $150 (no separate dangerous line). Late = +50% after 1 August. RDO requires a $25 initial inspection."
+    },
+    {
+      "slug": "manawatu",
+      "name": "Manawatū District",
+      "type": "district",
+      "sourceUrl": "https://www.mdc.govt.nz/documents/fees-and-charges/animal-control-fees",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Disability Assist Registration — No charge."
+        },
+        {
+          "id": "working",
+          "label": "Working dog / selected owner / gold card",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 47,
+          "late": 62,
+          "note": "Single reduced band covers working dogs, selected owners and gold-card holders."
+        },
+        {
+          "id": "desexed",
+          "label": "Neutered/spayed",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 93,
+          "late": 128
+        },
+        {
+          "id": "standard",
+          "label": "General registration (entire)",
+          "requires": {},
+          "onTime": 134,
+          "late": 198
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchip dogs",
+          "amount": 57
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 4
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 206,
+        "late": 304
+      },
+      "responsibleOwnerScheme": {
+        "name": "Preferred owner status / multi-dog permit",
+        "applicationFee": 87,
+        "url": "https://www.mdc.govt.nz/documents/fees-and-charges/animal-control-fees"
+      },
+      "notes": "Fees table column explicitly headed '2026/27'. The reduced $47/$62 rate is a single band covering working dogs, selected owners AND gold-card holders (hence workingRate + responsibleOwner both true). Dangerous and Menacing dogs both $206/$304. Discounted fee if paid before 1 August; infringements issued after 31 Aug 2026. (A published schedule does exist, despite earlier 'advised per application' note.)"
+    },
+    {
+      "slug": "marlborough",
+      "name": "Marlborough District",
+      "type": "unitary",
+      "sourceUrl": "https://www.marlborough.govt.nz/services/dogs-and-other-animals/dog-registration/dog-registration-fees",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability Assist & Police dogs",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Disability Assist Dogs & Police Dogs — no fee."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 25,
+          "late": 37.5
+        },
+        {
+          "id": "desexed",
+          "label": "Category One (desexed + microchipped, clean record)",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 70,
+          "late": 105
+        },
+        {
+          "id": "standard",
+          "label": "Category Two (entire / does not meet Category One)",
+          "requires": {},
+          "onTime": 103,
+          "late": 154.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchip",
+          "amount": 27
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 5
+        },
+        {
+          "label": "Property licence — three or more dogs",
+          "amount": 85
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 155,
+        "late": 232.5
+      },
+      "notes": "2026/27 published (table headed '1 July 2026 – 30 June 2027'). Category One = non-working dog that is microchipped AND desexed AND not dangerous/menacing with a clean owner record; Category Two = any non-working dog not meeting Category One (standard entire). Not modelled: Old Dog rate $52 ($78 late); 10+ working dogs $13 each additional. Late = annual fee +50% if paid after 31 July 2026."
+    },
+    {
+      "slug": "masterton",
+      "name": "Masterton District",
+      "type": "district",
+      "sourceUrl": "https://www.mstn.govt.nz/rules-regulations-and-licenses/animal-services/dogs/register-your-dog",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": false,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law (not separately listed in schedule)."
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible Dog Owner (RDO) — urban neutered",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 92.6,
+          "late": 138.9,
+          "note": "Requires RDO status; separate $30 application. RDO applications close 31 March."
+        },
+        {
+          "id": "desexed",
+          "label": "Urban Neutered (desexed)",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 123.1,
+          "late": 184.65
+        },
+        {
+          "id": "standard",
+          "label": "Urban Entire",
+          "requires": {},
+          "onTime": 228,
+          "late": 342
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchip",
+          "amount": 25
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 8
+        },
+        {
+          "label": "Permit to keep more than 2 dogs (urban)",
+          "amount": 70
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 184.7,
+        "late": 277.05
+      },
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner (RDO)",
+        "applicationFee": 30,
+        "url": "https://www.mstn.govt.nz/rules-regulations-and-licenses/animal-services/dogs/responsible-dog-owner-discount"
+      },
+      "notes": "2026-27 schedule published. Registration due 30 June; a 50% penalty is added 1 August if not paid in full by 31 July, so late = onTime × 1.5. No dedicated working-dog rate; rural rates instead — first rural dog $123.10, 2nd+ rural $35 (notes only). Dangerous dog rate shown is neutered ($184.70). Surrender (prior approval) $350."
+    },
+    {
+      "slug": "matamata-piako",
+      "name": "Matamata-Piako District",
+      "type": "district",
+      "sourceUrl": "https://www.mpdc.govt.nz/animal-control/registration-fees",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Full fee less working-dog rebate",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 142,
+          "late": 213
+        },
+        {
+          "id": "desexed",
+          "label": "Full fee less de-sexed rebate",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 142,
+          "late": 213
+        },
+        {
+          "id": "responsible",
+          "label": "Full fee less Responsible Owner rebate",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 157,
+          "late": 235
+        },
+        {
+          "id": "standard",
+          "label": "Full registration fee",
+          "requires": {},
+          "onTime": 172,
+          "late": 258
+        }
+      ],
+      "extras": [
+        {
+          "label": "Good-behaviour bonus (no complaints/impounding/infringements)",
+          "amount": 35,
+          "note": "discount off the fee"
+        },
+        {
+          "label": "Replacement tags",
+          "amount": 3
+        },
+        {
+          "label": "Microchipping (animal control)",
+          "amount": 50
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 258,
+        "late": 387
+      },
+      "responsibleOwnerScheme": {
+        "name": "Responsible Owner Rebate",
+        "applicationFee": 0,
+        "url": "https://www.mpdc.govt.nz/animal-control/registration-fees"
+      },
+      "notes": "From the council's DRAFT 2026/27 fees schedule adopted for consultation (final live page WAF-blocked). Full fee $172 (verbatim). A $30 rebate applies for ONE of: de-sexed dog, working dog, or Dogs NZ registered breeder (so working and desexed both = $142). Separate Responsible Owner rebate $15. Late = +50% penalty (computed). Dangerous dog = 150% of relevant fee (computed)."
+    },
+    {
+      "slug": "napier",
+      "name": "Napier City",
+      "type": "city",
+      "sourceUrl": "https://www.napier.govt.nz/services/animal-education/fees-and-costs/",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Public good dog (e.g. guide dog)",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "No charge."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 62.5,
+          "late": 93.7
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible Dog Owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 94,
+          "late": 146
+        },
+        {
+          "id": "standard",
+          "label": "Full fee",
+          "requires": {},
+          "onTime": 137,
+          "late": 199
+        }
+      ],
+      "extras": [
+        {
+          "label": "Responsible Dog Owner application (one-off)",
+          "amount": 34.4
+        },
+        {
+          "label": "Replacement registration tag",
+          "amount": 7.3
+        },
+        {
+          "label": "Microchipping (incl. National Dog Database)",
+          "amount": 41.6
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 214,
+        "late": 318
+      },
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner",
+        "applicationFee": 34.4,
+        "url": "https://www.napier.govt.nz/services/animal-education/fees-and-costs/"
+      },
+      "notes": "2025/26 schedule (page states 'approved for 1 July 2025 to 30 June 2026'; 2026/27 not yet published as of 2026-06-30; re-check). Due by 1 August; penalty after 1 August. No separate desexed discount."
+    },
+    {
+      "slug": "nelson",
+      "name": "Nelson City",
+      "type": "unitary",
+      "sourceUrl": "https://www.nelson.govt.nz/2services/91dog-control/dog-ownership-fees",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Community working dog (police/seeing-eye/hearing)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 5.79,
+          "late": 5.79
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 67.37,
+          "late": 101.06
+        },
+        {
+          "id": "entire",
+          "label": "Standard dog",
+          "requires": {},
+          "onTime": 121.06,
+          "late": 181.59
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchip insertion",
+          "amount": 46.32
+        }
+      ],
+      "notes": "Fee reduces pro-rata each month if first registered after July. 50% penalty after 1 August."
+    },
+    {
+      "slug": "new-plymouth",
+      "name": "New Plymouth District",
+      "type": "district",
+      "sourceUrl": "https://www.npdc.govt.nz/media/k5tby3tz/fees-and-charges-2025-26.pdf",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": false,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "select-desexed",
+          "label": "Urban — select owner (neutered/spayed)",
+          "requires": {
+            "responsibleOwner": true,
+            "desexed": true
+          },
+          "onTime": 98,
+          "late": 122.5
+        },
+        {
+          "id": "select-entire",
+          "label": "Urban — select owner (entire)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 149,
+          "late": 186.25
+        },
+        {
+          "id": "standard",
+          "label": "Urban — non-select owner",
+          "requires": {},
+          "onTime": 191.5,
+          "late": 239.38
+        }
+      ],
+      "extras": [
+        {
+          "label": "Rural reduced fee (3rd & subsequent dogs)",
+          "amount": 37.1
+        },
+        {
+          "label": "Microchipping of impounded dog",
+          "amount": 55.7
+        }
+      ],
+      "notes": "2026/27 column read from NPDC's official Schedule of Fees and Charges (PDF covers 1 July 2025 – 30 June 2027). Rural dog $72.70 (first two dogs)/$37.10 (3rd+) — not shown as a category (no rural toggle). Pensioner (65+) select rates: desexed $92.50, entire $121. Late is a TIERED penalty: +25% after 1 August (shown as 'late'), +50% after 1 December. Dangerous dogs pay applicable fee +50% (no fixed figure published).",
+      "responsibleOwnerScheme": {
+        "name": "Select dog owner",
+        "applicationFee": null,
+        "url": "https://www.npdc.govt.nz/services/dogs-and-animals/dog-registrations/"
+      }
+    },
+    {
+      "slug": "opotiki",
+      "name": "Ōpōtiki District",
+      "type": "district",
+      "sourceUrl": "https://www.odc.govt.nz/our-services/animal-control",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "3 August",
+      "cutoffs": {
+        "lateFrom": "08-04"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Certified disability assist dog or dogs kept for specific tasks by Government Agencies. Free."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 45,
+          "late": 62.5,
+          "note": "Includes hunting dogs declared working dogs per Council resolution 23 April 2019."
+        },
+        {
+          "id": "desexed",
+          "label": "Neutered dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 62.5,
+          "late": 94
+        },
+        {
+          "id": "standard",
+          "label": "Standard / urban dog (complete)",
+          "requires": {},
+          "onTime": 125,
+          "late": 185
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchipping",
+          "amount": 25
+        },
+        {
+          "label": "Replacement registration tag",
+          "amount": 5
+        }
+      ],
+      "notes": "Live animal-control page states no registration year explicitly; figures are the current published fees as at 2026-07-03 (2026/27 year). On-time (discounted) = paid on or before 3 August; full fee after. Prose also states a 50% penalty for payments not made by 31 July — the fee table's 3 August cutoff is used as the operative boundary."
+    },
+    {
+      "slug": "otorohanga",
+      "name": "Ōtorohanga District",
+      "type": "district",
+      "sourceUrl": "https://www.otodc.govt.nz/council-services/animal-education-and-control/dog-control-fees-and-charges",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": false,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "special-neutered",
+          "label": "Urban Special Owner + Neutered",
+          "requires": {
+            "desexed": true,
+            "responsibleOwner": true
+          },
+          "onTime": 72,
+          "late": 108
+        },
+        {
+          "id": "neutered",
+          "label": "Urban Neutered",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 130,
+          "late": 195
+        },
+        {
+          "id": "special",
+          "label": "Urban Special Owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 130,
+          "late": 195
+        },
+        {
+          "id": "standard",
+          "label": "Urban dog",
+          "requires": {},
+          "onTime": 167,
+          "late": 250.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Replacement collar tag (large)",
+          "amount": 20
+        },
+        {
+          "label": "Microchip",
+          "amount": 36
+        }
+      ],
+      "responsibleOwnerScheme": {
+        "name": "Special Owner",
+        "applicationFee": null,
+        "url": "https://www.otodc.govt.nz/council-services/animal-education-and-control/dog-control-fees-and-charges"
+      },
+      "notes": "Page states 'Dog Registration Fees approved for 1 July 2026 to 30 June 2027'. Rural dogs $72/$108 — not shown as a category (no rural toggle). Late = additional 50% if not registered by 1 August (late figures computed). No dangerous-dog dollar figure published."
+    },
+    {
+      "slug": "palmerston-north",
+      "name": "Palmerston North City",
+      "type": "city",
+      "sourceUrl": "https://www.pncc.govt.nz/Services/Dogs-and-other-animals/Dogs/Register-your-dog",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law (Dog Control Act 1996)."
+        },
+        {
+          "id": "working",
+          "label": "Rural working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 65,
+          "late": 97.5
+        },
+        {
+          "id": "preferred",
+          "label": "Preferred owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 103,
+          "late": 154.5
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 140,
+          "late": 210
+        },
+        {
+          "id": "entire",
+          "label": "General registration (entire)",
+          "requires": {},
+          "onTime": 189,
+          "late": 283.5
+        }
+      ],
+      "extras": [],
+      "notes": "Infringement fee for an unregistered dog is $300.",
+      "responsibleOwnerScheme": {
+        "name": "Preferred owner",
+        "applicationFee": null,
+        "url": "https://www.pncc.govt.nz/Services/Dogs-and-other-animals/Dogs/Register-your-dog"
+      }
+    },
+    {
+      "slug": "porirua",
+      "name": "Porirua City",
+      "type": "city",
+      "sourceUrl": "https://poriruacity.govt.nz/services/animals/fees-and-charges-animal-control/",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Guide/hearing/companion dogs — No charge."
+        },
+        {
+          "id": "working",
+          "label": "Working dog (neutered)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 98,
+          "late": 147
+        },
+        {
+          "id": "desexed",
+          "label": "Neutered dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 160,
+          "late": 240
+        },
+        {
+          "id": "standard",
+          "label": "Non-neutered (entire) dog",
+          "requires": {},
+          "onTime": 221,
+          "late": 331.5
+        }
+      ],
+      "extras": [],
+      "dangerousDog": {
+        "onTime": 331.5,
+        "late": 497.25
+      },
+      "notes": "Fees from the live Animal Control fees & charges page (no explicit year heading; live-verified 2026-07-03). Late = 50% of the applicable fee (computed). Dangerous dog: entire $331.50 shown (neutered $240); late +50%. Not modelled: approved obedience/agility rate (neutered $123 / entire $196) and reduced registration (neutered $97.50 / entire $160, + $41 application + $80 inspection). Due date confirmed from Porirua dog-registrations page (renew by end of July; 50% penalty if unpaid)."
+    },
+    {
+      "slug": "rangitikei",
+      "name": "Rangitīkei District",
+      "type": "district",
+      "sourceUrl": "https://www.rangitikei.govt.nz/services/animal-control/dogs/fees-charges",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "1 August",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog (each, up to five dogs)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 56,
+          "late": 82,
+          "note": "Sixth and additional working dogs $13 each (on-time only)."
+        },
+        {
+          "id": "responsible",
+          "label": "Good owner dog (Approved Good Owner)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 77,
+          "late": 115
+        },
+        {
+          "id": "desexed",
+          "label": "Non-working dog de-sexed",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 110,
+          "late": 160
+        },
+        {
+          "id": "standard",
+          "label": "Non-working dog (entire/standard)",
+          "requires": {},
+          "onTime": 165,
+          "late": 245
+        }
+      ],
+      "extras": [
+        {
+          "label": "Multi Dog Permit",
+          "amount": 36
+        },
+        {
+          "label": "Micro-chipping (incl. National Dog Database)",
+          "amount": 27
+        },
+        {
+          "label": "Replacement tags",
+          "amount": 5
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 247.5,
+        "late": 371.25
+      },
+      "responsibleOwnerScheme": {
+        "name": "Approved Good Owner Classification",
+        "applicationFee": 0,
+        "url": "https://www.rangitikei.govt.nz/services/animal-control/dogs/fees-charges"
+      },
+      "notes": "From the official Fees and Charges 2026/2027 schedule (s37(6) Dog Control Act 1996) plus the council's 4 June 2026 public notice. Payable by 1 August; +50% surcharge on fees not paid before 1 August (produces the 'late' figures). Dangerous dog: de-sexed $165/$247.50, entire $247.50/$371.25 (entire shown)."
+    },
+    {
+      "slug": "rotorua",
+      "name": "Rotorua Lakes",
+      "type": "district",
+      "sourceUrl": "https://www.rotorualakescouncil.nz/dogs-animal-control/dogs-online-registration",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "rural",
+          "label": "Rural domiciled dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 90,
+          "late": 135
+        },
+        {
+          "id": "selected",
+          "label": "Selected dog owner status",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 90,
+          "late": 135
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog (urban)",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 114,
+          "late": 176.5,
+          "note": "Urban fee less the $11 desexing rebate."
+        },
+        {
+          "id": "urban",
+          "label": "Urban domiciled dog",
+          "requires": {},
+          "onTime": 125,
+          "late": 187.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchip implant",
+          "amount": 34
+        }
+      ],
+      "notes": "2026/27 fees. Late penalty is a flat add-on ($62.50 urban / $45 rural); $11 rebate for desexed dogs.",
+      "responsibleOwnerScheme": {
+        "name": "Selected dog owner status",
+        "applicationFee": null,
+        "url": "https://www.rotorualakescouncil.nz/dogs-animal-control/dogs-online-registration"
+      }
+    },
+    {
+      "slug": "ruapehu",
+      "name": "Ruapehu District",
+      "type": "district",
+      "sourceUrl": "https://www.ruapehudc.govt.nz/our-services/animal-services/fees-and-charges",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "30 June",
+      "cutoffs": {
+        "lateFrom": "07-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law; not separately listed on Council fee table."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 35,
+          "late": 52.5,
+          "note": "On-time = paid by 30 June. Hunting dogs (pig/deer in conservation estate) separate: $45 / $67.50."
+        },
+        {
+          "id": "desexed",
+          "label": "Neutered dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 99.5,
+          "late": 149.25
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible dog owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 64.5,
+          "late": 96.75,
+          "note": "Single figure $64.50 listed with no early/late split; late computed from stated 50% rule."
+        },
+        {
+          "id": "standard",
+          "label": "Standard dog (entire)",
+          "requires": {},
+          "onTime": 129.5,
+          "late": 194.25
+        }
+      ],
+      "extras": [
+        {
+          "label": "Micro-chipping",
+          "amount": 30
+        },
+        {
+          "label": "Dog Replacement Tags",
+          "amount": 5
+        }
+      ],
+      "notes": "Dog Control Fees 2026/27, adopted by Council 13 May 2026. Register by 30 June or a 50% late fee applies (late = base × 1.5, matches published e.g. $129.50 × 1.5 = $194.25). FAQ elsewhere loosely states 'until 31 July' but the fee table is keyed to 30 June. Dangerous dog = 150% of applicable fee (no fixed figure published). Hunting dog rate $45/$67.50."
+    },
+    {
+      "slug": "selwyn",
+      "name": "Selwyn District",
+      "type": "district",
+      "sourceUrl": "https://www.selwyn.govt.nz/services/dogs-And-animals/dogs/fees-and-charges",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": false,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "standard",
+          "label": "Dog registration",
+          "requires": {},
+          "onTime": 68,
+          "late": 102
+        }
+      ],
+      "extras": [
+        {
+          "label": "Dangerous dog",
+          "amount": 102,
+          "note": "late $153"
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 5.14
+        },
+        {
+          "label": "Kennel licence application",
+          "amount": 123.24
+        }
+      ],
+      "notes": "2026/27 fees. Flat fee; 50% late penalty after 31 July; pro-rata for pups registered mid-year. Confirm any desexed/working discount with the council."
+    },
+    {
+      "slug": "south-taranaki",
+      "name": "South Taranaki District",
+      "type": "district",
+      "sourceUrl": "https://www.southtaranaki.com/our-services/animal-management/dogs-of-south-taranaki/dog-registration",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": false,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Seeing, Hearing and Disability Assist dogs exempt from fees."
+        },
+        {
+          "id": "responsible",
+          "label": "Selected Owner (entire)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 127,
+          "late": 190.5,
+          "note": "Selected Owner desexed rate is $97 on-time / $145.50 late."
+        },
+        {
+          "id": "desexed",
+          "label": "Urban spayed/neutered",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 182,
+          "late": 273
+        },
+        {
+          "id": "standard",
+          "label": "Urban (entire)",
+          "requires": {},
+          "onTime": 211,
+          "late": 316.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "More than 2 Dogs Permit (application per property)",
+          "amount": 97
+        }
+      ],
+      "responsibleOwnerScheme": {
+        "name": "Selected Owner Policy",
+        "applicationFee": null,
+        "url": "https://www.southtaranaki.com/our-services/animal-management/dogs-of-south-taranaki/strive-to-be-a-selected-owner"
+      },
+      "notes": "Early Bird fees if paid before 31 July 2026; a 50% penalty is applied to outstanding balances on 1 August 2026, so all 'late' figures are computed on-time × 1.5. Rural rates (notes): first 2 dogs $82/each ($123 late), 3+ $69/each ($103.50 late). No dedicated working-dog rate. No microchip fee published."
+    },
+    {
+      "slug": "south-waikato",
+      "name": "South Waikato District",
+      "type": "district",
+      "sourceUrl": "https://www.southwaikato.govt.nz/our-council/fees-and-charges/dog-control-and-registration-fees",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": false,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law (not itemised on page)."
+        },
+        {
+          "id": "responsible-owner",
+          "label": "Selected owner (urban)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 96,
+          "late": 144,
+          "note": "Selected Owner Policy rate. Late computed from stated +50% rule (96×1.5=144)."
+        },
+        {
+          "id": "desexed",
+          "label": "Spayed or neutered",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 144,
+          "late": 216,
+          "note": "Late computed from +50% rule."
+        },
+        {
+          "id": "standard",
+          "label": "Standard registration – urban (entire)",
+          "requires": {},
+          "onTime": 204,
+          "late": 306,
+          "note": "Late computed from +50% rule."
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchip implant (not impounded)",
+          "amount": 29
+        },
+        {
+          "label": "Replacement dog tag",
+          "amount": 7
+        }
+      ],
+      "responsibleOwnerScheme": {
+        "name": "Selected Owner Policy",
+        "applicationFee": null,
+        "url": "https://www.southwaikato.govt.nz/our-council/fees-and-charges/dog-control-and-registration-fees"
+      },
+      "notes": "Source: South Waikato DC 'Dog Control and Registration' fees page, table labelled '2026-27'. Standard urban entire $204; desexed $144; Selected Owner (good-owner) $96 urban; rural standard $96 (not modelled). Penalty = 50% if paid after 31 July, so late = onTime × 1.5. Disability/guide dogs $0 per statutory exemption. More-than-two-dogs urban licence $275."
+    },
+    {
+      "slug": "south-wairarapa",
+      "name": "South Wairarapa District",
+      "type": "district",
+      "sourceUrl": "https://swdc.govt.nz/services/dogs/",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": false,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "desexed",
+          "label": "Urban desexed",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 97,
+          "late": 143
+        },
+        {
+          "id": "standard",
+          "label": "Urban entire",
+          "requires": {},
+          "onTime": 138,
+          "late": 205
+        }
+      ],
+      "extras": [
+        {
+          "label": "Permit for more than 2 urban dogs",
+          "amount": 179
+        },
+        {
+          "label": "Replacement registration tag",
+          "amount": 8
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 145,
+        "late": 214
+      },
+      "notes": "2026/27 fees (1 July 2026 – 30 June 2027). Rural rates (not shown — no rural toggle): desexed $53/$78, entire $87/$129, dangerous $79/$119; flat fee for up to 10 rural dogs $275/$412. Late = additional 50% after 1 August. No working-dog or responsible-owner discount published."
+    },
+    {
+      "slug": "southland",
+      "name": "Southland District",
+      "type": "district",
+      "sourceUrl": "https://www.southlanddc.govt.nz/assets/Fees-and-charges/individual/Fees-and-charges-Animal-control.pdf",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Service dog (disability assist) with current papers",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working / stock dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 40,
+          "late": 60
+        },
+        {
+          "id": "desexed-ro",
+          "label": "Desexed + responsible owner",
+          "requires": {
+            "desexed": true,
+            "responsibleOwner": true
+          },
+          "onTime": 50,
+          "late": 75
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 80,
+          "late": 120
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 80,
+          "late": 120
+        },
+        {
+          "id": "standard",
+          "label": "Standard / entire dog",
+          "requires": {},
+          "onTime": 110,
+          "late": 165
+        }
+      ],
+      "extras": [
+        {
+          "label": "Property inspection (verify discount)",
+          "amount": 50
+        },
+        {
+          "label": "Replacement tag (first)",
+          "amount": 6.5
+        },
+        {
+          "label": "Multiple dog licence application",
+          "amount": 50
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 165,
+        "late": 165
+      },
+      "responsibleOwnerScheme": {
+        "name": "Responsible owner",
+        "applicationFee": null,
+        "url": "https://www.southlanddc.govt.nz/council/fees-and-charges/"
+      },
+      "notes": "2026/27 fees from the council's official Animal Control Fees & Charges PDF. Late = +50% after 1 August. Desexed (-$30) and responsible-owner (-$30) discounts stack to $50. Discount evidence must be provided before 1 May. Dangerous dog = base +50% ($110 x1.5)."
+    },
+    {
+      "slug": "stratford",
+      "name": "Stratford District",
+      "type": "district",
+      "sourceUrl": "https://www.stratford.govt.nz/our-council/fees-and-charges",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": false,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "responsible",
+          "label": "Select Dog Owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 68.4,
+          "late": 91.2
+        },
+        {
+          "id": "standard",
+          "label": "General Dog Owner (urban entire)",
+          "requires": {},
+          "onTime": 165.3,
+          "late": 210.9
+        }
+      ],
+      "extras": [
+        {
+          "label": "Replacement tag",
+          "amount": 5
+        },
+        {
+          "label": "Microchipping",
+          "note": "billed at cost"
+        }
+      ],
+      "responsibleOwnerScheme": {
+        "name": "Select Dog Owner",
+        "applicationFee": 45,
+        "url": "https://www.stratford.govt.nz/our-council/fees-and-charges"
+      },
+      "notes": "Page header reads '2026/27 Fees and Charges'. Three owner classes: General (standard, above), Good Dog Owner $131.10/$171.00, and Select Dog Owner (best rate, application-based, = responsibleOwner). Rural rates (notes): first 3 $51.30/$68.40, after 3 $39.90/$51.30. No separate desexed/working rate. Discounted rate if paid before 1 August. Caveat: page's note text still cites stale 2025 dates despite the 2026/27 header."
+    },
+    {
+      "slug": "tararua",
+      "name": "Tararua District",
+      "type": "district",
+      "sourceUrl": "https://www.tararuadc.govt.nz/publications/fees-and-charges/animal-control-fees-and-charges",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "1 August",
+      "cutoffs": {
+        "lateFrom": "08-02"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Disability assist dog with organisation certificate — no charge."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 66,
+          "late": 99,
+          "note": "First five working dogs full fee; additional at tag fee $7/dog."
+        },
+        {
+          "id": "responsible",
+          "label": "Preferred owner dog (entire)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 88,
+          "late": 132,
+          "note": "Preferred owner desexed $76/$114. Also covers Dogs NZ members."
+        },
+        {
+          "id": "desexed",
+          "label": "Urban domestic dog (desexed)",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 128,
+          "late": 192
+        },
+        {
+          "id": "standard",
+          "label": "Urban domestic dog (entire)",
+          "requires": {},
+          "onTime": 164,
+          "late": 246
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchipping (if required)",
+          "amount": 42
+        },
+        {
+          "label": "Replacement registration tag or disc",
+          "amount": 7
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 246,
+        "late": 369
+      },
+      "responsibleOwnerScheme": {
+        "name": "Preferred Owner",
+        "applicationFee": 90,
+        "url": "https://www.tararuadc.govt.nz/publications/fees-and-charges/animal-control-fees-and-charges"
+      },
+      "notes": "Fees for 1 July 2026 – 30 June 2027, adopted 24 April 2026; GST-incl. Fee if paid on or before 1 August, late after. Rural domestic dog $88/$132 (Dogs NZ member $62/$93); over-65 companion $94/$132. Dangerous dog = applicable base fee +50% (dangerousDog computed from urban entire: 164×1.5=246 on-time, 246×1.5=369 late)."
+    },
+    {
+      "slug": "tasman",
+      "name": "Tasman",
+      "type": "unitary",
+      "sourceUrl": "https://tasmandc-publicdocs.azurewebsites.net/api/doc/C8F82D29/35315",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog (herding/driving stock)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 50,
+          "late": 75
+        },
+        {
+          "id": "standard",
+          "label": "Urban dog (property under 1 ha)",
+          "requires": {},
+          "onTime": 90,
+          "late": 135
+        }
+      ],
+      "extras": [
+        {
+          "label": "Replacement tag/disc",
+          "amount": 5
+        },
+        {
+          "label": "Kennel licence",
+          "amount": 220
+        },
+        {
+          "label": "Microchipping (over 6 months)",
+          "amount": 20
+        }
+      ],
+      "notes": "2025/26 schedule (2026/27 not yet published on the council's own site as of 2026-06-30; re-check). Fees set by property size, not desexed status: a rural dog (property 1 ha+) is $70/$105. Dangerous dogs charged +50%. Late = +50% after 31 July. Read from the council's official fees document (council web pages WAF-blocked)."
+    },
+    {
+      "slug": "taupo",
+      "name": "Taupō District",
+      "type": "district",
+      "sourceUrl": "https://www.taupodc.govt.nz/rules-regulations-and-licenses/dogs-and-other-animals/1registration",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 43,
+          "late": 43
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible Owner (entire)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 80,
+          "late": 100,
+          "note": "Late adds the ~$20 penalty — confirm with council."
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 105,
+          "late": 125,
+          "note": "Entire fee less the $15 desexed discount."
+        },
+        {
+          "id": "entire",
+          "label": "Entire dog",
+          "requires": {},
+          "onTime": 120,
+          "late": 140
+        }
+      ],
+      "extras": [
+        {
+          "label": "Responsible Owner application fee",
+          "amount": 43
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 16
+        },
+        {
+          "label": "Keep more than two dogs (urban)",
+          "amount": 135
+        }
+      ],
+      "notes": "2026/27 fees. Late is a flat +$20 after 31 July; $15 discount for desexed dogs.",
+      "responsibleOwnerScheme": {
+        "name": "Responsible Owner",
+        "applicationFee": 43,
+        "url": "https://www.taupodc.govt.nz/rules-regulations-and-licenses/dogs-and-other-animals/1registration"
+      }
+    },
+    {
+      "slug": "tauranga",
+      "name": "Tauranga City",
+      "type": "city",
+      "sourceUrl": "https://www.tauranga.govt.nz/Council/Fees-and-charges/Animal-service-fees",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": false,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law (Dog Control Act 1996)."
+        },
+        {
+          "id": "normal",
+          "label": "Normal dog",
+          "requires": {},
+          "onTime": 133,
+          "late": 199.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchip fee",
+          "amount": 34
+        },
+        {
+          "label": "Kennel licence (more than two dogs)",
+          "amount": 103,
+          "note": "variation $51.50"
+        },
+        {
+          "label": "Surrender fee",
+          "amount": 118.5
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 12.5
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 199.5,
+        "late": 299.2
+      },
+      "notes": "2026/27 fees (unchanged from 2025/26). Tauranga charges a single flat fee (no desexed/working/owner discount in the main schedule); on-time fee applies before 1 August."
+    },
+    {
+      "slug": "thames-coromandel",
+      "name": "Thames-Coromandel District",
+      "type": "district",
+      "sourceUrl": "https://www.tcdc.govt.nz/Our-Council/Fees-and-Charges/Regulatory-Fees-and-Charges/Schedule-of-Fees-and-Charges-Dog-Control",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": false,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Guide dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Guide dogs no charge."
+        },
+        {
+          "id": "standard",
+          "label": "Standard dog",
+          "requires": {},
+          "onTime": 110,
+          "late": 165,
+          "note": "Late = +50% penalty per stated rule (110×1.5=165)."
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchipping",
+          "amount": 30
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 165,
+        "late": 247.5
+      },
+      "notes": "Source: TCDC 'Fees and Charges: Animal Control – Dog Control' page (2026/2027 column) + 2026-27 Schedule of Fees PDF. 'All dogs except guide dogs and dangerous dogs' = $110 on-time / $165 after 1 August (penalty = +50% of unpaid regns as at 1 August). No desexed discount, no cheaper working rate — first three working farm dogs pay standard; the fourth and additional are free. Dangerous dogs $165/$247.50. Pro-rata available at officer discretion for mid-year dogs. Microchipping $30."
+    },
+    {
+      "slug": "timaru",
+      "name": "Timaru District",
+      "type": "district",
+      "sourceUrl": "https://www.timaru.govt.nz/council/publications/fees-and-charges/dog-registration",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working / rural pet dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 51,
+          "late": 51
+        },
+        {
+          "id": "selected",
+          "label": "Selected dog owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 51,
+          "late": 51
+        },
+        {
+          "id": "neutered",
+          "label": "Neutered dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 82,
+          "late": 82
+        },
+        {
+          "id": "entire",
+          "label": "Entire dog (not desexed)",
+          "requires": {},
+          "onTime": 154,
+          "late": 154
+        }
+      ],
+      "extras": [
+        {
+          "label": "New puppy (3–12 months)",
+          "amount": 47
+        },
+        {
+          "label": "Dangerous dog (entire)",
+          "amount": 231,
+          "note": "neutered $123 / rural $77"
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 6
+        }
+      ],
+      "notes": "Single annual fee that pro-rates by month for dogs first registered after July; new-puppy registration is always $47. Confirm any late-payment penalty with the council.",
+      "responsibleOwnerScheme": {
+        "name": "Selected Owners Policy (SOP)",
+        "applicationFee": 54,
+        "url": "https://www.timaru.govt.nz/council/publications/fees-and-charges/dog-registration"
+      }
+    },
+    {
+      "slug": "upper-hutt",
+      "name": "Upper Hutt City",
+      "type": "city",
+      "sourceUrl": "https://www.upperhutt.govt.nz/council/fees-and-charges/Animal-management",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 104,
+          "late": 155.5
+        },
+        {
+          "id": "ro-desexed",
+          "label": "Responsible owner — desexed",
+          "requires": {
+            "responsibleOwner": true,
+            "desexed": true
+          },
+          "onTime": 104,
+          "late": 155.5
+        },
+        {
+          "id": "ro",
+          "label": "Responsible owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 116,
+          "late": 173
+        },
+        {
+          "id": "desexed",
+          "label": "General — desexed",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 156,
+          "late": 232.5
+        },
+        {
+          "id": "entire",
+          "label": "General registration (entire)",
+          "requires": {},
+          "onTime": 173,
+          "late": 259.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Police dog",
+          "amount": 58.7,
+          "note": "late $87.55"
+        },
+        {
+          "label": "Classified dangerous dog",
+          "amount": 260,
+          "note": "late $385"
+        },
+        {
+          "label": "Micro-chipping",
+          "amount": 41.2
+        },
+        {
+          "label": "Permit to keep more than two dogs",
+          "amount": 82.4
+        }
+      ],
+      "notes": "",
+      "responsibleOwnerScheme": {
+        "name": "Responsible owner (SO)",
+        "applicationFee": null,
+        "url": "https://www.upperhutt.govt.nz/council/fees-and-charges/Animal-management"
+      }
+    },
+    {
+      "slug": "waikato-district",
+      "name": "Waikato District",
+      "type": "district",
+      "sourceUrl": "https://www.waikatodistrict.govt.nz/services-facilities/animal-control/dogs/dog-registrations/dog-registration-fees-and-dog-owner-classifications",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Farm owner (rural/working)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 54,
+          "late": 74
+        },
+        {
+          "id": "responsible",
+          "label": "Selected owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 60,
+          "late": 80
+        },
+        {
+          "id": "standard",
+          "label": "General owner",
+          "requires": {},
+          "onTime": 120,
+          "late": 140
+        }
+      ],
+      "extras": [
+        {
+          "label": "Property inspection (upgraded classification)",
+          "amount": 20
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 180,
+        "late": 210
+      },
+      "responsibleOwnerScheme": {
+        "name": "Selected owner classification",
+        "applicationFee": null,
+        "url": "https://www.waikatodistrict.govt.nz/services-facilities/animal-control/dogs/dog-registrations/dog-registration-fees-and-dog-owner-classifications"
+      },
+      "notes": "Waikato classifies by owner type. General owner $120/$140 (standard); Selected owner $60/$80 and Approved owner $95/$115 are good-owner tiers (Selected shown for the responsible-owner toggle); Farm owner $54/$74 shown for working/rural. Submit a desexing certificate for a free registration year (dogs registered within the past 12 months, excludes dangerous/menacing). Page schedule effective 2025-2027."
+    },
+    {
+      "slug": "waimakariri",
+      "name": "Waimakariri District",
+      "type": "district",
+      "sourceUrl": "https://www.waimakariri.govt.nz/services/fees-and-charges/2025/animal-management",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law; also exempt from the per-owner fee."
+        },
+        {
+          "id": "working",
+          "label": "Working dog (incl. owner fee)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 66,
+          "late": 99
+        },
+        {
+          "id": "desexed",
+          "label": "Neutered/spayed dog (incl. owner fee)",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 83,
+          "late": 124.5
+        },
+        {
+          "id": "standard",
+          "label": "Entire dog (incl. owner fee)",
+          "requires": {},
+          "onTime": 111,
+          "late": 166.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Permit to keep 3+ dogs (urban)",
+          "amount": 190
+        },
+        {
+          "label": "Microchipping fee",
+          "amount": 25
+        },
+        {
+          "label": "Multi-year metal tag",
+          "amount": 6.5
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 175,
+        "late": 262.5
+      },
+      "notes": "2026/27 fees (page states 1 July 2026 – 30 June 2027). Waimakariri charges a uniform per-owner fee ($51 on-time / +50% late) PLUS a per-dog fee (entire $60, desexed $32, working $15, dangerous $124). The category amounts above INCLUDE the $51 owner fee (correct for a single-dog owner); the owner fee is charged once regardless of dog count. Late = +50%. No responsible-owner discount.",
+      "responsibleOwnerScheme": null
+    },
+    {
+      "slug": "waimate",
+      "name": "Waimate District",
+      "type": "district",
+      "sourceUrl": "https://www.waimatedc.govt.nz/repository/libraries/id:21r92ideo17q9sg7je9s/hierarchy/Documents/Environment%20%26%20Waste/Dogs%20and%20Other%20Animals/Dog%20Info%20A5%20Brochure%202026-05%20WEB.pdf",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Selected owner / working dog / farm pet",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 35,
+          "late": 52.5,
+          "note": "Same $35 rate covers selected-owner status, working dogs and farm pets. Late = 1.5× (50% penalty)."
+        },
+        {
+          "id": "desexed",
+          "label": "Urban neutered non-working dog or puppy under 12 months",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 65,
+          "late": 97.5
+        },
+        {
+          "id": "standard",
+          "label": "Urban non-working dog (entire)",
+          "requires": {},
+          "onTime": 120,
+          "late": 180
+        }
+      ],
+      "extras": [
+        {
+          "label": "Replacement tag",
+          "amount": 5
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 180,
+        "late": 270
+      },
+      "responsibleOwnerScheme": {
+        "name": "Selected Owner Status",
+        "applicationFee": null,
+        "url": "https://www.waimatedc.govt.nz/services/dogs"
+      },
+      "notes": "2026/27 fees verified from the official 'Dog Owners Information Guide 2026/27' PDF (earlier search-snippet hints of $120/$65/$35/150% were confirmed against this source, not used blind). Payment due 1–31 July; '50% penalty will apply to each unpaid registration from 1 August 2026' — late = 1.5× (computed). Dangerous dog = 150% of applicable fee. Selected-owner status available by application. Late registration after 1 Aug charged pro-rata. Failure to microchip = $300 infringement. (An older notice showed stale 2020 figures $100/$60/$30 — not used.)"
+    },
+    {
+      "slug": "waipa",
+      "name": "Waipā District",
+      "type": "district",
+      "sourceUrl": "https://www.waipadc.govt.nz/services/dogs-and-animals",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "30 June",
+      "cutoffs": {
+        "afterDueFrom": "07-01",
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": false,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "afterDue": 0,
+          "late": 0,
+          "note": "No fee if re-registered by the due date; standard fees apply after."
+        },
+        {
+          "id": "fenced-neutered",
+          "label": "Urban — fencing + neutered rebates",
+          "requires": {
+            "desexed": true,
+            "responsibleOwner": true
+          },
+          "onTime": 82,
+          "afterDue": 82,
+          "late": 123
+        },
+        {
+          "id": "fenced",
+          "label": "Urban — fencing rebate",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 92,
+          "afterDue": 92,
+          "late": 138
+        },
+        {
+          "id": "neutered",
+          "label": "Urban — neutered rebate",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 97,
+          "afterDue": 97,
+          "late": 145.5
+        },
+        {
+          "id": "standard",
+          "label": "Urban — no rebates",
+          "requires": {},
+          "onTime": 107,
+          "afterDue": 107,
+          "late": 160.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Replacement registration tag",
+          "amount": 3
+        },
+        {
+          "label": "New dog permit (>2 urban / >5 rural)",
+          "amount": 65
+        },
+        {
+          "label": "Microchipping",
+          "amount": 30
+        }
+      ],
+      "responsibleOwnerScheme": {
+        "name": "Fencing rebate (property inspection)",
+        "applicationFee": null,
+        "url": "https://www.waipadc.govt.nz/services/dogs-and-animals"
+      },
+      "notes": "From the council's official DRAFT Schedule of Fees and Charges 2025-27 (have-your-say document). Rural dog (full year) is $64/$96 — not shown as a category (no rural toggle). Due 30 June; +50% penalty from 1 August (the 'late' column = standard + 50% penalty). Dangerous dogs pay an additional 50% of the usual fee. Fencing rebate requires a property inspection; neutered rebate requires a vet certificate."
+    },
+    {
+      "slug": "wairoa",
+      "name": "Wairoa District",
+      "type": "district",
+      "sourceUrl": "https://www.wairoadc.govt.nz/services/animal-education/dog-owners/",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 August",
+      "cutoffs": {
+        "lateFrom": "09-01"
+      },
+      "supports": {
+        "desexedDiscount": false,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog (Class W)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 75,
+          "late": 112
+        },
+        {
+          "id": "responsible",
+          "label": "Selected Owner Policy (Class SOP)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 100,
+          "late": 150
+        },
+        {
+          "id": "standard",
+          "label": "Standard dog (Class S)",
+          "requires": {},
+          "onTime": 146,
+          "late": 219
+        }
+      ],
+      "extras": [
+        {
+          "label": "Infringement fee (unregistered)",
+          "amount": 300
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 365,
+        "late": 547.5
+      },
+      "responsibleOwnerScheme": {
+        "name": "Selected Owner Policy",
+        "applicationFee": null,
+        "url": "https://www.wairoadc.govt.nz/services/animal-education/dog-owners/"
+      },
+      "notes": "2025/26 schedule (2026/27 not yet published as of 2026-06-30; re-check). Wairoa's on-time deadline is 31 August (late from 1 Sept). Menacing dog (Class M) $266/$399. No desexed discount."
+    },
+    {
+      "slug": "waitaki",
+      "name": "Waitaki District",
+      "type": "district",
+      "sourceUrl": "https://www.waitaki.govt.nz/Services/Fees-and-Charges/Animal-Control",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working / farm pet dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 39,
+          "late": 39
+        },
+        {
+          "id": "selected",
+          "label": "Selected owner dog",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 52.5,
+          "late": 52.5
+        },
+        {
+          "id": "neutered",
+          "label": "Neutered non-working dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 105,
+          "late": 105
+        },
+        {
+          "id": "entire",
+          "label": "Non-working dog (entire)",
+          "requires": {},
+          "onTime": 130.5,
+          "late": 130.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Selected Owner / Multiple Dog Permit",
+          "amount": 50
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 10
+        }
+      ],
+      "notes": "Flat annual fee. Confirm any late-payment penalty with the council.",
+      "responsibleOwnerScheme": {
+        "name": "Selected owner",
+        "applicationFee": 50,
+        "url": "https://www.waitaki.govt.nz/Services/Fees-and-Charges/Animal-Control"
+      }
+    },
+    {
+      "slug": "waitomo",
+      "name": "Waitomo District",
+      "type": "district",
+      "sourceUrl": "https://www.waitomo.govt.nz/our-services/animal-control/dog-registration-fees/",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": false,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "special",
+          "label": "Special Owner (Dog Control Policy)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 80,
+          "late": 120
+        },
+        {
+          "id": "neutered",
+          "label": "Urban spayed/neutered",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 102,
+          "late": 153
+        },
+        {
+          "id": "standard",
+          "label": "Urban dog",
+          "requires": {},
+          "onTime": 135,
+          "late": 202.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Replacement registration tag",
+          "amount": 5.6
+        },
+        {
+          "label": "Micro-chipping",
+          "amount": 36
+        },
+        {
+          "label": "Consent to keep more than 2 urban dogs",
+          "amount": 70
+        }
+      ],
+      "responsibleOwnerScheme": {
+        "name": "Special Owner",
+        "applicationFee": 41,
+        "url": "https://www.waitomo.govt.nz/our-services/animal-control/dog-registration-fees/"
+      },
+      "notes": "2026/27 fees (confirmed on live site and Annual Plan PDF). Rural dogs $59/$88.50 — not shown as a category (no rural toggle); every 6th of 5 rural dogs free if paid on time. Gold-card urban concession $120/$180. Late = +50%. Dangerous dog = 150% of the otherwise-applicable fee."
+    },
+    {
+      "slug": "wellington",
+      "name": "Wellington City",
+      "type": "city",
+      "sourceUrl": "https://wellington.govt.nz/dogs-and-other-animals/dogs/register-your-dog/fees",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "guide",
+          "label": "Approved guide/hearing dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 62.5,
+          "late": 94
+        },
+        {
+          "id": "accredited",
+          "label": "Accredited Dog Owner",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 73,
+          "late": 222,
+          "note": "Late reverts to standard: $222 desexed / $306.50 entire (ADO status lost if not paid by 31 July)."
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 148,
+          "late": 222
+        },
+        {
+          "id": "entire",
+          "label": "Entire dog",
+          "requires": {},
+          "onTime": 204,
+          "late": 306.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Multiple-dog application (more than three dogs)",
+          "amount": 43
+        },
+        {
+          "label": "Replacement registration tag",
+          "amount": 14.5
+        }
+      ],
+      "notes": "2026/27 fees (re-verified 2026-06-30). Includes the $2.50 National Dog Database levy. Late fee = 50% of registration if paid after 31 July. No separate dangerous-dog registration fee published. Puppies are charged pro-rata to 30 June.",
+      "responsibleOwnerScheme": {
+        "name": "Accredited Dog Owner",
+        "applicationFee": null,
+        "url": "https://wellington.govt.nz/dogs-and-other-animals/dogs/register-your-dog/fees"
+      }
+    },
+    {
+      "slug": "western-bay-of-plenty",
+      "name": "Western Bay of Plenty District",
+      "type": "district",
+      "sourceUrl": "https://www.westernbay.govt.nz/rules-regulations-and-licenses/animal-services/2026-27-dog-fees-and-impound-costs",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "3 August",
+      "cutoffs": {
+        "lateFrom": "08-04"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "No fee, on application and verification. Same free class covers Police, Ministry, security, Search & Rescue."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 101,
+          "late": 152,
+          "note": "Kept solely for herding/driving stock or pest destruction; on application and verification."
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 121,
+          "late": 182
+        },
+        {
+          "id": "standard",
+          "label": "Standard / urban dog (entire)",
+          "requires": {},
+          "onTime": 154,
+          "late": 230
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchipping",
+          "amount": 40.5
+        },
+        {
+          "label": "Replacement Tag",
+          "amount": 11.5
+        },
+        {
+          "label": "Multiple Dogs (per application)",
+          "amount": 69
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 230,
+        "late": 347
+      },
+      "notes": "2026/27 published fees. On-time = pay before 4 August 2026; late = on or after 4 August 2026. Matakana Island reduced rate $55 on-time / $82.50 late (island-specific, not mapped). Dangerous figures shown are entire; dangerous desexed $182/$272."
+    },
+    {
+      "slug": "westland",
+      "name": "Westland District",
+      "type": "district",
+      "sourceUrl": "https://www.westlanddc.govt.nz/dogs-and-animal-control/dog-registration/",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Certified disability assistance dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "NIL / free by law."
+        },
+        {
+          "id": "working",
+          "label": "First working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 80,
+          "late": 120
+        },
+        {
+          "id": "desexed",
+          "label": "Neutered dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 80,
+          "late": 120
+        },
+        {
+          "id": "standard",
+          "label": "Unneutered dog",
+          "requires": {},
+          "onTime": 115,
+          "late": 172.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Additional working dog",
+          "amount": 40,
+          "note": "late $60"
+        }
+      ],
+      "notes": "2025/26 schedule (2026/27 not yet published as of 2026-06-30; re-check). Late = +50% from 1 August. 20% Gold Card discount on non-working fees. Dangerous dogs +50%."
+    },
+    {
+      "slug": "whakatane",
+      "name": "Whakatāne District",
+      "type": "district",
+      "sourceUrl": "https://www.whakatane.govt.nz/services/animal-control/dog-registration",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Assist / disability dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Certified disability assist dogs — no charge."
+        },
+        {
+          "id": "working",
+          "label": "Working dog (herding/hunting)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 40,
+          "late": 40,
+          "note": "Flat $40 regardless of registration date."
+        },
+        {
+          "id": "desexed",
+          "label": "De-sexed dog",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 68.5,
+          "late": 99
+        },
+        {
+          "id": "standard",
+          "label": "Entire (un-neutered) dog",
+          "requires": {},
+          "onTime": 98,
+          "late": 147.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Replacement tag",
+          "amount": 3
+        },
+        {
+          "label": "Infringement for unregistered dog",
+          "amount": 300
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 147,
+        "late": 221.25
+      },
+      "notes": "2026/27 fees. Discount deadline 1 August 2026; fees increase after. Dangerous-classified dogs pay an additional 50% on top of the above (dangerousDog = entire +50%)."
+    },
+    {
+      "slug": "whanganui",
+      "name": "Whanganui District",
+      "type": "district",
+      "sourceUrl": "https://www.whanganui.govt.nz/Fees-and-Charges/Dog-fees-and-charges",
+      "lastVerified": "2026-06-30",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog (first three)",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 46.5,
+          "late": 52
+        },
+        {
+          "id": "responsible",
+          "label": "Responsible dog owner (RDO)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 120,
+          "late": 147
+        },
+        {
+          "id": "desexed",
+          "label": "Non-working neutered/spayed",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 120,
+          "late": 147
+        },
+        {
+          "id": "standard",
+          "label": "Non-working dog (entire/standard)",
+          "requires": {},
+          "onTime": 147,
+          "late": 147
+        }
+      ],
+      "extras": [
+        {
+          "label": "Microchipping",
+          "amount": 32
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 5
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 220.5,
+        "late": 220.5
+      },
+      "responsibleOwnerScheme": {
+        "name": "Responsible Dog Owner (RDO)",
+        "applicationFee": 0,
+        "url": "https://www.whanganui.govt.nz/Fees-and-Charges/Dog-fees-and-charges"
+      },
+      "notes": "Fees set by council resolution 24 March 2026 for 1 July 2026 – 30 June 2027. Whanganui uses a prompt-payment discount model: 'onTime' = paid by 31 July (with discount); 'late' = the standard base fee (no discount). A separate late-payment PENALTY of 150% of the applicable fee applies to registrations paid on or after 1 September. Discounts: neutered -$27, RDO -$27, first-time -$14.50. Dangerous dog = 150% of $147 entire fee = $220.50."
+    },
+    {
+      "slug": "whangarei",
+      "name": "Whangārei District",
+      "type": "district",
+      "sourceUrl": "https://www.wdc.govt.nz/Council/Council-documents/Fees-and-Charges/Animal-Fees",
+      "lastVerified": "2026-06-30",
+      "year": "2025/26",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": false
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Disability assist dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 83,
+          "late": 125
+        },
+        {
+          "id": "desexed",
+          "label": "Desexed pet",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 108,
+          "late": 162
+        },
+        {
+          "id": "entire",
+          "label": "Pet (entire)",
+          "requires": {},
+          "onTime": 124,
+          "late": 186
+        }
+      ],
+      "extras": [
+        {
+          "label": "Dangerous dog",
+          "amount": 270,
+          "note": "late $405"
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 9
+        }
+      ],
+      "notes": ""
     }
   ]
 }
