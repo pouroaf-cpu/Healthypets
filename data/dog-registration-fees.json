@@ -2699,6 +2699,112 @@
       "notes": "Fees from the live Animal Control fees & charges page (no explicit year heading; live-verified 2026-07-03). Late = 50% of the applicable fee (computed). Dangerous dog: entire $331.50 shown (neutered $240); late +50%. Not modelled: approved obedience/agility rate (neutered $123 / entire $196) and reduced registration (neutered $97.50 / entire $160, + $41 application + $80 inspection). Due date confirmed from Porirua dog-registrations page (renew by end of July; 50% penalty if unpaid)."
     },
     {
+      "slug": "queenstown-lakes",
+      "name": "Queenstown-Lakes District",
+      "type": "district",
+      "sourceUrl": "https://www.qldc.govt.nz/services/animal-control/register-your-dog/",
+      "lastVerified": "2026-07-03",
+      "year": "2026/27",
+      "dueDate": "31 July",
+      "cutoffs": {
+        "lateFrom": "08-01"
+      },
+      "supports": {
+        "desexedDiscount": true,
+        "workingRate": true,
+        "responsibleOwner": true
+      },
+      "categories": [
+        {
+          "id": "disability",
+          "label": "Guide dog",
+          "requires": {
+            "disabilityAssist": true
+          },
+          "onTime": 0,
+          "late": 0,
+          "note": "Free by law."
+        },
+        {
+          "id": "working",
+          "label": "Working dog",
+          "requires": {
+            "workingDog": true
+          },
+          "onTime": 118,
+          "late": 177,
+          "note": "Fenced OR positive-owner working dog $87; fenced + positive $61. Late computed from stated 50% penalty."
+        },
+        {
+          "id": "desexed-responsible",
+          "label": "Pet dog (de-sexed + positive owner)",
+          "requires": {
+            "desexed": true,
+            "responsibleOwner": true
+          },
+          "onTime": 138,
+          "late": 207,
+          "note": "Add a fenced property too and it drops to $97. Late computed from 50% penalty."
+        },
+        {
+          "id": "desexed",
+          "label": "Pet dog (de-sexed)",
+          "requires": {
+            "desexed": true
+          },
+          "onTime": 184,
+          "late": 276,
+          "note": "De-sexed + fenced (or + positive) $138; de-sexed/fenced/positive $97."
+        },
+        {
+          "id": "responsible",
+          "label": "Pet dog (positive owner)",
+          "requires": {
+            "responsibleOwner": true
+          },
+          "onTime": 184,
+          "late": 276,
+          "note": "'Positive' = QLDC's responsible-ownership status. A fenced property earns the same $184; fenced + positive $123."
+        },
+        {
+          "id": "standard",
+          "label": "Pet dog (entire)",
+          "requires": {},
+          "onTime": 245,
+          "late": 367.5
+        }
+      ],
+      "extras": [
+        {
+          "label": "Multiple dog licence",
+          "amount": 74,
+          "note": "application; + $84 inspection"
+        },
+        {
+          "label": "Inspection fee (more than 2 dogs)",
+          "amount": 84
+        },
+        {
+          "label": "Licence & inspection (more than 2 dogs)",
+          "amount": 158
+        },
+        {
+          "label": "Replacement tag",
+          "amount": 0
+        }
+      ],
+      "dangerousDog": {
+        "onTime": 368,
+        "late": 552
+      },
+      "responsibleOwnerScheme": {
+        "name": "Positive dog owner",
+        "applicationFee": null,
+        "url": "https://www.qldc.govt.nz/services/animal-control/register-your-dog/"
+      },
+      "notes": "2026/27 fees (user-supplied from the QLDC register-your-dog page, whose fee table renders client-side and was unreadable by scrapers). QLDC stacks discounts on a base category: −$61 for a fenced property, −$61 for 'positive' (responsible) owner status, and (pet dogs) −$61 for de-sexing; discounts stack. Base Pet dog $245 → de-sexed $184, positive $184, fenced $184; de-sexed+positive (or +fenced) $138; de-sexed/fenced/positive $97. Working dog $118 (fenced/positive $87; both $61). Our model has no 'fenced' axis, so responsibleOwner is mapped to the 'positive' rate and 'fenced' is described here. Menacing dog $245 (down to $123 fenced/positive). Payment due 31 July; a 50% penalty applies to late payment (all 'late' figures computed onTime × 1.5); $300 infringement for a dog unregistered by 31 August. Impound (enforcement, not modelled): 1st $131, 2nd $210, 3rd+ $315; feeding $37/day."
+    },
+    {
       "slug": "rangitikei",
       "name": "Rangitīkei District",
       "type": "district",

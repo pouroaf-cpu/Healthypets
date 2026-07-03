@@ -16,7 +16,7 @@ NZ dog registration runs **1 July → 30 June**. Each council sets its own fees 
 - The calculator must show a **"fees verified for the 20xx/yy year — last checked <date>"**
   line + source link, and a soft warning if `lastVerified` is older than the current 1 July.
 
-> Last pass **2026-07-03** (Firecrawl/DataForSEO WAF-crack run). **66 / 67** councils now in the dataset — only Queenstown-Lakes remains (its 2026/27 fee table renders values client-side and is unreadable).
+> Last pass **2026-07-03** (Firecrawl/DataForSEO WAF-crack run + QLDC user-supplied). **67 / 67** councils now in the dataset — full national coverage. 🎉
 
 ## How the data is pulled
 1. `node scripts/fetch-council-fees.mjs <slug>` — Firecrawl-scrapes the council's fees page.
@@ -109,7 +109,7 @@ Status: ✅ verified · ⬜ to do · ⚠️ blocked/not-published (could not ver
 | 58 | Waimate District | 2026-07-03 | 26/27 | ✅ (Guide PDF; hints confirmed) |
 | 59 | Waitaki District | 2026-06-30 | 25/26 | ✅ |
 | 60 | Central Otago District | 2026-07-03 | 26/27 | ✅ (pet $72 / working $12; no late %) |
-| 61 | Queenstown-Lakes District | | | ⚠️ 26/27 table on-page but $ injected client-side — unreadable via Firecrawl/DataForSEO/curl. ONLY council still missing. |
+| 61 | Queenstown-Lakes District | 2026-07-03 | 26/27 | ✅ (user-supplied; fenced/positive/desexed discount stack) |
 | 62 | Dunedin City | 2026-07-03 | 26/27 | ✅ (RDO 44% off; fixed 50% late add-on) |
 | 63 | Clutha District | 2026-06-30 | 26/27 | ✅ (PROPOSED schedule, S3 PDF) |
 | 64 | Southland District | 2026-06-30 | 26/27 | ✅ (Animal Control PDF) |
@@ -117,10 +117,9 @@ Status: ✅ verified · ⬜ to do · ⚠️ blocked/not-published (could not ver
 | 66 | Invercargill City | 2026-06-30 | 26/27 | ✅ (Annual Plan PDF via Let's Talk) |
 | 67 | Chatham Islands (territory) | 2026-06-30 | 26/27 | ✅ (year unstated; $50 early/$78 std) |
 
-**Progress: 66 / 67 verified.** Only **Queenstown-Lakes** remains (its 2026/27 fee table is on-page
-but the dollar values are injected client-side — unreadable via Firecrawl, DataForSEO JS-render, or curl).
-The 23 added on 2026-07-03 are all on **2026/27**. Source URLs for every verified council live in
-`data/dog-registration-fees.json` (`sourceUrl`).
+**Progress: 67 / 67 verified — complete national coverage.** The 24 added on 2026-07-03 are all on
+**2026/27** (Queenstown-Lakes was user-supplied after its client-side fee table defeated the scrapers).
+Source URLs for every verified council live in `data/dog-registration-fees.json` (`sourceUrl`).
 
 ### 2026-06-30 — annual 2026/27 pass (this run): 17 → 43 councils
 Added/verified **26 new councils** + re-verified the 3 reachable existing ones (Tauranga → 26/27;
@@ -143,13 +142,15 @@ Ruapehu, Stratford, South Taranaki, Manawatū, Tararua, Porirua, Masterton, Marl
 Hurunui, Ashburton, Waimate, Central Otago, Dunedin, Gore. (Several "26/27 not finalised" flags from
 30 Jun — Masterton, Central Otago, Manawatū — turned out to have published schedules after all.)
 
-### Still TODO / blocked (1 council) — for the next run
-- **Queenstown-Lakes:** live page `qldc.govt.nz/services/animal-control/register-your-dog/` DOES have a
-  "2026/2027 Dog Control Registration Fees" table, but every cell renders empty — the dollar values are
-  injected client-side and could not be read via DataForSEO (JS on), Firecrawl, or curl. Page text confirms
-  due 31 July + 50% late penalty. Next run: try the QLDC Annual Plan / Let's Talk fees-and-charges PDF, or
-  the eServices registration portal, rather than the CMS page.
+### Still TODO — for the next run
+- All 67 councils are in the dataset. **Queenstown-Lakes** was the last hold-out: its
+  `qldc.govt.nz/services/animal-control/register-your-dog/` fee table renders $ client-side (unreadable via
+  DataForSEO JS-render / Firecrawl / curl), so the figures were **user-supplied** on 2026-07-03. QLDC prices
+  off a base category with three stacking −$61 discounts (fenced property, 'positive'/responsible owner,
+  de-sexing) — our model has no 'fenced' axis, so responsibleOwner maps to the 'positive' rate and fenced is
+  described in notes. Re-confirm against the live table if it ever becomes machine-readable.
 - **Auckland** remains on 25/26 in the JSON (Akamai 406 on the discounts/calculator pages) — re-verify when reachable.
+- ~15 councils still show 25/26 in the `Yr` column — re-fetch as they publish 26/27.
 
 ## Process notes & learnings
 
