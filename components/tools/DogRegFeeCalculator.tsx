@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
-  listCouncils, getCouncil, matchCategory, tierForDate, amountForTier,
+  listCouncils, getCouncil, matchCategory, tierForDate, amountForTier, foldDiacritics,
   fmt, TIER_LABEL, META, RESPONSIBLE_OWNER_CRITERIA, type Selection, type Tier,
 } from "@/lib/dog-reg-fees";
 
@@ -38,17 +38,7 @@ export function DogRegFeeCalculator() {
       {/* INPUTS */}
       <div style={card}>
         <label style={label} htmlFor="council">Your council</label>
-        <select
-          id="council" value={slug} onChange={(e) => setSlug(e.target.value)}
-          style={{
-            width: "100%", padding: "12px 14px", fontSize: 16, fontFamily: "var(--font-body)",
-            color: "var(--ink)", background: "var(--white)", border: "1.5px solid var(--border-strong)",
-            borderRadius: "var(--radius-md)", cursor: "pointer",
-          }}
-        >
-          <option value="">Select your council…</option>
-          {councils.map((c) => <option key={c.slug} value={c.slug}>{c.name}</option>)}
-        </select>
+        <CouncilCombobox councils={councils} value={slug} onChange={setSlug} />
         <p style={{ margin: "8px 0 0", fontSize: 13, color: "var(--ink-muted)" }}>
           {councils.length} of 67 councils live — more added regularly. (Address search coming soon.)
         </p>
@@ -164,6 +154,149 @@ export function DogRegFeeCalculator() {
       )}
 
       <style>{`@media (max-width: 520px) { .hp-toggle-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </div>
+  );
+}
+
+// Searchable, accent-insensitive council picker. A native <select> can't do type-ahead across
+// macrons (typing "oto" never jumps to "Ōtorohanga"), so we roll a lightweight combobox that
+// folds diacritics on both the query and the option text.
+function CouncilCombobox({
+  councils, value, onChange,
+}: {
+  councils: { slug: string; name: string }[];
+  value: string;
+  onChange: (slug: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const [active, setActive] = useState(0);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const listboxId = "council-listbox";
+
+  const selectedName = councils.find((c) => c.slug === value)?.name ?? "";
+  const q = foldDiacritics(query.trim());
+  const filtered = q === "" ? councils : councils.filter((c) => foldDiacritics(c.name).includes(q));
+
+  useEffect(() => { setActive(0); }, [query]);
+
+  // Close on click outside.
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [open]);
+
+  // Keep the highlighted option in view.
+  useEffect(() => {
+    if (!open || !listRef.current) return;
+    (listRef.current.children[active] as HTMLElement | undefined)?.scrollIntoView({ block: "nearest" });
+  }, [active, open]);
+
+  const commit = (slug: string) => {
+    onChange(slug);
+    setQuery("");
+    setOpen(false);
+    inputRef.current?.blur();
+  };
+
+  const openList = () => { setOpen(true); setQuery(""); };
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (!open) { openList(); return; }
+      setActive((a) => Math.min(a + 1, filtered.length - 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActive((a) => Math.max(a - 1, 0));
+    } else if (e.key === "Enter") {
+      if (open && filtered[active]) { e.preventDefault(); commit(filtered[active].slug); }
+    } else if (e.key === "Escape") {
+      setOpen(false);
+    }
+  };
+
+  return (
+    <div ref={rootRef} style={{ position: "relative" }}>
+      <div style={{ position: "relative" }}>
+        <input
+          ref={inputRef}
+          id="council"
+          type="text"
+          role="combobox"
+          aria-expanded={open}
+          aria-controls={listboxId}
+          aria-autocomplete="list"
+          aria-activedescendant={open && filtered[active] ? `council-opt-${filtered[active].slug}` : undefined}
+          autoComplete="off"
+          placeholder="Search your council…"
+          value={open ? query : selectedName}
+          onFocus={openList}
+          onChange={(e) => { setQuery(e.target.value); if (!open) setOpen(true); }}
+          onKeyDown={onKeyDown}
+          style={{
+            width: "100%", padding: "12px 40px 12px 14px", fontSize: 16, fontFamily: "var(--font-body)",
+            color: "var(--ink)", background: "var(--white)", border: "1.5px solid var(--border-strong)",
+            borderRadius: "var(--radius-md)", cursor: "text",
+          }}
+        />
+        <span aria-hidden="true" style={{
+          position: "absolute", right: 14, top: "50%", transform: "translateY(-50%)",
+          color: "var(--ink-muted)", fontSize: 12, pointerEvents: "none",
+        }}>▾</span>
+      </div>
+
+      {open && (
+        <ul
+          ref={listRef}
+          id={listboxId}
+          role="listbox"
+          aria-label="Councils"
+          style={{
+            position: "absolute", zIndex: 20, left: 0, right: 0, top: "calc(100% + 6px)",
+            margin: 0, padding: 4, listStyle: "none", maxHeight: 280, overflowY: "auto",
+            background: "var(--white)", border: "1.5px solid var(--border-strong)",
+            borderRadius: "var(--radius-md)", boxShadow: "var(--shadow-md, var(--shadow-sm))",
+          }}
+        >
+          {filtered.length === 0 && (
+            <li style={{ padding: "10px 12px", fontSize: 14, color: "var(--ink-muted)" }}>
+              No council matches “{query}”. It may not be live yet — {councils.length} of 67 are.
+            </li>
+          )}
+          {filtered.map((c, i) => {
+            const isActive = i === active;
+            const isSelected = c.slug === value;
+            return (
+              <li
+                key={c.slug}
+                id={`council-opt-${c.slug}`}
+                role="option"
+                aria-selected={isSelected}
+                onMouseEnter={() => setActive(i)}
+                onMouseDown={(e) => { e.preventDefault(); commit(c.slug); }}
+                style={{
+                  display: "flex", alignItems: "center", gap: 8, padding: "10px 12px",
+                  fontSize: 15, borderRadius: "var(--radius-sm, 6px)", cursor: "pointer",
+                  background: isActive ? "var(--green-light)" : "transparent",
+                  color: "var(--ink)", fontWeight: isSelected ? 600 : 400,
+                }}
+              >
+                <span aria-hidden="true" style={{ width: 14, flex: "none", color: "var(--green-primary)", fontSize: 12 }}>
+                  {isSelected ? "✓" : ""}
+                </span>
+                {c.name}
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

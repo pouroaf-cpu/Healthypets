@@ -51,6 +51,11 @@ export const MENACING_BREEDS = [
   "Perro de Presa Canario",
 ];
 
+// Fold macrons/diacritics for accent-insensitive search, so typing "oto" or "otorohanga"
+// matches "Ōtorohanga" (and likewise Kāpiti, Taupō, Waipā, Whangārei, etc.).
+export const foldDiacritics = (s: string): string =>
+  s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
 const COUNCILS = (data.councils as Council[]).slice().sort((a, b) => a.name.localeCompare(b.name));
 export const META = data._meta as { year: string; yearRuns: string; lastBulkVerified: string; note: string };
 
