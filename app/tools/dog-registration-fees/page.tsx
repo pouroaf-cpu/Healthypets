@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DogRegFeeCalculator } from "@/components/tools/DogRegFeeCalculator";
-import { META, listCouncils, MENACING_BREEDS } from "@/lib/dog-reg-fees";
+import { CouncilFeeTable } from "@/components/tools/CouncilFeeTable";
+import { META, MENACING_BREEDS, councilFeeRows } from "@/lib/dog-reg-fees";
 
 const CAVEATS: { t: string; d: string }[] = [
   { t: "Guide, hearing & disability assist dogs are free", d: "Registration is free for certified assist dogs everywhere, by law (Dog Control Act 1996)." },
@@ -23,8 +24,27 @@ export const metadata: Metadata = {
 const wrap: React.CSSProperties = { maxWidth: 820, margin: "0 auto", padding: "0 20px" };
 
 export default function DogRegFeesPage() {
+  const feeRows = councilFeeRows();
+  const dataset = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: `New Zealand dog registration fees by council (${META.year})`,
+    description: `On-time dog registration fees for ${feeRows.length} of 67 New Zealand territorial authorities for the ${META.year} registration year (${META.yearRuns}). Includes the standard (entire) fee, desexed and working-dog rates, council type, and the registration due date. NZD, GST inclusive.`,
+    url: "https://www.healthypets.co.nz/tools/dog-registration-fees",
+    keywords: ["dog registration fees", "New Zealand", "council", "Dog Control Act 1996", "dog registration cost NZ"],
+    temporalCoverage: "2026-07-01/2027-06-30",
+    isAccessibleForFree: true,
+    creator: { "@type": "Organization", name: "Healthy Pets", url: "https://www.healthypets.co.nz" },
+    variableMeasured: [
+      "Standard (entire) dog registration fee",
+      "Desexed dog registration fee",
+      "Working dog registration fee",
+      "Registration due date",
+    ],
+  };
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(dataset) }} />
       <section style={{ background: "var(--green-light)" }}>
         <div style={{ ...wrap, padding: "clamp(36px,6vw,64px) 20px clamp(28px,4vw,40px)" }}>
           <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--green-dark)", marginBottom: 10 }}>
@@ -45,28 +65,19 @@ export default function DogRegFeesPage() {
         <div style={{ ...wrap, padding: "clamp(28px,4vw,44px) 20px clamp(40px,6vw,64px)" }}>
           <DogRegFeeCalculator />
 
-          {/* LIVE COUNCIL COVERAGE — driven by the dataset, grows as councils are verified */}
+          {/* ALL-COUNCIL FEE COMPARISON — full dataset, server-rendered (crawlable) + interactive */}
           {(() => {
-            const councils = listCouncils();
+            const rows = councilFeeRows();
             return (
-              <div style={{ marginTop: 36 }}>
-                <h2 style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 20, color: "var(--ink)", margin: "0 0 6px" }}>
-                  Councils with live data <span style={{ color: "var(--green-dark)" }}>({councils.length} of 67)</span>
+              <div id="all-councils" style={{ marginTop: 44, scrollMarginTop: 20 }}>
+                <h2 style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 22, color: "var(--ink)", margin: "0 0 6px" }}>
+                  Dog registration fees by council <span style={{ color: "var(--green-dark)" }}>({rows.length} of 67)</span>
                 </h2>
-                <p style={{ margin: "0 0 14px", fontSize: 14, color: "var(--ink-muted)" }}>
-                  We&apos;re verifying every NZ council and adding them here. This list updates as each one is checked — don&apos;t see yours yet? It&apos;s coming.
+                <p style={{ margin: "0 0 16px", fontSize: 14.5, lineHeight: 1.6, color: "var(--ink-muted)" }}>
+                  Every New Zealand council&apos;s {META.year} dog registration fees in one table — search, sort and compare.
+                  Figures are the on-time / early-payment rate (NZD, GST incl.), last verified {META.lastBulkVerified}.
                 </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                  {councils.map((c) => (
-                    <span key={c.slug} style={{
-                      display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 12px",
-                      background: "var(--green-light)", color: "var(--green-dark)", borderRadius: "var(--radius-pill)",
-                      fontSize: 14, fontWeight: 600, fontFamily: "var(--font-heading)",
-                    }}>
-                      <span aria-hidden="true" style={{ color: "var(--green-primary)" }}>✓</span> {c.name}
-                    </span>
-                  ))}
-                </div>
+                <CouncilFeeTable rows={rows} />
               </div>
             );
           })()}

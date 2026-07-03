@@ -62,8 +62,62 @@ export const META = data._meta as { year: string; yearRuns: string; lastBulkVeri
 export function listCouncils(): { slug: string; name: string }[] {
   return COUNCILS.map((c) => ({ slug: c.slug, name: c.name }));
 }
+export function allCouncils(): Council[] {
+  return COUNCILS;
+}
 export function getCouncil(slug: string): Council | undefined {
   return COUNCILS.find((c) => c.slug === slug);
+}
+
+export const TYPE_LABEL: Record<string, string> = {
+  district: "District",
+  city: "City",
+  unitary: "Unitary",
+  territory: "Territory",
+};
+
+// The on-time fee for the category requiring EXACTLY one given axis (e.g. just desexed),
+// or null if the council has no such single-axis category.
+function rateForAxis(c: Council, key: keyof Selection): number | null {
+  const cat = c.categories.find((x) => {
+    const ks = Object.keys(x.requires || {});
+    return ks.length === 1 && (x.requires as Record<string, boolean>)[key] === true;
+  });
+  return cat ? cat.onTime : null;
+}
+
+export type CouncilFeeRow = {
+  slug: string;
+  name: string;
+  type: string;
+  typeLabel: string;
+  sourceUrl: string;
+  year: string;
+  dueDate: string;
+  entire: number | null; // standard on-time (entire) fee = the empty-requires fallback
+  desexed: number | null;
+  working: number | null;
+  responsible: number | null;
+};
+
+// Flattened, sortable one-row-per-council summary for the comparison table.
+export function councilFeeRows(): CouncilFeeRow[] {
+  return COUNCILS.map((c) => {
+    const entireCat = c.categories.find((x) => Object.keys(x.requires || {}).length === 0);
+    return {
+      slug: c.slug,
+      name: c.name,
+      type: c.type,
+      typeLabel: TYPE_LABEL[c.type] ?? c.type,
+      sourceUrl: c.sourceUrl,
+      year: c.year,
+      dueDate: c.dueDate,
+      entire: entireCat ? entireCat.onTime : null,
+      desexed: rateForAxis(c, "desexed"),
+      working: rateForAxis(c, "workingDog"),
+      responsible: rateForAxis(c, "responsibleOwner"),
+    };
+  });
 }
 
 export type Tier = "onTime" | "afterDue" | "late";
