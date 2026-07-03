@@ -21,7 +21,19 @@ export const NAV: NavItem[] = [
   { label: "Flea & Worming", href: "/flea-and-worming" },
   { label: "Supplements", href: "/supplements" },
   { label: "Food", href: "/food" },
+  { label: "Tools", href: "/tools" },
   { label: "Guides", href: "/guides" },
+];
+
+// Free tools. Single source of truth — the /tools hub, nav and footer all read from this.
+export type Tool = NavItem & { blurb: string };
+export const TOOLS: Tool[] = [
+  {
+    label: "Dog Registration Fee Calculator",
+    href: "/tools/dog-registration-fees",
+    blurb:
+      "Pick your NZ council and see the dog rego fee payable today, your due date, and any discounts you can claim.",
+  },
 ];
 
 // Content territories (used for category hubs + homepage grid)
@@ -38,6 +50,10 @@ export const TERRITORIES: NavItem[] = [
 
 export const FOOTER = {
   territories: TERRITORIES,
+  tools: [
+    { label: "All tools", href: "/tools" },
+    ...TOOLS.map((t) => ({ label: t.label, href: t.href })),
+  ],
   site: [
     { label: "About", href: "/about" },
     { label: "Editorial policy", href: "/editorial-policy" },

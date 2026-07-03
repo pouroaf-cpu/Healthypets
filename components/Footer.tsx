@@ -25,12 +25,13 @@ export function Footer() {
   return (
     <footer className="mt-20 border-t border-gray-100 bg-surface">
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
             <Logo />
             <p className="mt-3 max-w-xs text-sm text-ink/70">{SITE.tagline}</p>
           </div>
           {col("Territories", FOOTER.territories)}
+          {col("Tools", FOOTER.tools)}
           {col("Site", FOOTER.site)}
           {col("Legal", FOOTER.legal)}
         </div>
