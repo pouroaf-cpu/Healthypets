@@ -10,14 +10,20 @@
   --green-dark: #6E4A2B;
   --green-light: #EFE2CE;
 
-  /* CTA — coral */
+  /* CTA — coral.
+     --coral / --coral-dark stay BRIGHT for decorative use (price stickers, the hero
+     highlighter, glows). White text on bright coral is only 2.8:1, so text-bearing
+     controls (CTA buttons, coral badges) use --coral-cta, a deepened same-hue tomato
+     that clears WCAG AA (white on #CE3D2C = 4.85:1). */
   --coral: #FF6B5C;
   --coral-dark: #E85546;
+  --coral-cta: #CE3D2C;
+  --coral-cta-hover: #BE3826;
 
   /* Ink + surfaces */
   --ink: #1F2A37;        /* primary text */
   --ink-soft: #45525F;   /* secondary text */
-  --ink-muted: #6B7682;  /* tertiary / captions */
+  --ink-muted: #5C6672;  /* tertiary / captions — AA on cream (5.5:1) & beige (4.7:1) */
   --section: #F1E6D4;    /* tinted section background (beige) */
   --white: #FCF8F0;      /* page/card surface (warm cream) */
   --border: #E6D8C2;     /* hairline borders on tinted bg */
@@ -43,8 +49,8 @@
 
   --action-primary: var(--green-primary);
   --action-primary-hover: var(--green-dark);
-  --action-cta: var(--coral);
-  --action-cta-hover: var(--coral-dark);
+  --action-cta: var(--coral-cta);
+  --action-cta-hover: var(--coral-cta-hover);
 
   --border-default: var(--border);
   --border-strong: #D6C4A9;

@@ -167,7 +167,7 @@ export default function Home() {
               <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 12.5, color: "var(--ink)" }}>Loved by 2,300+ Kiwi owners</span>
             </div>
 
-            <div style={{ position: "absolute", bottom: 92, right: "-3%", zIndex: 6, transform: "rotate(5deg)", background: "var(--coral)", color: "#fff", borderRadius: 8, padding: "8px 13px", boxShadow: "0 8px 20px rgba(255,107,92,0.35)", fontFamily: "var(--font-heading)", fontWeight: 700, lineHeight: 1.1, textAlign: "center" }}>
+            <div style={{ position: "absolute", bottom: 92, right: "-3%", zIndex: 6, transform: "rotate(5deg)", background: "var(--coral-cta)", color: "#fff", borderRadius: 8, padding: "8px 13px", boxShadow: "0 8px 20px rgba(255,107,92,0.35)", fontFamily: "var(--font-heading)", fontWeight: 700, lineHeight: 1.1, textAlign: "center" }}>
               <div style={{ fontSize: 17 }}>$84.99</div>
               <div style={{ fontSize: 10, fontWeight: 600, opacity: 0.9, letterSpacing: ".04em" }}>BEST NZ PRICE</div>
             </div>
@@ -306,7 +306,6 @@ export default function Home() {
       </Section>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
         @media (prefers-reduced-motion: no-preference) {
           .hp-bob { animation: hpBob 3.2s ease-in-out infinite; }
         }

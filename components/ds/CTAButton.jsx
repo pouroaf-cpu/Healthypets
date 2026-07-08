@@ -41,7 +41,7 @@ export function CTAButton({
   const base = {
     display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px",
     fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1, color: "#fff",
-    background: "var(--coral)", border: "none", borderRadius: "var(--radius-pill)",
+    background: "var(--coral-cta)", border: "none", borderRadius: "var(--radius-pill)",
     boxShadow: "var(--shadow-cta)", cursor: "pointer", textDecoration: "none",
     width: fullWidth ? "100%" : "auto", boxSizing: "border-box",
     transition: "background 140ms ease, transform 120ms ease",
@@ -55,8 +55,8 @@ export function CTAButton({
       rel="sponsored nofollow noopener"
       style={base}
       onClick={handleClick}
-      onMouseEnter={(e) => (e.currentTarget.style.background = "var(--coral-dark)")}
-      onMouseLeave={(e) => (e.currentTarget.style.background = "var(--coral)")}
+      onMouseEnter={(e) => (e.currentTarget.style.background = "var(--coral-cta-hover)")}
+      onMouseLeave={(e) => (e.currentTarget.style.background = "var(--coral-cta)")}
       onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.97)")}
       onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
       {...rest}

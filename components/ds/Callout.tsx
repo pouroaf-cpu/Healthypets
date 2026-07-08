@@ -31,7 +31,7 @@ export function Callout({
         display: "flex",
         gap: 14,
         background: s.bg,
-        borderLeft: `4px solid ${s.border}`,
+        border: `1px solid ${s.border}`,
         borderRadius: "var(--radius-md)",
         padding: "16px 18px",
         margin: "24px 0",

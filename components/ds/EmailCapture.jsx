@@ -57,7 +57,7 @@ export function EmailCapture({
             </Button>
           </form>
         )}
-        {state === "error" && <p style={{ margin: "8px 0 0", fontSize: "13px", color: "var(--coral-dark)" }}>Something went wrong — please try again.</p>}
+        {state === "error" && <p style={{ margin: "8px 0 0", fontSize: "13px", color: "var(--coral-cta)" }}>Something went wrong — please try again.</p>}
         <p style={{ margin: "12px 0 0", fontSize: "12.5px", color: "var(--ink-muted)" }}>
           No spam. Unsubscribe anytime. We&apos;ll email you the calendar and occasional NZ pet-health tips.
         </p>

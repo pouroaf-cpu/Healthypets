@@ -20,6 +20,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-NZ">
+      {/* Preconnect to Google's font hosts — speeds up the Inter/Poppins woff2 (loaded via
+          @font-face in app/ds/fonts.css) and the Caveat stylesheet below. */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      {/* Caveat (scrapbook handwriting) — only the homepage uses --font-hand, but loading the
+          tiny stylesheet site-wide is cheap and the woff2 only downloads where a glyph needs it.
+          Replaces an in-body @import that was render-blocking and spec-fragile. */}
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" />
       {/* Impact affiliate network site verification (uses `value`, not `content`, so rendered raw) */}
       <meta {...({ name: "impact-site-verification", value: "f915bff6-435a-455e-975a-148b0bc58b2b" } as Record<string, string>)} />
       {/* Ahrefs Web Analytics (public site key). Rendered as a plain async script so

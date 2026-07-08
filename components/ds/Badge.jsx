@@ -3,7 +3,7 @@
 export function Badge({ children, tone = "green", size = "md", icon = null, style = {}, ...rest }) {
   const tones = {
     green: { background: "var(--green-primary)", color: "#fff" },
-    coral: { background: "var(--coral)", color: "#fff" },
+    coral: { background: "var(--coral-cta)", color: "#fff" },
     light: { background: "var(--green-light)", color: "var(--green-dark)" },
     neutral: { background: "var(--section)", color: "var(--ink-soft)" },
     gold: { background: "#FDF1DC", color: "#9A6B16" },

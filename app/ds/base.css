@@ -31,3 +31,11 @@ body.hp-body {
 }
 
 a { color: var(--green-dark); }
+
+/* Keyboard focus — a visible, on-brand ring. Only for keyboard/AT users (:focus-visible),
+   so mouse clicks don't show it. The JS hover states on buttons/links don't fire on focus,
+   so without this the only focus cue was the faint UA default. */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}

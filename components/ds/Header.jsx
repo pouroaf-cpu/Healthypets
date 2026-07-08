@@ -10,7 +10,6 @@ function Icon({ d, size = 20 }) {
     </svg>
   );
 }
-const search = <><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></>;
 const menu = <><path d="M4 6h16M4 12h16M4 18h16" /></>;
 const close = <><path d="M18 6 6 18M6 6l12 12" /></>;
 
@@ -21,8 +20,8 @@ const ROUTES = {
 };
 const hrefFor = (label) => ROUTES[label] || "/";
 
-// Sticky site header: paw-in-leaf logo, primary nav, search. Collapses to a menu on mobile.
-export function Header({ active = "", logoSrc = "/logo-mark.svg", nav = NAV, onSearch = undefined, style = {} }) {
+// Sticky site header: paw-in-leaf logo, primary nav. Collapses to a menu on mobile.
+export function Header({ active = "", logoSrc = "/logo-mark.svg", nav = NAV, style = {} }) {
   const [open, setOpen] = useState(false);
 
   const link = (label) => (
@@ -57,10 +56,6 @@ export function Header({ active = "", logoSrc = "/logo-mark.svg", nav = NAV, onS
         </nav>
 
         <div style={{ flex: 1 }} />
-
-        <button className="hp-nav-desktop" onClick={onSearch} aria-label="Search" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "var(--section)", border: "1px solid var(--border)", borderRadius: "var(--radius-pill)", padding: "9px 16px 9px 14px", color: "var(--ink-muted)", fontSize: "14px", cursor: "pointer", fontFamily: "var(--font-body)" }}>
-          <Icon d={search} size={17} /> Search…
-        </button>
 
         <button className="hp-menu-btn" onClick={() => setOpen((o) => !o)} aria-label="Menu" aria-expanded={open} style={{ display: "none", background: "transparent", border: "none", color: "var(--ink)", cursor: "pointer", padding: "6px" }}>
           <Icon d={open ? close : menu} size={24} />
