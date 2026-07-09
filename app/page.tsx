@@ -58,7 +58,12 @@ const SCENE_TONES: Record<string, string> = {
   clay: "linear-gradient(135deg, #EFE0CC 0%, #DBC09C 100%)",
 };
 
-function PetScene({ tone = "tan", pets = ["🐕", "🐈"], radius = "var(--radius-xl)", label }: { tone?: string; pets?: string[]; radius?: string; label?: string }) {
+// Emoji that have an official animated version (Google Noto Animated Emoji) bundled in
+// /public/lottie. When a PetScene is `animated`, these render as a looping Lottie instead of
+// the static glyph — i.e. "the emoji, but alive". Others fall back to the styled emoji.
+const ANIM_EMOJI: Record<string, string> = { "🐕": "/lottie/emoji-dog.json", "🐈": "/lottie/emoji-cat.json" };
+
+function PetScene({ tone = "tan", pets = ["🐕", "🐈"], radius = "var(--radius-xl)", label, animated = false }: { tone?: string; pets?: string[]; radius?: string; label?: string; animated?: boolean }) {
   return (
     <div style={{ position: "relative", width: "100%", height: "100%", minHeight: 0, background: SCENE_TONES[tone] || SCENE_TONES.tan, borderRadius: radius, overflow: "hidden", display: "grid", placeItems: "center" }}>
       <div aria-hidden="true" style={{ position: "absolute", inset: 0, opacity: 0.45, fontSize: 20, lineHeight: 1, color: "var(--green-dark)" }}>
@@ -69,7 +74,11 @@ function PetScene({ tone = "tan", pets = ["🐕", "🐈"], radius = "var(--radiu
       </div>
       <div style={{ position: "relative", display: "flex", alignItems: "flex-end", gap: "min(5%, 16px)" }}>
         {pets.map((p, i) => (
-          <Pet key={i} idle={i + 1} pop size="clamp(50px, 13vw, 108px)" style={{ lineHeight: 1, filter: "drop-shadow(0 6px 10px rgba(80,52,28,0.18))" }} inStyle={{ animationDelay: `${i * 0.4}s` }}>{p}</Pet>
+          animated && ANIM_EMOJI[p] ? (
+            <WalkingPet key={i} src={ANIM_EMOJI[p]} size="clamp(58px, 15vw, 118px)" style={{ filter: "drop-shadow(0 6px 10px rgba(80,52,28,0.18))" }} />
+          ) : (
+            <Pet key={i} idle={i + 1} pop size="clamp(50px, 13vw, 108px)" style={{ lineHeight: 1, filter: "drop-shadow(0 6px 10px rgba(80,52,28,0.18))" }} inStyle={{ animationDelay: `${i * 0.4}s` }}>{p}</Pet>
+          )
         ))}
       </div>
       {label ? (
@@ -123,12 +132,12 @@ function Tape({ style = {} }: { style?: CSSProperties }) {
   return <span aria-hidden="true" style={{ position: "absolute", width: 78, height: 24, background: "rgba(214,180,128,0.55)", border: "1px solid rgba(180,140,90,0.25)", boxShadow: "0 1px 2px rgba(80,52,28,0.12)", ...style }} />;
 }
 
-function Polaroid({ rot = 0, width = 220, tone, pets, caption, sceneH = 190, style = {} }: { rot?: number; width?: number; tone?: string; pets?: string[]; caption?: string; sceneH?: number; style?: CSSProperties }) {
+function Polaroid({ rot = 0, width = 220, tone, pets, caption, sceneH = 190, animated = false, style = {} }: { rot?: number; width?: number; tone?: string; pets?: string[]; caption?: string; sceneH?: number; animated?: boolean; style?: CSSProperties }) {
   return (
     <div style={{ position: "absolute", width, background: "#FFFDF8", padding: "12px 12px 14px", borderRadius: 6, boxShadow: "0 14px 30px rgba(80,52,28,0.22), 0 2px 6px rgba(80,52,28,0.12)", transform: `rotate(${rot}deg)`, ...style }}>
       <Tape style={{ top: -11, left: "50%", marginLeft: -39, transform: "rotate(-4deg)" }} />
       <div style={{ height: sceneH, borderRadius: 3, overflow: "hidden" }}>
-        <PetScene tone={tone} pets={pets} radius="3px" />
+        <PetScene tone={tone} pets={pets} radius="3px" animated={animated} />
       </div>
       <div style={{ fontFamily: "var(--font-hand)", fontWeight: 700, fontSize: 22, color: "var(--ink)", textAlign: "center", marginTop: 6, lineHeight: 1 }}>{caption}</div>
     </div>
@@ -177,8 +186,8 @@ export default function Home() {
 
           {/* RIGHT — collage stage */}
           <div style={{ position: "relative", height: "clamp(380px, 42vw, 500px)" }} className="hp-collage">
-            <Polaroid rot={-5} width={236} tone="sand" pets={["🐕"]} caption="Rua, 4 🦴" sceneH={196} style={{ top: 10, left: "6%", zIndex: 2 }} />
-            <Polaroid rot={6} width={194} tone="tan" pets={["🐈"]} caption="Miso 🐾" sceneH={156} style={{ top: 168, right: "2%", zIndex: 3 }} />
+            <Polaroid rot={-5} width={236} tone="sand" pets={["🐕"]} caption="Rua, 4 🦴" sceneH={196} animated style={{ top: 10, left: "6%", zIndex: 2 }} />
+            <Polaroid rot={6} width={194} tone="tan" pets={["🐈"]} caption="Miso 🐾" sceneH={156} animated style={{ top: 168, right: "2%", zIndex: 3 }} />
 
             <Sticky style={{ top: -8, right: "8%", transform: "rotate(7deg)", zIndex: 4 }}>Megan&apos;s<br />top pick! →</Sticky>
 
@@ -312,7 +321,7 @@ export default function Home() {
       <Section>
         <div style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 48, alignItems: "center" }} className="hp-why">
           <div style={{ aspectRatio: "5 / 4", borderRadius: "var(--radius-xl)", boxShadow: "var(--shadow-md)" }}>
-            <PetScene tone="tan" pets={["🐕", "🐈"]} radius="var(--radius-xl)" label="Our team & their pets" />
+            <PetScene tone="tan" pets={["🐕", "🐈"]} radius="var(--radius-xl)" label="Our team & their pets" animated />
           </div>
           <div>
             <Eyebrow>Why Healthy Pets</Eyebrow>
