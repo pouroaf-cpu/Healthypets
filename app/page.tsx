@@ -6,6 +6,7 @@ import { Badge } from "@/components/ds/Badge";
 import { TrustStrip } from "@/components/ds/TrustStrip";
 import { EmailCapture } from "@/components/ds/EmailCapture";
 import { HPIcon } from "@/components/ds/Icons";
+import { PetMotion } from "@/components/PetMotion";
 import { TOOLS } from "@/lib/navigation";
 
 // Homepage — "beige scrapbook edition" ported from the Healthy Pets Design System
@@ -67,7 +68,7 @@ function PetScene({ tone = "tan", pets = ["🐕", "🐈"], radius = "var(--radiu
       </div>
       <div style={{ position: "relative", display: "flex", alignItems: "flex-end", gap: "min(5%, 16px)" }}>
         {pets.map((p, i) => (
-          <span key={i} className="hp-bob" style={{ fontSize: "clamp(50px, 13vw, 108px)", lineHeight: 1, animationDelay: `${i * 0.4}s`, filter: "drop-shadow(0 6px 10px rgba(80,52,28,0.18))" }}>{p}</span>
+          <Pet key={i} idle={i + 1} pop size="clamp(50px, 13vw, 108px)" style={{ lineHeight: 1, filter: "drop-shadow(0 6px 10px rgba(80,52,28,0.18))" }} inStyle={{ animationDelay: `${i * 0.4}s` }}>{p}</Pet>
         ))}
       </div>
       {label ? (
@@ -89,11 +90,29 @@ function Eyebrow({ children }: { children: ReactNode }) {
   return <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--green-dark)", marginBottom: 12 }}>{children}</div>;
 }
 
+// Animated pet emoji. THREE nested spans so the effects never fight over `transform`
+// (each layer owns its own transform and they compose through the DOM):
+//   outer  .hp-pet      → pop-in scale (on scroll reveal)
+//   middle .hp-pet-lean → leans the way you swipe (carousel cards)
+//   inner  .hp-pet-in   → idle loop (varied by `idle` 1–3) + the run bounce during a swipe
+// Decorative → aria-hidden. `pop` marks it as a scroll pop-in target (wired by PetMotion).
+function Pet({ children, idle = 1, pop = false, size, className = "", style = {}, inStyle = {} }: {
+  children: ReactNode; idle?: number; pop?: boolean; size?: string; className?: string; style?: CSSProperties; inStyle?: CSSProperties;
+}) {
+  return (
+    <span aria-hidden="true" className={`hp-pet${pop ? " hp-reveal" : ""}${className ? " " + className : ""}`} style={style}>
+      <span className="hp-pet-lean">
+        <span className={`hp-pet-in hp-i${((idle - 1) % 3) + 1}`} style={{ fontSize: size, ...inStyle }}>{children}</span>
+      </span>
+    </span>
+  );
+}
+
 function ScatterPets({ items }: { items: { pet: string; size: string; pos: CSSProperties; opacity?: number }[] }) {
   return (
     <div aria-hidden="true" style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
       {items.map((it, i) => (
-        <span key={i} className="hp-bob" style={{ position: "absolute", fontSize: it.size, opacity: it.opacity ?? 0.9, animationDelay: `${i * 0.5}s`, ...it.pos, filter: "drop-shadow(0 4px 6px rgba(80,52,28,0.12))" }}>{it.pet}</span>
+        <span key={i} className={`hp-pet-in hp-i${(i % 3) + 1}`} style={{ position: "absolute", fontSize: it.size, opacity: it.opacity ?? 0.9, animationDelay: `${i * 0.5}s`, ...it.pos, filter: "drop-shadow(0 4px 6px rgba(80,52,28,0.12))" }}>{it.pet}</span>
       ))}
     </div>
   );
@@ -179,17 +198,18 @@ export default function Home() {
               </div>
             </div>
 
-            <span className="hp-bob hp-collage-extra" aria-hidden="true" style={{ position: "absolute", top: -18, left: "44%", fontSize: 40, zIndex: 1, filter: "drop-shadow(0 5px 7px rgba(80,52,28,0.18))" }}>🐩</span>
+            <span className="hp-pet-in hp-i2 hp-collage-extra" aria-hidden="true" style={{ position: "absolute", top: -18, left: "44%", fontSize: 40, zIndex: 1, filter: "drop-shadow(0 5px 7px rgba(80,52,28,0.18))" }}>🐩</span>
             <span className="hp-collage-extra" aria-hidden="true" style={{ position: "absolute", bottom: 0, right: "30%", fontSize: 30, zIndex: 1, opacity: 0.8, transform: "rotate(12deg)" }}>🐾</span>
           </div>
         </div>
       </section>
 
-      {/* HAPPY PETS PARADE */}
-      <section style={{ background: "var(--green-primary)", overflow: "hidden" }}>
-        <div style={{ maxWidth: "var(--container)", margin: "0 auto", padding: "20px", display: "flex", alignItems: "center", justifyContent: "center", gap: "clamp(10px, 3vw, 28px)", flexWrap: "wrap" }}>
-          {PETS.map((p, i) => (
-            <span key={i} className="hp-bob" style={{ fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1, animationDelay: `${i * 0.25}s` }}>{p}</span>
+      {/* HAPPY PETS PARADE — a slow marching procession (pauses on hover). The row is doubled
+          and translated -50% so the loop is seamless. */}
+      <section className="hp-parade" style={{ background: "var(--green-primary)", overflow: "hidden" }}>
+        <div className="hp-parade-track" style={{ display: "flex", alignItems: "center", gap: "clamp(10px, 3vw, 28px)", padding: "20px", width: "max-content" }}>
+          {[...PETS, ...PETS].map((p, i) => (
+            <Pet key={i} idle={i + 1} size="clamp(28px, 4vw, 44px)" style={{ lineHeight: 1 }}>{p}</Pet>
           ))}
         </div>
       </section>
@@ -204,7 +224,7 @@ export default function Home() {
           {TERRITORIES.map((t, i) => (
             <Link key={t.name + i} href={t.href} style={{ textDecoration: "none" }}>
               <Card hoverLift padding="lg" style={{ height: "100%", display: "flex", alignItems: "center", gap: 16 }}>
-                <span style={{ width: 58, height: 58, borderRadius: "var(--radius-md)", flex: "none", background: "var(--green-light)", display: "grid", placeItems: "center", fontSize: 30 }}>{t.pet}</span>
+                <span style={{ width: 58, height: 58, borderRadius: "var(--radius-md)", flex: "none", background: "var(--green-light)", display: "grid", placeItems: "center", fontSize: 30 }}><Pet idle={i + 1} pop size="30px">{t.pet}</Pet></span>
                 <div>
                   <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 17, color: "var(--ink)" }}>{t.name}</div>
                   <div style={{ fontSize: 13.5, color: "var(--ink-muted)", marginTop: 2 }}>{t.blurb}</div>
@@ -309,10 +329,35 @@ export default function Home() {
       </Section>
 
       <style>{`
+        /* ——— Pet motion ——— three composable layers; all effects are transform-only. */
+        .hp-pet, .hp-pet-lean, .hp-pet-in { display: inline-block; }
+        .hp-pet-lean { transition: transform .3s ease; }
         @media (prefers-reduced-motion: no-preference) {
-          .hp-bob { animation: hpBob 3.2s ease-in-out infinite; }
+          /* varied idle loops (assigned per pet, so the row isn't one metronomic bob) */
+          .hp-i1 { animation: hpBob 3.2s ease-in-out infinite; }
+          .hp-i2 { animation: hpSway 3.8s ease-in-out infinite; }
+          .hp-i3 { animation: hpHop 2.9s ease-in-out infinite; }
+          /* pop-in on scroll — runs only while .hp-in is present (added by PetMotion), so the
+             default state stays full-size + visible with JS off or reduced motion. */
+          .hp-pet.hp-reveal.hp-in { animation: hpPopIn .62s cubic-bezier(.22,1,.36,1) both; animation-delay: var(--pd, 0s); }
+          /* while a carousel is being swiped: pets break into a run and lean the swipe way */
+          .hp-walking .hp-pet-in { animation: hpRun .46s ease-in-out infinite; }
+          .hp-walking .hp-pet-lean { transform: rotate(calc(var(--dir, 1) * 7deg)); }
+          /* the parade marches (pauses on hover) */
+          .hp-parade-track { animation: hpMarch 30s linear infinite; }
+          .hp-parade:hover .hp-parade-track { animation-play-state: paused; }
+        }
+        /* wiggle a card's pet on hover — pointer devices only */
+        @media (prefers-reduced-motion: no-preference) and (hover: hover) {
+          .hp-terr-grid a:hover .hp-pet-in, .hp-guide-grid a:hover .hp-pet-in { animation: hpWiggle .55s ease-in-out; }
         }
         @keyframes hpBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+        @keyframes hpSway { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+        @keyframes hpHop { 0%, 58%, 100% { transform: translateY(0); } 32% { transform: translateY(-13px); } }
+        @keyframes hpPopIn { 0% { transform: scale(.5); } 68% { transform: scale(1.12); } 100% { transform: scale(1); } }
+        @keyframes hpRun { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-5px) rotate(7deg); } }
+        @keyframes hpWiggle { 0%, 100% { transform: rotate(0); } 22% { transform: rotate(-13deg); } 62% { transform: rotate(11deg); } }
+        @keyframes hpMarch { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         @media (max-width: 900px) {
           .hp-hero { grid-template-columns: 1fr !important; }
           .hp-collage { height: 440px !important; margin-top: 40px; }
@@ -343,6 +388,7 @@ export default function Home() {
           .hp-collage-extra { display: none !important; }
         }
       `}</style>
+      <PetMotion />
     </div>
   );
 }
