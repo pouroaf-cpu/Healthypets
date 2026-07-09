@@ -167,17 +167,17 @@ export default function Home() {
               <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 12.5, color: "var(--ink)" }}>Loved by 2,300+ Kiwi owners</span>
             </div>
 
-            <div style={{ position: "absolute", bottom: 92, right: "-3%", zIndex: 6, transform: "rotate(5deg)", background: "var(--coral-cta)", color: "#fff", borderRadius: 8, padding: "8px 13px", boxShadow: "0 8px 20px rgba(255,107,92,0.35)", fontFamily: "var(--font-heading)", fontWeight: 700, lineHeight: 1.1, textAlign: "center" }}>
+            <div className="hp-collage-extra" style={{ position: "absolute", bottom: 92, right: "-3%", zIndex: 6, transform: "rotate(5deg)", background: "var(--coral-cta)", color: "#fff", borderRadius: 8, padding: "8px 13px", boxShadow: "0 8px 20px rgba(255,107,92,0.35)", fontFamily: "var(--font-heading)", fontWeight: 700, lineHeight: 1.1, textAlign: "center" }}>
               <div style={{ fontSize: 17 }}>$84.99</div>
               <div style={{ fontSize: 10, fontWeight: 600, opacity: 0.9, letterSpacing: ".04em" }}>BEST NZ PRICE</div>
             </div>
 
-            <div style={{ position: "absolute", top: 150, left: "-4%", zIndex: 6, transform: "rotate(-9deg)", width: 78, height: 78, borderRadius: "50%", background: "var(--green-primary)", color: "#fff", display: "grid", placeItems: "center", textAlign: "center", boxShadow: "0 8px 18px rgba(80,52,28,0.25)", border: "2px dashed rgba(255,255,255,0.6)" }}>
+            <div className="hp-collage-extra" style={{ position: "absolute", top: 150, left: "-4%", zIndex: 6, transform: "rotate(-9deg)", width: 78, height: 78, borderRadius: "50%", background: "var(--green-primary)", color: "#fff", display: "grid", placeItems: "center", textAlign: "center", boxShadow: "0 8px 18px rgba(80,52,28,0.25)", border: "2px dashed rgba(255,255,255,0.6)" }}>
               <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 11, lineHeight: 1.15 }}>100%<br />INDEPENDENT</div>
             </div>
 
-            <span className="hp-bob" aria-hidden="true" style={{ position: "absolute", top: -18, left: "44%", fontSize: 40, zIndex: 1, filter: "drop-shadow(0 5px 7px rgba(80,52,28,0.18))" }}>🐩</span>
-            <span aria-hidden="true" style={{ position: "absolute", bottom: 0, right: "30%", fontSize: 30, zIndex: 1, opacity: 0.8, transform: "rotate(12deg)" }}>🐾</span>
+            <span className="hp-bob hp-collage-extra" aria-hidden="true" style={{ position: "absolute", top: -18, left: "44%", fontSize: 40, zIndex: 1, filter: "drop-shadow(0 5px 7px rgba(80,52,28,0.18))" }}>🐩</span>
+            <span className="hp-collage-extra" aria-hidden="true" style={{ position: "absolute", bottom: 0, right: "30%", fontSize: 30, zIndex: 1, opacity: 0.8, transform: "rotate(12deg)" }}>🐾</span>
           </div>
         </div>
       </section>
@@ -319,6 +319,13 @@ export default function Home() {
         }
         @media (max-width: 560px) {
           .hp-terr-grid, .hp-guide-grid, .hp-tools-grid { grid-template-columns: 1fr !important; }
+        }
+        /* Phones: the collage squashes and the floating stickers overlap the pet polaroids
+           (the "$84.99 best price" tag landing on a cartoon pet reads like the pet is priced).
+           Hide the extra clutter on small screens; keep the two polaroids, the top-pick sticky
+           and the star badge. Desktop/tablet keep the full collage. */
+        @media (max-width: 600px) {
+          .hp-collage-extra { display: none !important; }
         }
       `}</style>
     </div>
