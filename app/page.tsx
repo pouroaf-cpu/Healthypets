@@ -281,7 +281,7 @@ export default function Home() {
 
       {/* EMAIL */}
       <Section tint style={{ paddingTop: 0 }}>
-        <EmailCapture source="homepage" />
+        <EmailCapture source="homepage" tone="green" />
       </Section>
 
       {/* WHY HEALTHY PETS */}
@@ -321,7 +321,19 @@ export default function Home() {
           .hp-why { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 560px) {
-          .hp-terr-grid, .hp-guide-grid, .hp-tools-grid { grid-template-columns: 1fr !important; }
+          .hp-tools-grid { grid-template-columns: 1fr !important; }
+          /* Topics + Guides: swipeable horizontal carousels on phones (a peek of the next card
+             signals "swipe") instead of a tall vertical stack. Desktop/tablet keep the grid. */
+          .hp-terr-grid, .hp-guide-grid {
+            display: flex !important;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-padding-inline: 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+          }
+          .hp-terr-grid::-webkit-scrollbar, .hp-guide-grid::-webkit-scrollbar { display: none; }
+          .hp-terr-grid > *, .hp-guide-grid > * { flex: 0 0 82%; scroll-snap-align: start; }
         }
         /* Phones: the collage squashes and the floating stickers overlap the pet polaroids
            (the "$84.99 best price" tag landing on a cartoon pet reads like the pet is priced).

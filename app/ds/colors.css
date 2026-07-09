@@ -20,6 +20,12 @@
   --coral-cta: #CE3D2C;
   --coral-cta-hover: #BE3826;
 
+  /* Leaf green — the ACTUAL green from the logo mark (#2E9E6B), distinct from the --green-*
+     tokens above which hold warm-BROWN values. --leaf-deep is darkened so white text clears
+     WCAG AA (white on #176844 = 6.8:1); used for the home email-capture band. */
+  --leaf: #2E9E6B;
+  --leaf-deep: #176844;
+
   /* Ink + surfaces */
   --ink: #1F2A37;        /* primary text */
   --ink-soft: #45525F;   /* secondary text */
