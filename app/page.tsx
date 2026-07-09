@@ -335,10 +335,10 @@ export default function Home() {
         /* Pet motion runs for ALL visitors (owner's decision — it's subtle/in-place or
            user-triggered) EXCEPT the continuous parade marquee, which respects Reduce Motion
            (see the @media block further down). */
-        /* varied idle loops (assigned per pet, so the row isn't one metronomic bob) */
-        .hp-i1 { animation: hpBob 3.2s ease-in-out infinite; }
-        .hp-i2 { animation: hpSway 3.8s ease-in-out infinite; }
-        .hp-i3 { animation: hpHop 2.9s ease-in-out infinite; }
+        /* NOTE: continuous per-pet idle loops were removed — animating ~40 emoji (colour glyphs)
+           at once thrashed the rasteriser on phones ("extremely glitchy"). Motion now comes from
+           the marching parade + event-driven pop-in / hover / swipe-run only. (Real walking-pet
+           Lottie is being added separately.) The .hp-i* classes are kept as no-ops for now. */
         /* pop-in on scroll — runs only while .hp-in is present (added by PetMotion), so the
            default state stays full-size + visible even with JS off. */
         .hp-pet.hp-reveal.hp-in { animation: hpPopIn .62s cubic-bezier(.22,1,.36,1) both; animation-delay: var(--pd, 0s); }
@@ -358,7 +358,7 @@ export default function Home() {
         @keyframes hpBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
         @keyframes hpSway { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
         @keyframes hpHop { 0%, 58%, 100% { transform: translateY(0); } 32% { transform: translateY(-13px); } }
-        @keyframes hpPopIn { 0% { transform: scale(.5); } 68% { transform: scale(1.12); } 100% { transform: scale(1); } }
+        @keyframes hpPopIn { 0% { transform: scale(.72); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
         @keyframes hpRun { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-5px) rotate(7deg); } }
         @keyframes hpWiggle { 0%, 100% { transform: rotate(0); } 22% { transform: rotate(-13deg); } 62% { transform: rotate(11deg); } }
         @keyframes hpMarch { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -376,6 +376,9 @@ export default function Home() {
           .hp-terr-grid, .hp-guide-grid {
             display: flex !important;
             overflow-x: auto;
+            overflow-y: hidden; /* stops the container jitter: overflow-x:auto alone forces
+                                   overflow-y to 'auto', so any pet transform poking past a card
+                                   made the carousel grow a phantom scroll area and shift. */
             scroll-snap-type: x mandatory;
             scroll-padding-inline: 0;
             -webkit-overflow-scrolling: touch;
