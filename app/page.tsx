@@ -172,8 +172,11 @@ export default function Home() {
               <div style={{ fontSize: 10, fontWeight: 600, opacity: 0.9, letterSpacing: ".04em" }}>BEST NZ PRICE</div>
             </div>
 
-            <div className="hp-collage-extra" style={{ position: "absolute", top: 150, left: "-4%", zIndex: 6, transform: "rotate(-9deg)", width: 78, height: 78, borderRadius: "50%", background: "var(--green-primary)", color: "#fff", display: "grid", placeItems: "center", textAlign: "center", boxShadow: "0 8px 18px rgba(80,52,28,0.25)", border: "2px dashed rgba(255,255,255,0.6)" }}>
-              <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 11, lineHeight: 1.15 }}>100%<br />INDEPENDENT</div>
+            <div className="hp-collage-extra" style={{ position: "absolute", top: 150, left: "-4%", zIndex: 6, transform: "rotate(-9deg)", width: 84, height: 84, borderRadius: "50%", background: "var(--green-primary)", color: "#fff", display: "grid", placeItems: "center", textAlign: "center", boxShadow: "0 8px 18px rgba(80,52,28,0.25)", border: "2px dashed rgba(255,255,255,0.6)" }}>
+              <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, lineHeight: 1.1, textAlign: "center" }}>
+                <span style={{ display: "block", fontSize: 13 }}>100%</span>
+                <span style={{ display: "block", fontSize: 9, letterSpacing: "-0.01em" }}>INDEPENDENT</span>
+              </div>
             </div>
 
             <span className="hp-bob hp-collage-extra" aria-hidden="true" style={{ position: "absolute", top: -18, left: "44%", fontSize: 40, zIndex: 1, filter: "drop-shadow(0 5px 7px rgba(80,52,28,0.18))" }}>🐩</span>
