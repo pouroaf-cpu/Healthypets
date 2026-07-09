@@ -3,18 +3,24 @@
 
 /* Tailwind tokens kept so any earlier utility-class components still render.
    The design system itself styles via the CSS variables from ds/styles.css. */
-@theme {
-  /* Beige scrapbook theme — kept in sync with app/ds/colors.css. The brand tokens
-     hold warm-brown values; coral stays the CTA color. */
-  --color-brand: #9C6A41;
-  --color-brand-dark: #6E4A2B;
-  --color-brand-light: #EFE2CE;
-  --color-cta: #FF6B5C;
-  --color-cta-dark: #E85546;
-  --color-ink: #1F2A37;
-  --color-surface: #F1E6D4;
-  --font-heading: 'Poppins', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+/* Tailwind theme tokens — the only colors/fonts the Tailwind utilities need
+   (text-ink, bg-brand, font-heading, … used on the static /about, /contact, /privacy,
+   /editorial-policy pages and MDX prose).
+
+   `@theme inline` makes each token REFERENCE the design tokens in app/ds/*.css instead of
+   re-declaring the values, so **app/ds/colors.css + typography.css are the single source of
+   truth**. Change a value there and both the inline component styles (var(--…)) and these
+   Tailwind utilities update together — no more keeping two copies of the palette in sync. */
+@theme inline {
+  --color-brand: var(--green-primary);
+  --color-brand-dark: var(--green-dark);
+  --color-brand-light: var(--green-light);
+  --color-cta: var(--coral-cta);
+  --color-cta-dark: var(--coral-cta-hover);
+  --color-ink: var(--ink);
+  --color-surface: var(--section);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
 }
 
 html { scroll-behavior: smooth; }
