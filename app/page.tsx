@@ -75,7 +75,7 @@ function PetScene({ tone = "tan", pets = ["🐕", "🐈"], radius = "var(--radiu
       <div style={{ position: "relative", display: "flex", alignItems: "flex-end", gap: "min(5%, 16px)" }}>
         {pets.map((p, i) => (
           animated && ANIM_EMOJI[p] ? (
-            <WalkingPet key={i} src={ANIM_EMOJI[p]} size="clamp(58px, 15vw, 118px)" style={{ filter: "drop-shadow(0 6px 10px rgba(80,52,28,0.18))" }} />
+            <WalkingPet key={i} src={ANIM_EMOJI[p]} style={{ width: "clamp(58px, 15vw, 118px)", height: "clamp(58px, 15vw, 118px)", filter: "drop-shadow(0 6px 10px rgba(80,52,28,0.18))" }} />
           ) : (
             <Pet key={i} idle={i + 1} pop size="clamp(50px, 13vw, 108px)" style={{ lineHeight: 1, filter: "drop-shadow(0 6px 10px rgba(80,52,28,0.18))" }} inStyle={{ animationDelay: `${i * 0.4}s` }}>{p}</Pet>
           )
