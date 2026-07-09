@@ -7,6 +7,7 @@ import { TrustStrip } from "@/components/ds/TrustStrip";
 import { EmailCapture } from "@/components/ds/EmailCapture";
 import { HPIcon } from "@/components/ds/Icons";
 import { PetMotion } from "@/components/PetMotion";
+import { WalkingPet } from "@/components/WalkingPet";
 import { TOOLS } from "@/lib/navigation";
 
 // Homepage — "beige scrapbook edition" ported from the Healthy Pets Design System
@@ -200,6 +201,9 @@ export default function Home() {
 
             <span className="hp-pet-in hp-i2 hp-collage-extra" aria-hidden="true" style={{ position: "absolute", top: -18, left: "44%", fontSize: 40, zIndex: 1, filter: "drop-shadow(0 5px 7px rgba(80,52,28,0.18))" }}>🐩</span>
             <span className="hp-collage-extra" aria-hidden="true" style={{ position: "absolute", bottom: 0, right: "30%", fontSize: 30, zIndex: 1, opacity: 0.8, transform: "rotate(12deg)" }}>🐾</span>
+
+            {/* The one real walking pet (Lottie) — a dog trotting along the bottom of the scrapbook */}
+            <WalkingPet src="/lottie/dog-walk.json" style={{ position: "absolute", bottom: -22, right: "6%", zIndex: 7, width: "clamp(104px, 13vw, 148px)", height: "clamp(104px, 13vw, 148px)", filter: "drop-shadow(0 8px 10px rgba(80,52,28,0.16))" }} />
           </div>
         </div>
       </section>
