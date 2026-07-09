@@ -332,23 +332,27 @@ export default function Home() {
         /* ——— Pet motion ——— three composable layers; all effects are transform-only. */
         .hp-pet, .hp-pet-lean, .hp-pet-in { display: inline-block; }
         .hp-pet-lean { transition: transform .3s ease; }
+        /* Pet motion runs for ALL visitors (owner's decision — it's subtle/in-place or
+           user-triggered) EXCEPT the continuous parade marquee, which respects Reduce Motion
+           (see the @media block further down). */
+        /* varied idle loops (assigned per pet, so the row isn't one metronomic bob) */
+        .hp-i1 { animation: hpBob 3.2s ease-in-out infinite; }
+        .hp-i2 { animation: hpSway 3.8s ease-in-out infinite; }
+        .hp-i3 { animation: hpHop 2.9s ease-in-out infinite; }
+        /* pop-in on scroll — runs only while .hp-in is present (added by PetMotion), so the
+           default state stays full-size + visible even with JS off. */
+        .hp-pet.hp-reveal.hp-in { animation: hpPopIn .62s cubic-bezier(.22,1,.36,1) both; animation-delay: var(--pd, 0s); }
+        /* while a carousel is being swiped: pets break into a run and lean the swipe way */
+        .hp-walking .hp-pet-in { animation: hpRun .46s ease-in-out infinite; }
+        .hp-walking .hp-pet-lean { transform: rotate(calc(var(--dir, 1) * 7deg)); }
+        /* the parade marches (pauses on hover) — the one continuous auto-scroll, so it alone
+           respects Reduce Motion: static row of pets for those users. */
         @media (prefers-reduced-motion: no-preference) {
-          /* varied idle loops (assigned per pet, so the row isn't one metronomic bob) */
-          .hp-i1 { animation: hpBob 3.2s ease-in-out infinite; }
-          .hp-i2 { animation: hpSway 3.8s ease-in-out infinite; }
-          .hp-i3 { animation: hpHop 2.9s ease-in-out infinite; }
-          /* pop-in on scroll — runs only while .hp-in is present (added by PetMotion), so the
-             default state stays full-size + visible with JS off or reduced motion. */
-          .hp-pet.hp-reveal.hp-in { animation: hpPopIn .62s cubic-bezier(.22,1,.36,1) both; animation-delay: var(--pd, 0s); }
-          /* while a carousel is being swiped: pets break into a run and lean the swipe way */
-          .hp-walking .hp-pet-in { animation: hpRun .46s ease-in-out infinite; }
-          .hp-walking .hp-pet-lean { transform: rotate(calc(var(--dir, 1) * 7deg)); }
-          /* the parade marches (pauses on hover) */
           .hp-parade-track { animation: hpMarch 30s linear infinite; }
           .hp-parade:hover .hp-parade-track { animation-play-state: paused; }
         }
         /* wiggle a card's pet on hover — pointer devices only */
-        @media (prefers-reduced-motion: no-preference) and (hover: hover) {
+        @media (hover: hover) {
           .hp-terr-grid a:hover .hp-pet-in, .hp-guide-grid a:hover .hp-pet-in { animation: hpWiggle .55s ease-in-out; }
         }
         @keyframes hpBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }

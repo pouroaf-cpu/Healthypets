@@ -16,7 +16,8 @@ import { useEffect } from "react";
 export function PetMotion() {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // NB: intentionally NOT gated on prefers-reduced-motion — the site owner opted to run the
+    // pet motion for everyone. Re-add the reduce-motion bail here if that ever changes.
 
     // 1. Pop-in on scroll
     let io;
