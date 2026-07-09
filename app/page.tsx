@@ -6,7 +6,6 @@ import { Badge } from "@/components/ds/Badge";
 import { TrustStrip } from "@/components/ds/TrustStrip";
 import { EmailCapture } from "@/components/ds/EmailCapture";
 import { HPIcon } from "@/components/ds/Icons";
-import { PetMotion } from "@/components/PetMotion";
 import { WalkingPet } from "@/components/WalkingPet";
 import { TOOLS } from "@/lib/navigation";
 
@@ -217,11 +216,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HAPPY PETS PARADE — a slow marching procession (pauses on hover). The row is doubled
-          and translated -50% so the loop is seamless. */}
-      <section className="hp-parade" style={{ background: "var(--green-primary)", overflow: "hidden" }}>
-        <div className="hp-parade-track" style={{ display: "flex", alignItems: "center", gap: "clamp(10px, 3vw, 28px)", padding: "20px", width: "max-content" }}>
-          {[...PETS, ...PETS].map((p, i) => (
+      {/* HAPPY PETS PARADE — a static band of pets (no marquee; motion is intentionally minimal) */}
+      <section style={{ background: "var(--green-primary)", overflow: "hidden" }}>
+        <div style={{ maxWidth: "var(--container)", margin: "0 auto", padding: "20px", display: "flex", alignItems: "center", justifyContent: "center", gap: "clamp(10px, 3vw, 28px)", flexWrap: "wrap" }}>
+          {PETS.map((p, i) => (
             <Pet key={i} idle={i + 1} size="clamp(28px, 4vw, 44px)" style={{ lineHeight: 1 }}>{p}</Pet>
           ))}
         </div>
@@ -342,39 +340,10 @@ export default function Home() {
       </Section>
 
       <style>{`
-        /* ——— Pet motion ——— three composable layers; all effects are transform-only. */
+        /* Pet emoji layout wrappers (Pet component). Deliberately NO CSS animation — the only
+           motion on the page now is the Lottie pets (the walking dog + the animated polaroid /
+           why-scene emoji). Emoji elsewhere (parade, cards, scatter) are static. */
         .hp-pet, .hp-pet-lean, .hp-pet-in { display: inline-block; }
-        .hp-pet-lean { transition: transform .3s ease; }
-        /* Pet motion runs for ALL visitors (owner's decision — it's subtle/in-place or
-           user-triggered) EXCEPT the continuous parade marquee, which respects Reduce Motion
-           (see the @media block further down). */
-        /* NOTE: continuous per-pet idle loops were removed — animating ~40 emoji (colour glyphs)
-           at once thrashed the rasteriser on phones ("extremely glitchy"). Motion now comes from
-           the marching parade + event-driven pop-in / hover / swipe-run only. (Real walking-pet
-           Lottie is being added separately.) The .hp-i* classes are kept as no-ops for now. */
-        /* pop-in on scroll — runs only while .hp-in is present (added by PetMotion), so the
-           default state stays full-size + visible even with JS off. */
-        .hp-pet.hp-reveal.hp-in { animation: hpPopIn .62s cubic-bezier(.22,1,.36,1) both; animation-delay: var(--pd, 0s); }
-        /* while a carousel is being swiped: pets break into a run and lean the swipe way */
-        .hp-walking .hp-pet-in { animation: hpRun .46s ease-in-out infinite; }
-        .hp-walking .hp-pet-lean { transform: rotate(calc(var(--dir, 1) * 7deg)); }
-        /* the parade marches (pauses on hover) — the one continuous auto-scroll, so it alone
-           respects Reduce Motion: static row of pets for those users. */
-        @media (prefers-reduced-motion: no-preference) {
-          .hp-parade-track { animation: hpMarch 30s linear infinite; }
-          .hp-parade:hover .hp-parade-track { animation-play-state: paused; }
-        }
-        /* wiggle a card's pet on hover — pointer devices only */
-        @media (hover: hover) {
-          .hp-terr-grid a:hover .hp-pet-in, .hp-guide-grid a:hover .hp-pet-in { animation: hpWiggle .55s ease-in-out; }
-        }
-        @keyframes hpBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-        @keyframes hpSway { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
-        @keyframes hpHop { 0%, 58%, 100% { transform: translateY(0); } 32% { transform: translateY(-13px); } }
-        @keyframes hpPopIn { 0% { transform: scale(.72); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
-        @keyframes hpRun { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-5px) rotate(7deg); } }
-        @keyframes hpWiggle { 0%, 100% { transform: rotate(0); } 22% { transform: rotate(-13deg); } 62% { transform: rotate(11deg); } }
-        @keyframes hpMarch { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         @media (max-width: 900px) {
           .hp-hero { grid-template-columns: 1fr !important; }
           .hp-collage { height: 440px !important; margin-top: 40px; }
@@ -408,7 +377,6 @@ export default function Home() {
           .hp-collage-extra { display: none !important; }
         }
       `}</style>
-      <PetMotion />
     </div>
   );
 }
