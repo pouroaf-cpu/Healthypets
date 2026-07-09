@@ -36,6 +36,8 @@ export function EmailCapture({
   const doneColor = green ? "#fff" : "var(--green-dark)";
   const errColor = green ? "#FFD7D0" : "var(--coral-cta)";
   const fineColor = green ? "rgba(255,255,255,0.86)" : "var(--ink-muted)";
+  // On the green tone the band sits on a lighter green full-width field, so lift it with a shadow.
+  const shadow = green ? "0 12px 34px rgba(11,46,30,0.32)" : "none";
 
   async function submit(e) {
     e.preventDefault();
@@ -53,7 +55,7 @@ export function EmailCapture({
   }
 
   return (
-    <div style={{ background: bg, border, borderRadius: "var(--radius-xl)", padding: "clamp(24px, 4vw, 40px)", textAlign: "center", ...style }}>
+    <div style={{ background: bg, border, boxShadow: shadow, borderRadius: "var(--radius-xl)", padding: "clamp(24px, 4vw, 40px)", textAlign: "center", ...style }}>
       <div style={{ maxWidth: "560px", margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
         <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase", color: eyebrowColor }}>
           Free download

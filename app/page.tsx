@@ -279,8 +279,8 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* EMAIL */}
-      <Section tint style={{ paddingTop: 0 }}>
+      {/* EMAIL — full-width brand-green segment (lighter --leaf) with the deep --leaf-deep band floating on it */}
+      <Section style={{ background: "var(--leaf)" }}>
         <EmailCapture source="homepage" tone="green" />
       </Section>
 
