@@ -11,7 +11,7 @@ const LEGAL = [["Privacy", "/privacy"], ["Terms", "/privacy"], ["Contact", "/con
 
 function Social({ d, label, href = "/" }) {
   return (
-    <a href={href} aria-label={label} style={{ width: "38px", height: "38px", borderRadius: "50%", display: "grid", placeItems: "center", background: "rgba(255,255,255,0.10)", color: "#fff", textDecoration: "none" }}>
+    <a href={href} aria-label={label} style={{ width: "44px", height: "44px", borderRadius: "50%", display: "grid", placeItems: "center", background: "rgba(255,255,255,0.10)", color: "#fff", textDecoration: "none" }}>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">{d}</svg>
     </a>
   );
@@ -40,10 +40,11 @@ export function Footer({ logoSrc = "/logo-mark.svg", style = {} }) {
           {COLS.map((c) => (
             <div key={c.h}>
               <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "13px", letterSpacing: "0.06em", textTransform: "uppercase", color: "rgba(255,255,255,0.55)", marginBottom: "14px" }}>{c.h}</div>
-              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+              {/* gap 10 → 2 with 6px of link padding: same visual rhythm, ~32px tap target. */}
+              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "2px" }}>
                 {c.links.map(([l, href]) => (
                   <li key={l}>
-                    <a href={href} style={{ color: "rgba(255,255,255,0.82)", textDecoration: "none", fontSize: "14px" }}
+                    <a href={href} style={{ display: "inline-block", padding: "6px 0", color: "rgba(255,255,255,0.82)", textDecoration: "none", fontSize: "14px" }}
                       onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.82)")}>{l}</a>
                   </li>
@@ -63,7 +64,9 @@ export function Footer({ logoSrc = "/logo-mark.svg", style = {} }) {
             ))}
           </div>
         </div>
-        <p style={{ margin: "20px 0 0", fontSize: "12px", color: "rgba(255,255,255,0.45)", lineHeight: 1.6, maxWidth: "720px" }}>
+        {/* 0.45 composited to ~4.1:1 on --ink and failed AA. 0.6 gives ~6.2:1, and matches the
+            legal row above it. This is the veterinary disclaimer — it has to be readable. */}
+        <p style={{ margin: "20px 0 0", fontSize: "12px", color: "rgba(255,255,255,0.6)", lineHeight: 1.6, maxWidth: "720px" }}>
           Healthy Pets provides general information only and is not a substitute for veterinary advice. Always consult your vet about your pet&apos;s health.
         </p>
       </div>

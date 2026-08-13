@@ -1,10 +1,13 @@
-/* Healthy Pets — Webfonts. Poppins (headings) + Inter (body), self-served via gstatic woff2. */
+/* Healthy Pets — Webfonts.
 
-@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2'); }
-@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fAZ9hiA.woff2) format('woff2'); }
-@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYAZ9hiA.woff2) format('woff2'); }
-@font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYAZ9hiA.woff2) format('woff2'); }
+   Nothing to declare here any more. Poppins (headings) and Inter (body) are loaded by
+   `next/font/google` in app/layout.tsx, and Caveat (the scrapbook handwriting) in app/page.tsx.
+   Next self-hosts the woff2 files at build time, so there is no request to Google, no
+   preconnect needed, a preload hint is emitted automatically, and the fallback metrics are
+   size-adjusted to remove the swap-in layout shift.
 
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 500; font-display: swap; src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2) format('woff2'); }
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2'); }
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2) format('woff2'); }
+   This file previously held raw @font-face rules pointing at fonts.gstatic.com URLs, which
+   pinned the font version and cost a third-party round trip on every page.
+
+   Don't add @font-face here — add the family in the layout/page that needs it and expose it
+   through a CSS variable in typography.css. */

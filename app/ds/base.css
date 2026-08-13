@@ -1,16 +1,8 @@
 /* Healthy Pets — base element defaults. */
 :root { color-scheme: light; }
 
-body.hp-body {
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: var(--text-body);
-  line-height: var(--leading-normal);
-  color: var(--text-primary);
-  background: var(--surface-page);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+/* NB: `body` is styled once, in app/globals.css. A `body.hp-body` block used to live here,
+   but nothing ever set that class, so it was dead. Don't reintroduce a second body rule. */
 
 .hp-heading {
   font-family: var(--font-heading);

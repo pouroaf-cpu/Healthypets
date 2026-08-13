@@ -23,14 +23,41 @@
   --font-body: var(--font-body);
 }
 
-html { scroll-behavior: smooth; }
+/* Smooth scroll is a vestibular trigger, so it is opt-out-able rather than global. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* The single body rule for the site. `app/ds/base.css` deliberately does NOT also style
+   `body` — one selector, one place. */
 body {
-  background: var(--white);
-  color: var(--ink);
+  background: var(--surface-page);
+  color: var(--text-primary);
   font-family: var(--font-body);
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+/* Skip link — visually hidden until it takes keyboard focus, then it lands as a normal
+   on-brand pill at the top-left. Lets keyboard and screen-reader users jump the header nav
+   instead of tabbing it on every page. */
+.hp-skip {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  z-index: 100;
+  transform: translateY(-150%);
+  background: var(--green-dark);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 18px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+}
+.hp-skip:focus-visible { transform: translateY(0); }
 
 /* MDX article prose */
 .prose-content { line-height: 1.7; color: var(--ink-soft); }

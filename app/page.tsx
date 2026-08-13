@@ -1,4 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
+import { Caveat } from "next/font/google";
+import { getImage } from "@/lib/images";
 import type { CSSProperties, ReactNode } from "react";
 import { Button } from "@/components/ds/Button";
 import { Card } from "@/components/ds/Card";
@@ -10,27 +13,29 @@ import { WalkingPet } from "@/components/WalkingPet";
 import { TOOLS } from "@/lib/navigation";
 
 // Homepage — "beige scrapbook edition" ported from the Healthy Pets Design System
-// (claude.ai/design project 3ed375). The warm-brown/beige palette is now the SITE-WIDE
-// default (see app/ds/colors.css); this BEIGE block re-affirms those values and adds the
-// --font-hand (Caveat) handwriting font used by the scrapbook elements on this page.
+// (claude.ai/design project 3ed375). The warm-brown/beige palette is the SITE-WIDE default
+// and lives in app/ds/colors.css. This block used to re-declare nine of those colours as raw
+// hex, which quietly made the homepage a second source of truth — a palette change in
+// colors.css would have skipped the highest-traffic page. Only genuinely homepage-scoped
+// values belong here now: the Caveat handwriting font used by the scrapbook elements.
 
 const PILLAR = "/flea-and-worming/best-cat-flea-treatment-nz";
 
 // Full-body cartoon cats & dogs for the "happy pets parade".
 const PETS = ["🐕", "🐈", "🐩", "🐈‍⬛", "🐕‍🦺", "🐕", "🐈", "🐩", "🐈‍⬛", "🐕‍🦺", "🐕", "🐈"];
 
-// Beige / warm-brown palette overrides (homepage only).
+// Caveat is declared here rather than in the root layout so next/font only ships it on this
+// route — it's the scrapbook handwriting and no other page uses --font-hand.
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-caveat",
+  display: "swap",
+});
+
+// Homepage-scoped tokens. Colours come from app/ds/colors.css — do not add hex here.
 const BEIGE = {
-  "--green-primary": "#9C6A41",
-  "--green-dark": "#6E4A2B",
-  "--green-light": "#EFE2CE",
-  "--section": "#F1E6D4",
-  "--white": "#FCF8F0",
-  "--border": "#E6D8C2",
-  "--border-soft": "#EEE3D0",
-  "--border-strong": "#D6C4A9",
-  "--success": "#9C6A41",
-  "--font-hand": "'Caveat', cursive",
+  "--font-hand": "var(--font-caveat), 'Caveat', cursive",
   background: "var(--white)",
 } as CSSProperties;
 
@@ -43,12 +48,18 @@ const TERRITORIES = [
   { pet: "🐈", name: "Food & Nutrition", blurb: "What to feed, how much", href: "/food" },
 ];
 
+// `image` is an id in the lib/images.ts manifest — the same licensed photo the article itself
+// runs as its hero. The cards used to show emoji-on-gradient panels, which made four different
+// guides look like one repeated tile; real animals give the eye something to land on.
 const GUIDES = [
-  { kicker: "Flea & Worming", title: "Best Flea Treatments for Cats (NZ 2026)", read: "8 min", tone: "tan", pets: ["🐈", "🐈‍⬛"], href: PILLAR },
-  { kicker: "Joint & Mobility", title: "Best Joint Supplements for Dogs (NZ)", read: "8 min", tone: "sand", pets: ["🐕", "🐕‍🦺"], href: "/joint-and-mobility/best-joint-supplements-for-dogs-nz" },
-  { kicker: "Nutrition", title: "Best Cat Food in NZ (Brands Compared)", read: "8 min", tone: "rose", pets: ["🐈"], href: "/food/best-cat-food-nz" },
-  { kicker: "Skin & Coat", title: "Dog Allergies: Treatment & Relief (NZ)", read: "9 min", tone: "clay", pets: ["🐩", "🐕"], href: "/skin-and-coat/dog-allergies-treatment-relief-nz" },
+  { kicker: "Flea & Worming", title: "Best Flea Treatments for Cats (NZ 2026)", read: "8 min", image: "best-cat-flea-treatment-nz-hero", href: PILLAR },
+  { kicker: "Joint & Mobility", title: "Best Joint Supplements for Dogs (NZ)", read: "8 min", image: "best-joint-supplements-for-dogs-nz-hero", href: "/joint-and-mobility/best-joint-supplements-for-dogs-nz" },
+  { kicker: "Nutrition", title: "Best Cat Food in NZ (Brands Compared)", read: "8 min", image: "best-cat-food-nz-hero", href: "/food/best-cat-food-nz" },
+  { kicker: "Skin & Coat", title: "Dog Allergies: Treatment & Relief (NZ)", read: "9 min", image: "dog-allergies-treatment-relief-nz-hero", href: "/skin-and-coat/dog-allergies-treatment-relief-nz" },
 ];
+
+// Which scene gradient each topic tile wears, cycled so no two neighbours match.
+const TERRITORY_TONES = ["tan", "sand", "rose", "clay", "sand", "tan"];
 
 const SCENE_TONES: Record<string, string> = {
   tan: "linear-gradient(135deg, #F2E6D1 0%, #E3CDA9 100%)",
@@ -87,6 +98,23 @@ function PetScene({ tone = "tan", pets = ["🐕", "🐈"], radius = "var(--radiu
   );
 }
 
+// A guide's real hero photo, filling its container. Falls back to the warm gradient if the id
+// isn't in the manifest, so a missing photo never leaves a hole.
+function GuidePhoto({ id, sizes, priority = false }: { id: string; sizes: string; priority?: boolean }) {
+  const img = getImage(id);
+  if (!img) return <div style={{ position: "absolute", inset: 0, background: SCENE_TONES.tan }} />;
+  return (
+    <Image
+      src={img.src}
+      alt=""
+      fill
+      sizes={sizes}
+      priority={priority}
+      style={{ objectFit: "cover" }}
+    />
+  );
+}
+
 function Section({ children, tint, style = {} }: { children: ReactNode; tint?: boolean; style?: CSSProperties }) {
   return (
     <section style={{ position: "relative", background: tint ? "var(--section)" : "var(--white)", overflow: "hidden", ...style }}>
@@ -95,16 +123,16 @@ function Section({ children, tint, style = {} }: { children: ReactNode; tint?: b
   );
 }
 
-function Eyebrow({ children }: { children: ReactNode }) {
-  return <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--green-dark)", marginBottom: 12 }}>{children}</div>;
-}
+// (An `Eyebrow` used to live here — a small-caps label above every single section heading.
+// Four sections carrying the identical device is what made the page read as one repeated
+// block. The headings say the same thing on their own. Don't bring it back.)
 
 // Animated pet emoji. THREE nested spans so the effects never fight over `transform`
 // (each layer owns its own transform and they compose through the DOM):
 //   outer  .hp-pet      → pop-in scale (on scroll reveal)
 //   middle .hp-pet-lean → leans the way you swipe (carousel cards)
 //   inner  .hp-pet-in   → idle loop (varied by `idle` 1–3) + the run bounce during a swipe
-// Decorative → aria-hidden. `pop` marks it as a scroll pop-in target (wired by PetMotion).
+// Decorative → aria-hidden.
 function Pet({ children, idle = 1, pop = false, size, className = "", style = {}, inStyle = {} }: {
   children: ReactNode; idle?: number; pop?: boolean; size?: string; className?: string; style?: CSSProperties; inStyle?: CSSProperties;
 }) {
@@ -151,7 +179,7 @@ function Sticky({ children, style = {} }: { children: ReactNode; style?: CSSProp
 
 export default function Home() {
   return (
-    <div style={BEIGE}>
+    <div className={caveat.variable} style={BEIGE}>
       {/* HERO — busy scrapbook collage */}
       <section style={{ position: "relative", background: "linear-gradient(180deg, #EFE2CE 0%, #F6EFE2 55%, var(--white) 100%)", overflow: "hidden" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, opacity: 0.07, fontSize: 30, color: "#6E4A2B", lineHeight: "64px", letterSpacing: "44px", wordSpacing: "20px", padding: 30, userSelect: "none" }}>
@@ -166,7 +194,7 @@ export default function Home() {
               <span style={{ display: "inline-block", background: "linear-gradient(180deg, transparent 58%, #E8C28E 58%, #E8C28E 92%, transparent 92%)", padding: "0 4px", transform: "rotate(-1.2deg)" }}>Honest</span> pet-health advice for Kiwi cat &amp; dog owners
             </h1>
             <p style={{ margin: "18px 0 26px", fontSize: "clamp(1.05rem, 1rem + 0.4vw, 1.22rem)", lineHeight: 1.6, color: "var(--ink-soft)", maxWidth: 500 }}>
-              We test the claims, check the prices at NZ retailers, and tell you the best pick — so you can sort flea, worming, joints and food without the guesswork.
+              We read the labels, check what things actually cost at NZ retailers, and tell you the best pick — so you can sort flea, worming, joints and food without the guesswork.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
               <Button variant="primary" size="lg" as="a" href={PILLAR} iconRight={<HPIcon name="arrowRight" size={18} />}>Start with fleas</Button>
@@ -188,16 +216,15 @@ export default function Home() {
             <Polaroid rot={-5} width={236} tone="sand" pets={["🐕"]} caption="Rua, 4 🦴" sceneH={196} animated style={{ top: 10, left: "6%", zIndex: 2 }} />
             <Polaroid rot={6} width={194} tone="tan" pets={["🐈"]} caption="Miso 🐾" sceneH={156} animated style={{ top: 168, right: "2%", zIndex: 3 }} />
 
-            <Sticky style={{ top: -8, right: "8%", transform: "rotate(7deg)", zIndex: 4 }}>Megan&apos;s<br />top pick! →</Sticky>
+            {/* Every claim on this collage has to be one we can actually stand behind. It used
+                to say "Megan's top pick" (no such person), "Loved by 2,300+ Kiwi owners" (no such
+                readers) and "$84.99 BEST NZ PRICE" (no such product). Replaced with the two facts
+                that are true and checkable. Don't reintroduce social proof we don't have. */}
+            <Sticky style={{ top: -8, right: "8%", transform: "rotate(7deg)", zIndex: 4 }}>our<br />top pick! →</Sticky>
 
             <div style={{ position: "absolute", bottom: 8, left: "-2%", zIndex: 5, transform: "rotate(-3deg)", background: "#FFFDF8", border: "2px solid var(--ink)", borderRadius: "var(--radius-pill)", padding: "9px 16px", boxShadow: "0 8px 18px rgba(80,52,28,0.18)", display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ color: "var(--rating-star)", fontSize: 16, letterSpacing: 1 }}>★★★★★</span>
-              <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 12.5, color: "var(--ink)" }}>Loved by 2,300+ Kiwi owners</span>
-            </div>
-
-            <div className="hp-collage-extra" style={{ position: "absolute", bottom: 92, right: "-3%", zIndex: 6, transform: "rotate(5deg)", background: "var(--coral-cta)", color: "#fff", borderRadius: 8, padding: "8px 13px", boxShadow: "0 8px 20px rgba(255,107,92,0.35)", fontFamily: "var(--font-heading)", fontWeight: 700, lineHeight: 1.1, textAlign: "center" }}>
-              <div style={{ fontSize: 17 }}>$84.99</div>
-              <div style={{ fontSize: 10, fontWeight: 600, opacity: 0.9, letterSpacing: ".04em" }}>BEST NZ PRICE</div>
+              <span aria-hidden="true" style={{ fontSize: 15 }}>🇳🇿</span>
+              <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 12.5, color: "var(--ink)" }}>Real prices, real NZ retailers</span>
             </div>
 
             <div className="hp-collage-extra" style={{ position: "absolute", top: 150, left: "-4%", zIndex: 6, transform: "rotate(-9deg)", width: 84, height: 84, borderRadius: "50%", background: "var(--green-primary)", color: "#fff", display: "grid", placeItems: "center", textAlign: "center", boxShadow: "0 8px 18px rgba(80,52,28,0.25)", border: "2px dashed rgba(255,255,255,0.6)" }}>
@@ -228,17 +255,21 @@ export default function Home() {
       {/* TERRITORIES */}
       <Section>
         <div style={{ textAlign: "center", maxWidth: 620, margin: "0 auto 40px" }}>
-          <Eyebrow>Find your topic</Eyebrow>
           <h2 style={{ margin: 0, fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem)", color: "var(--ink)", letterSpacing: "-0.02em" }}>What does your pet need help with?</h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }} className="hp-terr-grid">
+          {/* Tiles carry the warm scene gradients instead of sitting as six identical white
+              boxes — the topic grid is the first thing under the hero and it should read as a
+              band of colour, not a list. Same palette, turned up. */}
           {TERRITORIES.map((t, i) => (
             <Link key={t.name + i} href={t.href} style={{ textDecoration: "none" }}>
-              <Card hoverLift padding="lg" style={{ height: "100%", display: "flex", alignItems: "center", gap: 16 }}>
-                <span style={{ width: 58, height: 58, borderRadius: "var(--radius-md)", flex: "none", background: "var(--green-light)", display: "grid", placeItems: "center", fontSize: 30 }}><Pet idle={i + 1} pop size="30px">{t.pet}</Pet></span>
-                <div>
-                  <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 17, color: "var(--ink)" }}>{t.name}</div>
-                  <div style={{ fontSize: 13.5, color: "var(--ink-muted)", marginTop: 2 }}>{t.blurb}</div>
+              <Card hoverLift padding="none" style={{ height: "100%", overflow: "hidden", background: SCENE_TONES[TERRITORY_TONES[i % TERRITORY_TONES.length]], border: "1px solid var(--border)" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "22px 22px 24px" }}>
+                  <Pet idle={i + 1} pop size="46px" style={{ flex: "none", lineHeight: 1, filter: "drop-shadow(0 5px 8px rgba(80,52,28,0.20))" }}>{t.pet}</Pet>
+                  <div>
+                    <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 18.5, color: "var(--ink)", letterSpacing: "-0.01em" }}>{t.name}</div>
+                    <div style={{ fontSize: 13.5, color: "var(--green-dark)", marginTop: 3 }}>{t.blurb}</div>
+                  </div>
                 </div>
               </Card>
             </Link>
@@ -255,24 +286,44 @@ export default function Home() {
         <div style={{ position: "relative", zIndex: 1 }}>
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 20, marginBottom: 32, flexWrap: "wrap" }}>
             <div>
-              <Eyebrow>Most popular</Eyebrow>
               <h2 style={{ margin: 0, fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem)", color: "var(--ink)", letterSpacing: "-0.02em" }}>Guides Kiwi owners read most</h2>
             </div>
             <Button variant="ghost" as="a" href="/guides" iconRight={<HPIcon name="arrowRight" size={17} />}>See all guides</Button>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 18 }} className="hp-guide-grid">
-            {GUIDES.map((g) => (
-              <Link key={g.title} href={g.href} style={{ textDecoration: "none" }}>
-                <Card hoverLift padding="none" style={{ height: "100%", display: "flex", flexDirection: "column", overflow: "hidden" }}>
-                  <div style={{ aspectRatio: "16 / 10" }}><PetScene tone={g.tone} pets={g.pets} radius="0" /></div>
-                  <div style={{ padding: 18, display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
-                    <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 11.5, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--green-dark)" }}>{g.kicker}</div>
-                    <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 16.5, lineHeight: 1.3, color: "var(--ink)", textWrap: "pretty" }}>{g.title}</div>
-                    <div style={{ marginTop: "auto", paddingTop: 6, fontSize: 13, color: "var(--ink-muted)", display: "flex", alignItems: "center", gap: 6 }}><HPIcon name="check" size={14} color="var(--green-primary)" /> {g.read} read · Independent &amp; honest</div>
-                  </div>
-                </Card>
-              </Link>
-            ))}
+          {/* One guide leads at double width with the photo behind the title; the other three
+              run as a column beside it. Four equal tiles read as a list — this reads as an
+              editor's front page, which is what the section actually is. */}
+          <div style={{ display: "grid", gridTemplateColumns: "1.35fr 1fr", gap: 18, alignItems: "stretch" }} className="hp-guide-grid">
+            <Link href={GUIDES[0].href} style={{ textDecoration: "none" }}>
+              <Card hoverLift padding="none" style={{ height: "100%", minHeight: 380, position: "relative", overflow: "hidden", display: "flex" }}>
+                <GuidePhoto id={GUIDES[0].image} sizes="(max-width: 900px) 100vw, 620px" priority />
+                {/* Scrim: the title sits on the photo, so it has to stay AA-legible whatever the
+                    image is. Bottom-weighted so the animal's face stays visible. */}
+                <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(0deg, rgba(31,42,55,0.92) 0%, rgba(31,42,55,0.72) 26%, rgba(31,42,55,0.22) 48%, rgba(31,42,55,0) 72%)" }} />
+                <div style={{ position: "relative", marginTop: "auto", padding: "clamp(20px, 3vw, 30px)", display: "flex", flexDirection: "column", gap: 10, color: "#fff" }}>
+                  <span style={{ alignSelf: "flex-start", background: "var(--coral-cta)", color: "#fff", fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 12, letterSpacing: ".04em", textTransform: "uppercase", padding: "5px 11px", borderRadius: "var(--radius-pill)" }}>Start here</span>
+                  <div style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.4rem, 1.05rem + 1.2vw, 2rem)", lineHeight: 1.15, letterSpacing: "-0.02em", textWrap: "balance" }}>{GUIDES[0].title}</div>
+                  <div style={{ fontSize: 14, color: "rgba(255,255,255,0.86)" }}>{GUIDES[0].read} read · {GUIDES[0].kicker}</div>
+                </div>
+              </Card>
+            </Link>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+              {GUIDES.slice(1).map((g) => (
+                <Link key={g.title} href={g.href} style={{ textDecoration: "none", flex: 1 }}>
+                  <Card hoverLift padding="none" style={{ height: "100%", display: "flex", alignItems: "stretch", overflow: "hidden", gap: 0 }}>
+                    <div style={{ position: "relative", flex: "none", width: "38%", minWidth: 116 }}>
+                      <GuidePhoto id={g.image} sizes="180px" />
+                    </div>
+                    <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", justifyContent: "center", gap: 6, flex: 1 }}>
+                      <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 11.5, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--green-dark)" }}>{g.kicker}</div>
+                      <div style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 16.5, lineHeight: 1.3, color: "var(--ink)", textWrap: "pretty" }}>{g.title}</div>
+                      <div style={{ fontSize: 13, color: "var(--ink-muted)", display: "flex", alignItems: "center", gap: 6 }}><HPIcon name="check" size={14} color="var(--green-primary)" /> {g.read} read</div>
+                    </div>
+                  </Card>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </Section>
@@ -281,12 +332,14 @@ export default function Home() {
       <Section>
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 20, marginBottom: 32, flexWrap: "wrap" }}>
           <div>
-            <Eyebrow>Free tools</Eyebrow>
             <h2 style={{ margin: 0, fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem)", color: "var(--ink)", letterSpacing: "-0.02em" }}>Handy tools for Kiwi pet owners</h2>
           </div>
           <Button variant="ghost" as="a" href="/tools" iconRight={<HPIcon name="arrowRight" size={17} />}>See all tools</Button>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 18 }} className="hp-tools-grid">
+        {/* One tool today. A 2-up grid left half the row empty (looked like a missing card) and
+            a full-width single card was a 1120px box holding one line of text. Cap it at a
+            card-sized column instead; the 2-up grid re-forms as soon as a second tool lands. */}
+        <div style={{ display: "grid", gridTemplateColumns: TOOLS.length > 1 ? "repeat(2, 1fr)" : "minmax(0, 560px)", gap: 18 }} className="hp-tools-grid">
           {TOOLS.map((t) => (
             <Link key={t.href} href={t.href} style={{ textDecoration: "none" }}>
               <Card hoverLift padding="lg" style={{ height: "100%", display: "flex", alignItems: "flex-start", gap: 16 }}>
@@ -301,11 +354,9 @@ export default function Home() {
             </Link>
           ))}
         </div>
-      </Section>
-
-      {/* TRUST STRIP */}
-      <Section>
-        <div style={{ background: "var(--white)", border: "1px solid var(--border-soft)", borderRadius: "var(--radius-xl)", boxShadow: "var(--shadow-sm)", padding: "clamp(24px, 4vw, 36px)" }}>
+        {/* Trust strip rides in the tools section rather than owning a Section of its own —
+            two stacked section paddings around one thin row left a dead band of empty page. */}
+        <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border-soft)" }}>
           <TrustStrip />
         </div>
       </Section>
@@ -319,10 +370,9 @@ export default function Home() {
       <Section>
         <div style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 48, alignItems: "center" }} className="hp-why">
           <div style={{ aspectRatio: "5 / 4", borderRadius: "var(--radius-xl)", boxShadow: "var(--shadow-md)" }}>
-            <PetScene tone="tan" pets={["🐕", "🐈"]} radius="var(--radius-xl)" label="Our team & their pets" animated />
+            <PetScene tone="tan" pets={["🐕", "🐈"]} radius="var(--radius-xl)" label="Written for Kiwi cats & dogs" animated />
           </div>
           <div>
-            <Eyebrow>Why Healthy Pets</Eyebrow>
             <h2 style={{ margin: "0 0 16px", fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem)", color: "var(--ink)", letterSpacing: "-0.02em" }}>A trusted guide — not a vet, not a shop</h2>
             <p style={{ margin: "0 0 16px", fontSize: 16.5, lineHeight: 1.7, color: "var(--ink-soft)" }}>
               We&apos;re Kiwi pet owners ourselves. Every guide is <strong style={{ color: "var(--ink)" }}>researched, fact-checked, and written in plain English</strong> before it goes live. We recommend products we&apos;d use on our own cats and dogs.
@@ -348,14 +398,17 @@ export default function Home() {
           .hp-hero { grid-template-columns: 1fr !important; }
           .hp-collage { height: 440px !important; margin-top: 40px; }
           .hp-terr-grid { grid-template-columns: 1fr 1fr !important; }
-          .hp-guide-grid { grid-template-columns: 1fr 1fr !important; }
+          /* The lead guide and the three-up column stack rather than squeeze side by side. */
+          .hp-guide-grid { grid-template-columns: 1fr !important; }
           .hp-why { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 560px) {
           .hp-tools-grid { grid-template-columns: 1fr !important; }
-          /* Topics + Guides: swipeable horizontal carousels on phones (a peek of the next card
-             signals "swipe") instead of a tall vertical stack. Desktop/tablet keep the grid. */
-          .hp-terr-grid, .hp-guide-grid {
+          /* Topics: swipeable horizontal carousel on phones (a peek of the next card signals
+             "swipe") instead of a tall vertical stack. Desktop/tablet keep the grid.
+             Guides are NOT a carousel — the lead card is the section's anchor and needs to be
+             seen, not swiped past. */
+          .hp-terr-grid {
             display: flex !important;
             overflow-x: auto;
             overflow-y: hidden; /* stops the container jitter: overflow-x:auto alone forces
@@ -366,8 +419,8 @@ export default function Home() {
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
           }
-          .hp-terr-grid::-webkit-scrollbar, .hp-guide-grid::-webkit-scrollbar { display: none; }
-          .hp-terr-grid > *, .hp-guide-grid > * { flex: 0 0 82%; scroll-snap-align: start; }
+          .hp-terr-grid::-webkit-scrollbar { display: none; }
+          .hp-terr-grid > * { flex: 0 0 82%; scroll-snap-align: start; }
         }
         /* Phones: the collage squashes and the floating stickers overlap the pet polaroids
            (the "$84.99 best price" tag landing on a cartoon pet reads like the pet is priced).

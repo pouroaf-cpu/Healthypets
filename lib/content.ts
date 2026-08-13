@@ -1,11 +1,24 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import type { Product } from "@/components/ComparisonTable";
-import type { QA } from "@/components/FAQ";
 import type { Source } from "@/components/ds/SourcesList";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
+
+// Content shapes. These live here, with the frontmatter that declares them, rather than in a
+// component — the shipped renderers are the untyped `components/ds/*.jsx` pair, so hanging the
+// types off a component meant keeping unused legacy twins alive purely as type carriers.
+
+export type Product = {
+  name: string;
+  bestFor: string;
+  protects: string; // e.g. "Fleas, worms, ticks"
+  rating?: string; // e.g. "4.7"
+  linkKey: string; // key in affiliate-links map
+  topPick?: boolean;
+};
+
+export type QA = { q: string; a: string };
 
 export type DocType = "pillar" | "spoke";
 
@@ -18,7 +31,6 @@ export type DocFrontmatter = {
   nzVolume?: number;
   updated?: string;
   author?: string;
-  vetReviewed?: boolean;
   faq?: QA[];
   products?: Product[];
   related?: string[]; // slugs

@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { Badge } from "./Badge.jsx";
 import { CTAButton } from "./CTAButton.jsx";
 import { getProductImage } from "@/lib/product-images";
@@ -13,7 +14,7 @@ function Packshot({ linkKey, size = 56 }) {
   const img = getProductImage(linkKey);
   if (!img) return null;
   return (
-    <img
+    <Image
       src={img.src}
       alt={img.alt}
       width={size}

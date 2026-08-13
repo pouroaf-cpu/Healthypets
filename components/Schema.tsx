@@ -1,4 +1,4 @@
-import type { QA } from "./FAQ";
+import type { QA } from "@/lib/content";
 import type { Source } from "./ds/SourcesList";
 import { SITE } from "@/lib/navigation";
 

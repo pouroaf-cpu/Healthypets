@@ -1,10 +1,13 @@
 // @ts-nocheck
 
 // Author byline with avatar, name, role, and date.
+// Defaults are deliberately the brand, not a person: Healthy Pets publishes team-authored
+// content with no named author and no vet reviewer. A placeholder name here would ship an
+// invented editor with an invented credential on a site whose whole pitch is not overclaiming.
 export function AuthorByline({
-  author = "Megan Clark",
-  role = "Senior Editor, Healthy Pets",
-  date = "Updated June 2026",
+  author = "The Healthy Pets Team",
+  role = "Healthy Pets",
+  date,
   avatar,
   readTime,
   style = {},

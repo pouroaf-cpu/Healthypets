@@ -1,7 +1,9 @@
 /* Healthy Pets — Typography tokens */
 :root {
-  --font-heading: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* --font-poppins / --font-inter are emitted by next/font in app/layout.tsx (self-hosted,
+     preloaded, size-adjusted fallbacks). The literal names stay as a belt-and-braces fallback. */
+  --font-heading: var(--font-poppins), 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: var(--font-inter), 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   /* Weights */
   --weight-regular: 400;

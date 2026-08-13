@@ -57,7 +57,7 @@ export function Header({ active = "", logoSrc = "/logo-mark.svg", nav = NAV, sty
 
         <div style={{ flex: 1 }} />
 
-        <button className="hp-menu-btn" onClick={() => setOpen((o) => !o)} aria-label="Menu" aria-expanded={open} style={{ display: "none", background: "transparent", border: "none", color: "var(--ink)", cursor: "pointer", padding: "6px" }}>
+        <button className="hp-menu-btn" onClick={() => setOpen((o) => !o)} aria-label="Menu" aria-expanded={open} style={{ display: "none", background: "transparent", border: "none", color: "var(--ink)", cursor: "pointer", padding: "10px" }}>
           <Icon d={open ? close : menu} size={24} />
         </button>
       </div>
